@@ -1,0 +1,25 @@
+
+
+
+* There are also some topic-specific mailing lists (GIS, phylogenetics, etc...),
+  the complete list is [here](https://www.r-project.org/mail.html).
+
+### More resources
+
+* The [reprex](https://cran.r-project.org/package=reprex) package is very helpful to create
+  reproducible examples when asking for help. The
+  rOpenSci community call "How to ask questions so they get answered",
+  ([rOpenSci site](https://ropensci.org/commcalls/2017-03-07/) and
+  [video recording](https://vimeo.com/208749032))
+  includes a presentation of the reprex package and of its philosophy.
+* The [Posting Guide](http://www.r-project.org/posting-guide.html) for the R
+  mailing lists.
+* [How to ask for R help](http://blog.revolutionanalytics.com/2014/01/how-to-ask-for-r-help.html)
+  useful guidelines
+* [This blog post by Jon Skeet](http://codeblog.jonskeet.uk/2010/08/29/writing-the-perfect-question/)
+  has quite comprehensive advice on how to ask programming questions.
+* The [Introduction to R](https://cran.r-project.org/doc/manuals/R-intro.pdf) can
+  also be dense for people with little programming experience but it is a good
+  place to understand the underpinnings of the R language.
+* The [R FAQ](https://cran.r-project.org/doc/FAQ/R-FAQ.html) is dense and technical
+  but it is full of useful information.
