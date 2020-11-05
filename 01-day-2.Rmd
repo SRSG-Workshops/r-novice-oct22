@@ -1,6 +1,6 @@
 ---
-title: Manipulating Data
-author: Data Carpentry contributors
+title: "Manipulating Data"
+author: "Data Carpentry contributors"
 ---
 
 ```{r, echo=FALSE, purl=FALSE, message = FALSE}
