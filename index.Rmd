@@ -18,24 +18,17 @@ time, and with less pain. The lessons below were designed for those interested
 in working with ecology data in R.
 
 This is an introduction to R designed for participants with no programming
-experience. These lessons can be taught in a day (~ 6 hours). They start with
+experience. These lessons will be taught over three days. They start with
 some basic information about R syntax, the RStudio interface, and move through
 how to import CSV files, the structure of data frames, how to deal with factors,
 how to add/remove rows and columns, how to calculate summary statistics from a
-data frame, and a brief introduction to plotting. The last lesson demonstrates
-how to work with databases directly from R.
+data frame, and a brief introduction to plotting. 
 
+## Days
 
-## Episodes
-
-1. [Before we start](00-before-we-start.html)
-2. [Introduction to R](01-intro-to-r.html)
-3. [Starting with data](02-starting-with-data.html)
-4. [Manipulating, analyzing and exporting data with **`tidyverse`**](03-dplyr.html)
-5. [Data visualization with **`ggplot2`**](04-visualization-ggplot2.html)
-6. [SQL databases and R](05-r-and-databases.html)
-
-
+1. [Day1](00-day-1.html)
+2. [Day2](01-day-2.html)
+3. [Day3](02-day-3.html)
 
 ## Requirements
 
@@ -62,7 +55,7 @@ using R much easier and more interactive. You need to install R before you
 install RStudio. After installing both programs, you will need to install the
 **`tidyverse`** package from within RStudio. Follow the instructions below for
 your operating system, and then follow the instructions to install
-**`tidyverse`** and **`RSQLite`**.
+**`tidyverse`**.
 
 #### Windows
 

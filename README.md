@@ -17,19 +17,13 @@ introduction to plotting. There is also a lesson on how to use databases from R 
 
 ## Prerequisites
 
-> * Having R and RStudio installed (though see the first
-> lesson, [Before we start](https://datacarpentry.org/R-ecology-lesson/00-before-we-start.html) for installation
-> instructions)
+> * Having R and RStudio installed
 
-## Topics
+## Days
 
-* [Before we start](https://datacarpentry.org/R-ecology-lesson/00-before-we-start.html)
-* [Introduction to R](https://datacarpentry.org/R-ecology-lesson/01-intro-to-r.html)
-* [Starting with data](https://datacarpentry.org/R-ecology-lesson/02-starting-with-data.html)
-* [Manipulating, analyzing and exporting data with `tidyverse`](https://datacarpentry.org/R-ecology-lesson/03-dplyr.html)
-* [Data visualization with `ggplot2`](https://datacarpentry.org/R-ecology-lesson/04-visualization-ggplot2.html)
-* [SQL databases and R](https://datacarpentry.org/R-ecology-lesson/05-r-and-databases.html)
-
+1. [Day1](00-day-1.html)
+2. [Day2](01-day-2.html)
+3. [Day3](02-day-3.html)
 
 ## Code handout
 
