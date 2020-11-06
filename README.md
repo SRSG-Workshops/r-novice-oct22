@@ -1,29 +1,23 @@
-[![Build Status](https://travis-ci.org/datacarpentry/R-ecology-lesson.svg?branch=master)](https://travis-ci.org/datacarpentry/R-ecology-lesson)
-[![Create a Slack Account with us](https://img.shields.io/badge/Create_Slack_Account-The_Carpentries-071159.svg)](https://swc-slack-invite.herokuapp.com/)
-[![Slack Status](https://img.shields.io/badge/Slack_Channel-DC_Ecology_R-E01563.svg)](https://swcarpentry.slack.com/messages/C9X9EC405)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3264888.svg)](https://doi.org/10.5281/zenodo.3264888)
-
-
-# Data carpentry: R for data analysis and visualization of Ecological Data
+# R for data analysis and visualization
 
 This is an introduction to R designed for participants with no programming
-experience. These lessons can be taught in 3/4 of a day (approximately 6 hours). They start
+experience. These lessons are taught over three sessions. They start
 with some basic information about syntax for the R programming language, the
 RStudio interface, and move through to specific programming tasks, such as
 importing CSV files, the structure of data frame objects in R, dealing with
 categorical variables (i.e. factors), basic data manipulation (adding/removing
 rows and columns), and finishing with calculating summary statistics and a brief
-introduction to plotting. There is also a lesson on how to use databases from R that is intended to be taught after the SQL lesson, and ideally at the end of a Data Carpentry workshop.
+introduction to plotting.
 
 ## Prerequisites
 
-> * Having R and RStudio installed
+> * Having R and RStudio installed, with tidyverse and ggplot2 packages
 
 ## Days
 
-1. [Day1](00-day-1.html)
-2. [Day2](01-day-2.html)
-3. [Day3](02-day-3.html)
+1. [Day1](00-day-1.Rmd)
+2. [Day2](01-day-2.Rmd)
+3. [Day3](2-day-3.Rmd)
 
 ## Code handout
 
