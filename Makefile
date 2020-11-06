@@ -1,5 +1,5 @@
 # RMarkdown files
-RMD_SRC = $(filter-out README.Rmd, $(wildcard *.Rmd))
+RMD_SRC = $(filter-out README.md, $(wildcard *.Rmd))
 
 all: pages code-handout.R
 
