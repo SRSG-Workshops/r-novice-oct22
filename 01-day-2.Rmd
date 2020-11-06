@@ -1,5 +1,5 @@
 ---
-title: "Manipulating Data"
+title: "Day 2: Manipulating Data"
 author: "Data Carpentry contributors"
 ---
 

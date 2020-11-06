@@ -1,5 +1,5 @@
 ---
-title: "Visualising Data"
+title: "Day 3: Visualising Data"
 author: "Data Carpentry contributors"
 
 editor_options: 

@@ -22,17 +22,9 @@ if (Sys.getenv("id_rsa") != "") {
   get_stage("before_deploy") %>%
       add_step(step_setup_ssh())
 
-    ## if there is a tag associated with the push or we are in master, the
-    ## lesson gets deployed on gh-pages, and rendered by GitHub
-  if (ci()$get_branch() == "main" || ci()$is_tag()) {
+    ## deploy on pjg_edit
+  if (ci()$get_branch() == "pjg_edit" || ci()$is_tag()) {
     get_stage("deploy") %>%
-            add_step(step_push_deploy(path = "_site", branch = "gh-pages"))
-    }
-
-    ## if the branch is `tidyverse-first` the lesson gets deployed to the
-    ## development branch, and will be rendered by netlify
-    if (ci()$get_branch() == "tidyverse-first") {
-        get_stage("deploy") %>%
-          add_step(step_push_deploy(path = "_site", branch = "development"))
+            add_step(step_push_deploy(path = "_site", branch = "pjg_edit"))
     }
 }
