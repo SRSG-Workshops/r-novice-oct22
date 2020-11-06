@@ -1,7 +1,3 @@
-
-> ## Credit: Data Carpentry
-> This lesson is based on [Data Carpentry's](https://datacarpentry.org.) "Data Analysis and Visualization in R for Ecologists" lessons from the [ecology](https://datacarpentry.org/lessons/#ecology-workshop) curricula.
-
 # R for data analysis and visualization
 
 This is an introduction to R designed for participants with no programming

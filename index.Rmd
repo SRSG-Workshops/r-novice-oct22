@@ -1,6 +1,5 @@
 ---
-title: "Data Analysis and Visualization in R for Ecologists"
-author: François Michonneau & Auriel Fournier (Lesson Maintainers)
+title: "Data Analysis and Visualization in R"
 ---
 
 <p></p>
@@ -10,6 +9,12 @@ author: François Michonneau & Auriel Fournier (Lesson Maintainers)
 </div>
 
 <p></p>
+
+
+> ## Credit: Data Carpentry
+> This lesson is based on [Data Carpentry's](https://datacarpentry.org.) 
+>"Data Analysis and Visualization in R for Ecologists" 
+>lessons from the [ecology](https://datacarpentry.org/lessons/#ecology-workshop) curricula.
 
 
 Data Carpentry's aim is to teach researchers basic concepts, skills,
@@ -26,9 +31,9 @@ data frame, and a brief introduction to plotting.
 
 ## Days
 
-1. [Day1](00-day-1.html)
-2. [Day2](01-day-2.html)
-3. [Day3](02-day-3.html)
+1. [Day1](00-day-1.Rmd)
+2. [Day2](01-day-2.Rmd)
+3. [Day3](02-day-3.Rmd)
 
 ## Requirements
 
@@ -133,11 +138,10 @@ your operating system, and then follow the instructions to install
 
 #### For everyone
 
-**After installing R and RStudio, you need to install the `tidyverse` and
-`RSQLite` packages.**
+**After installing R and RStudio, you need to install the `tidyverse` package.**
 
 * After starting RStudio, at the console type:
-  `install.packages(c("tidyverse", "RSQLite"))`
+  `install.packages(c("tidyverse"))`
 
 * You can also do this by going to Tools -> Install Packages and typing the names of the packages separated by a comma.
 
