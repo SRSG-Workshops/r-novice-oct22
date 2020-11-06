@@ -25,6 +25,6 @@ if (Sys.getenv("id_rsa") != "") {
     ## deploy on pjg_edit
   if (ci()$get_branch() == "pjg_edit" || ci()$is_tag()) {
     get_stage("deploy") %>%
-            add_step(step_push_deploy(path = "_site", branch = "gh_pages"))
+            add_step(step_push_deploy(path = "_site", branch = "gh-pages"))
     }
 }
