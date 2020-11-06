@@ -1,3 +1,7 @@
+
+> ## Credit: Data Carpentry
+> This lesson is based on [Data Carpentry's](https://datacarpentry.org.) "Data Analysis and Visualization in R for Ecologists" lessons from the [ecology](https://datacarpentry.org/lessons/#ecology-workshop) curricula.
+
 # R for data analysis and visualization
 
 This is an introduction to R designed for participants with no programming
@@ -34,13 +38,7 @@ we encourage you to review our [contributing guide](CONTRIBUTING.Rmd).
 
 ## Questions
 
-If you have any questions or feedback, please open an issue, contact the
-maintainers, or come chat with us on the [Slack Channel for this lesson](https://swcarpentry.slack.com/messages/C9X9EC405). If you don't already have a Slack account with the Carpentries, you can [create one](https://swc-slack-invite.herokuapp.com/).
-
-* Ana Costa Conrado
-* Auriel Fournier
-* François Michonneau
-* Brian Seok
+If you have any questions use the MS teams channel to ask within your groups and get help from instructors as needed.
 
 ## Citation
 
