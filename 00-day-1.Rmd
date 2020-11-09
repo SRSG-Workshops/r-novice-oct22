@@ -341,7 +341,8 @@ query.
 ```{r, child="_page_built_on.Rmd"}
 ```
 # R Basics
-## Creating objects in R
+Now that we have a working envronment set up we can start on the basics of R.
+
 ------------
 
 > ### Learning Objectives: Recap
@@ -375,10 +376,8 @@ query.
 
 ------------
 
-Now that we have a working envronment set up we can start on the basics of R. 
 
-
-
+## Creating objects in R
 
 ```{r, echo = FALSE, purl = TRUE}
 ### Creating objects in R
@@ -406,20 +405,19 @@ I tell you that I have a _car_, in this case the car is the _object_.
 Without any further information you instintivly know that the _object_ called _car_
 has several _attributes_. For example, _colour_, _make_, _model_, _numberplate_. You can 
 use this predefined model to ask sensible questions. For example if you ask me,
-model(_car_) I can tell you 'Corsa'. However, if you were to ask me breed(_car_) this would be a
+what model the car is (or model(_car_)) I can tell you 'Corsa'. However, if you were to ask me breed(_car_) this would be a
 nonsense question to which I would not be able to answer, where as breed(_pet_)
 then I could tell you 'sheepdog'. 
 
 > ### Challenge
->
 > Write down three other attributes for the object pet?
->> ```{text_answer, echo=FALSE, purl=FALSE}
+```{text_answer, echo=FALSE, purl=FALSE}
 > Including but not limeted to: Species, Age, Colour, Name, Sex, Owner... 
-> ```
+```
 
 In this tutorial we will use the predefined R objects for vectors and numerical values.
-We will see that these are much simpler than the linguisitc examples above, and we learn the
-sort of _attributes_ we expect them to have and how to query an object to tell us its 
+We will see that these are much simpler than the linguistic examples above, and we learn the
+sort of _attributes_ we expect them to have and how to inspect an object to tell us its 
 set of _attributes_.
 
 To create an object, we need to give it a name followed by the
@@ -490,13 +488,13 @@ weight_kg          # and so does typing the name of the object
 Now that R has `weight_kg` in memory, we can do arithmetic with it. For
 instance, we may want to convert this weight into pounds (weight in pounds is 2.2 times the weight in kg):
 
-```{r, purl = FALSE}
+```{r, results = TRUE, purl = FALSE}
 2.2 * weight_kg
 ```
 
 We can also change an object's value by assigning it a new one:
 
-```{r, purl = FALSE}
+```{r, results = TRUE, purl = FALSE}
 weight_kg <- 57.5
 2.2 * weight_kg
 ```
@@ -549,7 +547,7 @@ scripts. So that others can understand your code and that you can remember what 
 
 ### Functions and their arguments
 
-Functions are "canned scripts" that automate more complicated sets of commands
+Functions automate sets of commands
 including operations assignments, etc. Many functions are predefined, or can be
 made available by importing R *packages* (more on that later). A function
 usually takes one or more inputs called *arguments*. Functions often (but not
@@ -596,7 +594,7 @@ help for this function using `?round`.
 args(round)
 ```
 
-```{r, eval = FALSE, purl = FALSE}
+```{r, results = TRUE, eval = FALSE, purl = FALSE}
 ?round
 ```
 
@@ -618,14 +616,14 @@ of values, which can be either numbers or characters. We can assign a series of 
 to a vector using the `c()` function. For example we can create a vector of animal 
 weights and assign it to a new object `weight_g`:
 
-```{r, purl = FALSE}
+```{r, results = TRUE, purl = FALSE}
 weight_g <- c(50, 60, 65, 82)
 weight_g
 ```
 
 A vector can also contain characters:
 
-```{r, purl = FALSE}
+```{r, results = TRUE, purl = FALSE}
 animals <- c("mouse", "rat", "dog")
 animals
 ```
@@ -636,7 +634,7 @@ these are characters and not objects.
 There are many functions that allow you to inspect the content of a
 vector. `length()` tells you how many elements are in a particular vector:
 
-```{r, purl = FALSE}
+```{r, results = TRUE, purl = FALSE}
 length(weight_g)
 length(animals)
 ```
@@ -644,7 +642,7 @@ length(animals)
 An important feature of a vector, is that all of the elements are the same type of data.
 The function `class()` indicates what kind of object you are working with:
 
-```{r, purl = FALSE}
+```{r, results = TRUE, purl = FALSE}
 class(weight_g)
 class(animals)
 ```
@@ -652,13 +650,13 @@ class(animals)
 The function `str()` provides an overview of the structure of an object and its
 elements. It is a useful function when working with large and complex objects:
 
-```{r, purl = FALSE}
+```{r, results = TRUE, purl = FALSE}
 str(weight_g)
 str(animals)
 ```
 
 You can use the `c()` function to add other elements to your vector:
-```{r, purl = FALSE}
+```{r, results = TRUE, purl = FALSE}
 weight_g <- c(weight_g, 90) # add to the end of the vector
 weight_g <- c(30, weight_g) # add to the beginning of the vector
 weight_g
@@ -846,9 +844,8 @@ animals[animals %in% c("rat", "cat", "dog", "duck", "goat")]
 
 ## Missing data
 
-As R was designed to analyze datasets, it includes the concept of missing data
-(which is uncommon in other programming languages). Missing data are represented
-in vectors as `NA`.
+As R was designed to analyze datasets it includes the concept of missing data. 
+Missing data are represented in vectors as `NA`.
 
 When doing operations on numbers, most functions will return `NA` if the data
 you are working with include missing values. This feature
@@ -966,7 +963,7 @@ using in the other lessons, and learn about data frames.
 We have now learnt enough of the basics of R to be able to use R in place of spreadsheets. 
 As the previous lessons will have shown you spreadsheets can be good for small amounts of data
 that can be managed `by hand`. With R will will be able to load large sets of data and create 
-readable, reliable, and reproducable data analysis scripts.
+readable, reliable, and reproducible data analysis scripts.
 
 ## Presentation of the Survey Data
 
@@ -1020,6 +1017,7 @@ You are now ready to load the data we use `read.csv()` to load the content of th
 CSV file as an object of class `data.frame`, we can again use `?`
 and find the arguments of `?read.csv`. This time we just need the first argument 
 `file` which we give the location of the file i.e. `destfile` from before.
+
 ### Note
 > It would be worth your time looking over all the arguments of `read.csv` as reading 
 > in CSV files will likely be a useful skill during your research.
@@ -1030,8 +1028,7 @@ surveys <- read.csv("data_raw/portal_data_joined.csv")
 
 This statement doesn't produce any output because, as you might recall,
 assignments don't display anything. If we want to check that our data has been
-loaded, we can check the envronment pane in RStudio (or if you dont mind a *large* 
-amount of data bing printed type `surveys`). 
+loaded, we can check the environment pane in RStudio. 
 
 To check the top (the first 6 lines) of this data frame we use the
 function `head()`:
@@ -1254,7 +1251,11 @@ integer values.
 ```{r, eval=FALSE, purl=FALSE}
 str(surveys)
 ```
-We are going to use the `ymd()` function from the package **`lubridate`** (which belongs to the **`tidyverse`**; learn more [here](https://www.tidyverse.org/)). **`lubridate`** gets installed as part as the **`tidyverse`** installation. When you load  the **`tidyverse`** (`library("tidyverse")`), the core packages (the packages used in most data analyses) get loaded. **`lubridate`** however does not belong to the core tidyverse, so you have to load it explicitly with `library(lubridate)`
+We are going to use the `ymd()` function from the package **`lubridate`** 
+(which belongs to the **`tidyverse`**; learn more [here](https://www.tidyverse.org/)).  
+When you load  the **`tidyverse`** (`library("tidyverse")`), the core packages get loaded. 
+**`lubridate`** however does not belong to the core tidyverse, so you have to 
+load it explicitly with `library(lubridate)`
 
 Start by loading the required package:
 
@@ -1264,9 +1265,8 @@ library("lubridate")
 
 `ymd()` takes a vector representing year, month, and day, and converts it to a
 `Date` vector. `Date` is a class of data recognized by R as being a date and can
-be manipulated as such. The argument that the function requires is flexible,
-but, as a best practice, is a character vector formatted as "YYYY-MM-DD".
-
+be manipulated as such. The argument that the function requires is a character 
+vector formatted as "YYYY-MM-DD".
 
 Let's create a date object and inspect the structure:
 
@@ -1377,8 +1377,8 @@ str(surveys) # notice the new column, with 'date' as the class
 You have now completed all the day one learning objectives.
 It is very common to make mistakes in programming languages,
 identifying and solving `debugging` these mistakes makes up a large part of the programming
-skillset.
-Becoming fimmilar with the basics we have covered today and the inspection tools e.g. 
+skill-set.
+Becoming familiar with the basics we have covered today and the inspection tools e.g. 
 `summary()`, `ls()`, `str()` will set you on a path to being a confident R programmer.
 
 ```{r, child="_page_built_on.Rmd"}
