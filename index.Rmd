@@ -31,9 +31,9 @@ data frame, and a brief introduction to plotting.
 
 ## Days
 
-1. [Day1](00-day-1.Rmd)
-2. [Day2](01-day-2.Rmd)
-3. [Day3](02-day-3.Rmd)
+1. [Day1](00-day-1.html)
+2. [Day2](01-day-2.html)
+3. [Day3](02-day-3.html)
 
 ## Requirements
 
