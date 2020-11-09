@@ -7,7 +7,7 @@ author: "Data Carpentry contributors"
 source("setup.R")
 ```
 
-### Starting with Data
+# Working Environment
 
 ------------
 
@@ -43,7 +43,7 @@ source("setup.R")
 ------------
 
 To start with we will focus on the first three learning objectives and 
-get your working envrionment set up.
+get your working environment set up.
 
 ## What is R? What is RStudio?
 
@@ -340,8 +340,8 @@ query.
 
 ```{r, child="_page_built_on.Rmd"}
 ```
-
-
+# R Basics
+## Creating objects in R
 ------------
 
 > ### Learning Objectives: Recap
@@ -378,7 +378,7 @@ query.
 Now that we have a working envronment set up we can start on the basics of R. 
 
 
-## Creating objects in R
+
 
 ```{r, echo = FALSE, purl = TRUE}
 ### Creating objects in R
@@ -927,6 +927,8 @@ Recall that you can use the `typeof()` function to find the type of your atomic 
 Now that we have learned how to write scripts, and the basics of R's data
 structures, we are ready to start working with the Portal dataset we have been
 using in the other lessons, and learn about data frames.
+
+# Load Data
 
 ------------
 
