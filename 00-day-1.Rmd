@@ -261,13 +261,6 @@ selected text will be sent to the console and executed when you press
 this
 [RStudio cheatsheet about the RStudio IDE](https://github.com/rstudio/cheatsheets/raw/master/rstudio-ide.pdf).
 
-At some point in your analysis you may want to check the content of a variable
-or the structure of an object, without necessarily keeping a record of it in
-your script. You can type these commands and execute them directly in the
-console.  RStudio provides the <kbd>`Ctrl`</kbd> + <kbd>`1`</kbd> and
-<kbd>`Ctrl`</kbd> + <kbd>`2`</kbd> shortcuts allow you to jump between the
-script and the console panes.
-
 If R is ready to accept commands, the R console shows a `>` prompt. If it
 receives a command (by typing, copy-pasting or sent from the script editor using
 <kbd>`Ctrl`</kbd> + <kbd>`Enter`</kbd>), R will try to execute it, and when
@@ -302,12 +295,6 @@ If you need help with a specific function, let's say `lm()`, you can type:
 
 ```{r, eval=FALSE, purl=FALSE}
 ?lm
-```
-
-If you just need to remind yourself of the names of the arguments, you can use:
-
-```{r, eval=FALSE, purl=FALSE}
-args(lm)
 ```
 
 ### I want to use a function that does X, there must be a function for it but I don't know which one...
