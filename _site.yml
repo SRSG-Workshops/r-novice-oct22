@@ -1,4 +1,4 @@
-output_dir: "_site"
+output_dir: "docs"
 exclude: ["portal-database.sqlite", "DESCRIPTION", "Makefile"]
 include: ["code-handout.R"]
 output:
