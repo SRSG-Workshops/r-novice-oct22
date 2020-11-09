@@ -31,3 +31,6 @@ code-handout.R
 
 # output from linkchecker
 link_res.csv
+
+#powerpoints
+*.pptx

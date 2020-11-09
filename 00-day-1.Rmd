@@ -654,7 +654,7 @@ round(3.14159, digits = 2)
 
 ## Vectors and data types
 
-```{r, echo = FALSE, purl = TRUE}
+```{r, echo = FALSE, purl = FALSE}
 ### Vectors and data types
 ```
 
@@ -1346,7 +1346,7 @@ summary(date_vec)
 Some dates have missing values. Let's investigate where they are coming from.
 
 ```{r, results=TRUE, purl=FALSE}
-missing_dates_vec <- date_char_vec[is.na(date_vec)]
+missing_dates_vec <- dates_char_vec[is.na(date_vec)]
 head(missing_dates_vec)
 ```
 or
@@ -1369,7 +1369,7 @@ analyses, how would you deal with this situation?
 The resulting `Date` vector `date_vec` can be added to `surveys` as a new column 
 called `date`:
 
-```{r, purl=FALSE}
+```{r, results=TRUE, purl=FALSE}
 surveys$date <- date_vec
 str(surveys) # notice the new column, with 'date' as the class
 ```
