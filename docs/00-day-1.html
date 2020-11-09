@@ -570,12 +570,12 @@ div.tocify {
 </div>
 
 
-<div id="starting-with-data" class="section level3">
-<h3>Starting with Data</h3>
+<div id="working-environment" class="section level1">
+<h1>Working Environment</h1>
 <hr />
 <blockquote>
 <h3 id="learning-objectives">Learning Objectives</h3>
-<h4 id="working-environment">Working Environment</h4>
+<h4 id="working-environment-1">Working Environment</h4>
 <ul>
 <li>Describe the purpose of the RStudio Script, Console, Environment, and Plots panes.</li>
 <li>Organize files and directories for a set of analyses as an R Project, and understand the purpose of the working directory.</li>
@@ -603,8 +603,7 @@ div.tocify {
 </ul>
 </blockquote>
 <hr />
-<p>To start with we will focus on the first three learning objectives and get your working envrionment set up.</p>
-</div>
+<p>To start with we will focus on the first three learning objectives and get your working environment set up.</p>
 <div id="what-is-r-what-is-rstudio" class="section level2">
 <h2>What is R? What is RStudio?</h2>
 <p>The term “<code>R</code>” is used to refer to both the programming language and the software that interprets the scripts written using it.</p>
@@ -739,9 +738,15 @@ How it should look like at the beginning of this lesson
 <li><a href="https://stackoverflow.com/questions/tagged/r?tab=Votes">Stack Overflow’s <code>[r]</code>-tag</a>: Most questions have already been answered, but the challenge is to use the right words in the search to find the answers. If your question hasn’t been answered before and is well crafted, chances are you will get an answer in less than 5 min. Remember to follow their guidelines on <a href="https://stackoverflow.com/help/how-to-ask">how to ask a good question</a>.</li>
 </ul>
 <p style="text-align: right; font-size: small;">
-Page built on: 📆 2020-11-09 ‒ 🕢 11:40:04
+Page built on: 📆 2020-11-09 ‒ 🕢 11:48:18
 </p>
-<hr />
+</div>
+</div>
+</div>
+<div id="r-basics-1" class="section level1">
+<h1>R Basics</h1>
+<div id="creating-objects-in-r" class="section level2">
+<h2>## Creating objects in R</h2>
 <blockquote>
 <h3 id="learning-objectives-recap">Learning Objectives: Recap</h3>
 <h4 id="working-environment-done">Working Environment: Done</h4>
@@ -750,7 +755,7 @@ Page built on: 📆 2020-11-09 ‒ 🕢 11:40:04
 <li><del>Organize files and directories for a set of analyses as an R</del> <del>Project, and understand the purpose of the working directory.</del></li>
 <li><del>Use the built-in RStudio help interface to search for more information on R</del> <del>functions.</del></li>
 </ul>
-<h4 id="r-basics-1">R Basics</h4>
+<h4 id="r-basics-2">R Basics</h4>
 <ul>
 <li>Define the following terms as they relate to R: object, assign, call, function, arguments, options.</li>
 <li>Create objects and assign values to them in R.</li>
@@ -773,10 +778,6 @@ Page built on: 📆 2020-11-09 ‒ 🕢 11:40:04
 </blockquote>
 <hr />
 <p>Now that we have a working envronment set up we can start on the basics of R.</p>
-</div>
-</div>
-<div id="creating-objects-in-r" class="section level2">
-<h2>Creating objects in R</h2>
 <p>You can get output from R simply by typing math in the console:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="dv">3</span> <span class="op">+</span><span class="st"> </span><span class="dv">5</span></span>
 <span id="cb3-2"><a href="#cb3-2"></a><span class="dv">12</span> <span class="op">/</span><span class="st"> </span><span class="dv">7</span></span></code></pre></div>
@@ -1057,6 +1058,10 @@ Answer
 </div>
 </blockquote>
 <p>Now that we have learned how to write scripts, and the basics of R’s data structures, we are ready to start working with the Portal dataset we have been using in the other lessons, and learn about data frames.</p>
+</div>
+</div>
+<div id="load-data-2" class="section level1">
+<h1>Load Data</h1>
 <hr />
 <blockquote>
 <h3 id="learning-objectives-recap-1">Learning Objectives: Recap</h3>
@@ -1066,7 +1071,7 @@ Answer
 <li><del>Organize files and directories for a set of analyses as an R</del> <del>Project, and understand the purpose of the working directory.</del></li>
 <li><del>Use the built-in RStudio help interface to search for more information on R</del> <del>functions.</del></li>
 </ul>
-<h4 id="r-basics-2">R Basics</h4>
+<h4 id="r-basics-3">R Basics</h4>
 <ul>
 <li><del>Define the following terms as they relate to R: object, assign, call,</del> <del>function, arguments, options.</del></li>
 <li><del>Create objects and assign values to them in R.</del></li>
@@ -1078,7 +1083,7 @@ Answer
 <li><del>Subset and extract values from vectors.</del></li>
 <li><del>Analyze vectors with missing data.</del></li>
 </ul>
-<h4 id="load-data-2">Load Data</h4>
+<h4 id="load-data-3">Load Data</h4>
 <ul>
 <li>Load external data from a .csv file into a data frame.</li>
 <li>Describe what a data frame is.</li>
@@ -1089,7 +1094,6 @@ Answer
 </blockquote>
 <hr />
 <p>We have now learnt enough of the basics of R to be able to use R in place of spreadsheets. As the previous lessons will have shown you spreadsheets can be good for small amounts of data that can be managed <code>by hand</code>. With R will will be able to load large sets of data and create readable, reliable, and reproducable data analysis scripts.</p>
-</div>
 <div id="presentation-of-the-survey-data" class="section level2">
 <h2>Presentation of the Survey Data</h2>
 <p>We are investigating the animal species diversity and weights found within plots at our study site. The dataset is stored as a comma separated value (CSV) file. Each row holds information for a single animal, and the columns represent:</p>
@@ -1399,7 +1403,7 @@ Answer
 <li><del>Organize files and directories for a set of analyses as an R</del> <del>Project, and understand the purpose of the working directory.</del></li>
 <li><del>Use the built-in RStudio help interface to search for more information on R</del> <del>functions.</del></li>
 </ul>
-<h4 id="r-basics-3">R Basics</h4>
+<h4 id="r-basics-4">R Basics</h4>
 <ul>
 <li><del>Define the following terms as they relate to R: object, assign, call,</del> <del>function, arguments, options.</del></li>
 <li><del>Create objects and assign values to them in R.</del></li>
@@ -1411,7 +1415,7 @@ Answer
 <li><del>Subset and extract values from vectors.</del></li>
 <li><del>Analyze vectors with missing data.</del></li>
 </ul>
-<h4 id="load-data-3">Load Data</h4>
+<h4 id="load-data-4">Load Data</h4>
 <ul>
 <li><del>Load external data from a .csv file into a data frame.</del></li>
 <li><del>Describe what a data frame is.</del></li>
@@ -1423,8 +1427,9 @@ Answer
 <hr />
 <p>You have now completed all the day one learning objectives. It is very common to make mistakes in programming languages, identifying and solving <code>debugging</code> these mistakes makes up a large part of the programming skillset. Becoming fimmilar with the basics we have covered today and the inspection tools e.g.  <code>summary()</code>, <code>ls()</code>, <code>str()</code> will set you on a path to being a confident R programmer.</p>
 <p style="text-align: right; font-size: small;">
-Page built on: 📆 2020-11-09 ‒ 🕢 11:40:12
+Page built on: 📆 2020-11-09 ‒ 🕢 11:48:26
 </p>
+</div>
 </div>
 </div>
 
