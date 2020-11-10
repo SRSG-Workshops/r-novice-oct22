@@ -570,8 +570,8 @@ div.tocify {
 </div>
 
 
-<div id="manipulating-data" class="section level3">
-<h3>Manipulating Data</h3>
+<div id="manipulating-data" class="section level1">
+<h1>Manipulating Data</h1>
 <hr />
 <blockquote>
 <h3 id="learning-objectives">Learning Objectives</h3>
@@ -600,7 +600,6 @@ div.tocify {
 <hr />
 <p>Fist we need to reload the surveys data frame.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>surveys &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data_raw/portal_data_joined.csv&quot;</span>)</span></code></pre></div>
-</div>
 <div id="factors-1" class="section level2">
 <h2>Factors</h2>
 <p>When we did <code>str(surveys)</code> we saw that several of the columns consist of integers.</p>
@@ -720,6 +719,7 @@ Answer
 <hr />
 </div>
 </div>
+</div>
 <div id="data-manipulation-using-dplyr-and-tidyr" class="section level1">
 <h1>Data Manipulation using <strong><code>dplyr</code></strong> and <strong><code>tidyr</code></strong></h1>
 <p>Bracket subsetting is handy, but it can be cumbersome and difficult to read, especially for complicated operations. <strong><code>dplyr</code></strong> is a package for making tabular data manipulation easier. It pairs nicely with <strong><code>tidyr</code></strong> which enables you to swiftly convert between different data formats for plotting and analysis.</p>
@@ -752,7 +752,7 @@ Answer
 <p>We’ll read in our data using the <code>read_csv()</code> function, from the tidyverse package <strong><code>readr</code></strong>, instead of <code>read.csv()</code>.</p>
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a>surveys &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data_raw/portal_data_joined.csv&quot;</span>)</span></code></pre></div>
 <pre><code>#&gt; 
-#&gt; ── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────────
+#&gt; ── Column specification ───────────────────────────────────────────────────────────────────────────────────────────────────────
 #&gt; cols(
 #&gt;   record_id = col_double(),
 #&gt;   month = col_double(),
@@ -818,7 +818,7 @@ Answer
 <span id="cb32-2"><a href="#cb32-2"></a><span class="st">  </span><span class="kw">filter</span>(weight <span class="op">&lt;</span><span class="st"> </span><span class="dv">5</span>) <span class="op">%&gt;%</span></span>
 <span id="cb32-3"><a href="#cb32-3"></a><span class="st">  </span><span class="kw">select</span>(species_id, sex, weight)</span></code></pre></div>
 <p>In the above code, we use the pipe to send the <code>surveys</code> dataset first through <code>filter()</code> to keep rows where <code>weight</code> is less than 5, then through <code>select()</code> to keep only the <code>species_id</code>, <code>sex</code>, and <code>weight</code> columns. Since <code>%&gt;%</code> takes the object on its left and passes it as the first argument to the function on its right, we don’t need to explicitly include the data frame as an argument to the <code>filter()</code> and <code>select()</code> functions any more.</p>
-<p>Some may find it helpful to read the pipe like the word “then”. For instance, in the above example, we took the data frame <code>surveys</code>, <em>then</em> we <code>filter</code>ed for rows with <code>weight &lt; 5</code>, <em>then</em> we <code>select</code>ed columns <code>species_id</code>, <code>sex</code>, and <code>weight</code>. The <strong><code>dplyr</code></strong> functions by themselves are somewhat simple, but by combining them into linear workflows with the pipe, we can accomplish more complex manipulations of data frames.</p>
+<p>Some may find it helpful to read the pipe like the word “then”. For instance, in the above example, we took the data frame <code>surveys</code>, <em>then</em> we <code>filter</code>-ed for rows with <code>weight &lt; 5</code>, <em>then</em> we <code>select</code>ed columns <code>species_id</code>, <code>sex</code>, and <code>weight</code>. The <strong><code>dplyr</code></strong> functions by themselves are somewhat simple, but by combining them into linear workflows with the pipe, we can accomplish more complex manipulations of data frames.</p>
 <p>If we want to create a new object with this smaller version of the data, we can assign it a new name:</p>
 <div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a>surveys_sml &lt;-<span class="st"> </span>surveys <span class="op">%&gt;%</span></span>
 <span id="cb33-2"><a href="#cb33-2"></a><span class="st">  </span><span class="kw">filter</span>(weight <span class="op">&lt;</span><span class="st"> </span><span class="dv">5</span>) <span class="op">%&gt;%</span></span>
@@ -887,71 +887,63 @@ Answer
 <div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a>surveys <span class="op">%&gt;%</span></span>
 <span id="cb40-2"><a href="#cb40-2"></a><span class="st">  </span><span class="kw">group_by</span>(sex) <span class="op">%&gt;%</span></span>
 <span id="cb40-3"><a href="#cb40-3"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">mean_weight =</span> <span class="kw">mean</span>(weight, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>))</span></code></pre></div>
-<pre><code>#&gt; `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
 <p>You may also have noticed that the output from these calls doesn’t run off the screen anymore. It’s one of the advantages of <code>tbl_df</code> over data frame.</p>
 <p>You can also group by multiple columns:</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a>surveys <span class="op">%&gt;%</span></span>
-<span id="cb42-2"><a href="#cb42-2"></a><span class="st">  </span><span class="kw">group_by</span>(sex, species_id) <span class="op">%&gt;%</span></span>
-<span id="cb42-3"><a href="#cb42-3"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">mean_weight =</span> <span class="kw">mean</span>(weight, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb42-4"><a href="#cb42-4"></a><span class="st">  </span><span class="kw">tail</span>()</span></code></pre></div>
-<pre><code>#&gt; `summarise()` regrouping output by &#39;sex&#39; (override with `.groups` argument)</code></pre>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a>surveys <span class="op">%&gt;%</span></span>
+<span id="cb41-2"><a href="#cb41-2"></a><span class="st">  </span><span class="kw">group_by</span>(sex, species_id) <span class="op">%&gt;%</span></span>
+<span id="cb41-3"><a href="#cb41-3"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">mean_weight =</span> <span class="kw">mean</span>(weight, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb41-4"><a href="#cb41-4"></a><span class="st">  </span><span class="kw">tail</span>()</span></code></pre></div>
 <p>Here, we used <code>tail()</code> to look at the last six rows of our summary. Before, we had used <code>head()</code> to look at the first six rows. We can see that the <code>sex</code> column contains <code>NA</code> values because some animals had escaped before their sex and body weights could be determined. The resulting <code>mean_weight</code> column does not contain <code>NA</code> but <code>NaN</code> (which refers to “Not a Number”) because <code>mean()</code> was called on a vector of <code>NA</code> values while at the same time setting <code>na.rm = TRUE</code>. To avoid this, we can remove the missing values for weight before we attempt to calculate the summary statistics on weight. Because the missing values are removed first, we can omit <code>na.rm = TRUE</code> when computing the mean:</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a>surveys <span class="op">%&gt;%</span></span>
+<span id="cb42-2"><a href="#cb42-2"></a><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(weight)) <span class="op">%&gt;%</span></span>
+<span id="cb42-3"><a href="#cb42-3"></a><span class="st">  </span><span class="kw">group_by</span>(sex, species_id) <span class="op">%&gt;%</span></span>
+<span id="cb42-4"><a href="#cb42-4"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">mean_weight =</span> <span class="kw">mean</span>(weight))</span></code></pre></div>
+<p>Here, again, the output from these calls doesn’t run off the screen anymore. If you want to display more data, you can use the <code>print()</code> function at the end of your chain with the argument <code>n</code> specifying the number of rows to display:</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a>surveys <span class="op">%&gt;%</span></span>
+<span id="cb43-2"><a href="#cb43-2"></a><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(weight)) <span class="op">%&gt;%</span></span>
+<span id="cb43-3"><a href="#cb43-3"></a><span class="st">  </span><span class="kw">group_by</span>(sex, species_id) <span class="op">%&gt;%</span></span>
+<span id="cb43-4"><a href="#cb43-4"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">mean_weight =</span> <span class="kw">mean</span>(weight)) <span class="op">%&gt;%</span></span>
+<span id="cb43-5"><a href="#cb43-5"></a><span class="st">  </span><span class="kw">print</span>(<span class="dt">n =</span> <span class="dv">15</span>)</span></code></pre></div>
+<p>Once the data are grouped, you can also summarize multiple variables at the same time (and not necessarily on the same variable). For instance, we could add a column indicating the minimum weight for each species for each sex:</p>
 <div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1"></a>surveys <span class="op">%&gt;%</span></span>
 <span id="cb44-2"><a href="#cb44-2"></a><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(weight)) <span class="op">%&gt;%</span></span>
 <span id="cb44-3"><a href="#cb44-3"></a><span class="st">  </span><span class="kw">group_by</span>(sex, species_id) <span class="op">%&gt;%</span></span>
-<span id="cb44-4"><a href="#cb44-4"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">mean_weight =</span> <span class="kw">mean</span>(weight))</span></code></pre></div>
-<pre><code>#&gt; `summarise()` regrouping output by &#39;sex&#39; (override with `.groups` argument)</code></pre>
-<p>Here, again, the output from these calls doesn’t run off the screen anymore. If you want to display more data, you can use the <code>print()</code> function at the end of your chain with the argument <code>n</code> specifying the number of rows to display:</p>
+<span id="cb44-4"><a href="#cb44-4"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">mean_weight =</span> <span class="kw">mean</span>(weight),</span>
+<span id="cb44-5"><a href="#cb44-5"></a>            <span class="dt">min_weight =</span> <span class="kw">min</span>(weight))</span></code></pre></div>
+<p>It is sometimes useful to rearrange the result of a query to inspect the values. For instance, we can sort on <code>min_weight</code> to put the lighter species first:</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a>surveys <span class="op">%&gt;%</span></span>
+<span id="cb45-2"><a href="#cb45-2"></a><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(weight)) <span class="op">%&gt;%</span></span>
+<span id="cb45-3"><a href="#cb45-3"></a><span class="st">  </span><span class="kw">group_by</span>(sex, species_id) <span class="op">%&gt;%</span></span>
+<span id="cb45-4"><a href="#cb45-4"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">mean_weight =</span> <span class="kw">mean</span>(weight),</span>
+<span id="cb45-5"><a href="#cb45-5"></a>            <span class="dt">min_weight =</span> <span class="kw">min</span>(weight)) <span class="op">%&gt;%</span></span>
+<span id="cb45-6"><a href="#cb45-6"></a><span class="st">  </span><span class="kw">arrange</span>(min_weight)</span></code></pre></div>
+<p>To sort in descending order, we need to add the <code>desc()</code> function. If we want to sort the results by decreasing order of mean weight:</p>
 <div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1"></a>surveys <span class="op">%&gt;%</span></span>
 <span id="cb46-2"><a href="#cb46-2"></a><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(weight)) <span class="op">%&gt;%</span></span>
 <span id="cb46-3"><a href="#cb46-3"></a><span class="st">  </span><span class="kw">group_by</span>(sex, species_id) <span class="op">%&gt;%</span></span>
-<span id="cb46-4"><a href="#cb46-4"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">mean_weight =</span> <span class="kw">mean</span>(weight)) <span class="op">%&gt;%</span></span>
-<span id="cb46-5"><a href="#cb46-5"></a><span class="st">  </span><span class="kw">print</span>(<span class="dt">n =</span> <span class="dv">15</span>)</span></code></pre></div>
-<pre><code>#&gt; `summarise()` regrouping output by &#39;sex&#39; (override with `.groups` argument)</code></pre>
-<p>Once the data are grouped, you can also summarize multiple variables at the same time (and not necessarily on the same variable). For instance, we could add a column indicating the minimum weight for each species for each sex:</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1"></a>surveys <span class="op">%&gt;%</span></span>
-<span id="cb48-2"><a href="#cb48-2"></a><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(weight)) <span class="op">%&gt;%</span></span>
-<span id="cb48-3"><a href="#cb48-3"></a><span class="st">  </span><span class="kw">group_by</span>(sex, species_id) <span class="op">%&gt;%</span></span>
-<span id="cb48-4"><a href="#cb48-4"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">mean_weight =</span> <span class="kw">mean</span>(weight),</span>
-<span id="cb48-5"><a href="#cb48-5"></a>            <span class="dt">min_weight =</span> <span class="kw">min</span>(weight))</span></code></pre></div>
-<pre><code>#&gt; `summarise()` regrouping output by &#39;sex&#39; (override with `.groups` argument)</code></pre>
-<p>It is sometimes useful to rearrange the result of a query to inspect the values. For instance, we can sort on <code>min_weight</code> to put the lighter species first:</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a>surveys <span class="op">%&gt;%</span></span>
-<span id="cb50-2"><a href="#cb50-2"></a><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(weight)) <span class="op">%&gt;%</span></span>
-<span id="cb50-3"><a href="#cb50-3"></a><span class="st">  </span><span class="kw">group_by</span>(sex, species_id) <span class="op">%&gt;%</span></span>
-<span id="cb50-4"><a href="#cb50-4"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">mean_weight =</span> <span class="kw">mean</span>(weight),</span>
-<span id="cb50-5"><a href="#cb50-5"></a>            <span class="dt">min_weight =</span> <span class="kw">min</span>(weight)) <span class="op">%&gt;%</span></span>
-<span id="cb50-6"><a href="#cb50-6"></a><span class="st">  </span><span class="kw">arrange</span>(min_weight)</span></code></pre></div>
-<pre><code>#&gt; `summarise()` regrouping output by &#39;sex&#39; (override with `.groups` argument)</code></pre>
-<p>To sort in descending order, we need to add the <code>desc()</code> function. If we want to sort the results by decreasing order of mean weight:</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1"></a>surveys <span class="op">%&gt;%</span></span>
-<span id="cb52-2"><a href="#cb52-2"></a><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(weight)) <span class="op">%&gt;%</span></span>
-<span id="cb52-3"><a href="#cb52-3"></a><span class="st">  </span><span class="kw">group_by</span>(sex, species_id) <span class="op">%&gt;%</span></span>
-<span id="cb52-4"><a href="#cb52-4"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">mean_weight =</span> <span class="kw">mean</span>(weight),</span>
-<span id="cb52-5"><a href="#cb52-5"></a>            <span class="dt">min_weight =</span> <span class="kw">min</span>(weight)) <span class="op">%&gt;%</span></span>
-<span id="cb52-6"><a href="#cb52-6"></a><span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(mean_weight))</span></code></pre></div>
-<pre><code>#&gt; `summarise()` regrouping output by &#39;sex&#39; (override with `.groups` argument)</code></pre>
+<span id="cb46-4"><a href="#cb46-4"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">mean_weight =</span> <span class="kw">mean</span>(weight),</span>
+<span id="cb46-5"><a href="#cb46-5"></a>            <span class="dt">min_weight =</span> <span class="kw">min</span>(weight)) <span class="op">%&gt;%</span></span>
+<span id="cb46-6"><a href="#cb46-6"></a><span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(mean_weight))</span></code></pre></div>
 </div>
 <div id="counting" class="section level4">
 <h4>Counting</h4>
 <p>When working with data, we often want to know the number of observations found for each factor or combination of factors. For this task, <strong><code>dplyr</code></strong> provides <code>count()</code>. For example, if we wanted to count the number of rows of data for each sex, we would do:</p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1"></a>surveys <span class="op">%&gt;%</span></span>
-<span id="cb54-2"><a href="#cb54-2"></a><span class="st">    </span><span class="kw">count</span>(sex) </span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a>surveys <span class="op">%&gt;%</span></span>
+<span id="cb47-2"><a href="#cb47-2"></a><span class="st">    </span><span class="kw">count</span>(sex) </span></code></pre></div>
 <p>The <code>count()</code> function is shorthand for something we’ve already seen: grouping by a variable, and summarizing it by counting the number of observations in that group. In other words, <code>surveys %&gt;% count()</code> is equivalent to:</p>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1"></a>surveys <span class="op">%&gt;%</span></span>
-<span id="cb55-2"><a href="#cb55-2"></a><span class="st">    </span><span class="kw">group_by</span>(sex) <span class="op">%&gt;%</span></span>
-<span id="cb55-3"><a href="#cb55-3"></a><span class="st">    </span><span class="kw">summarize</span>(<span class="dt">count =</span> <span class="kw">n</span>())</span></code></pre></div>
-<pre><code>#&gt; `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1"></a>surveys <span class="op">%&gt;%</span></span>
+<span id="cb48-2"><a href="#cb48-2"></a><span class="st">    </span><span class="kw">group_by</span>(sex) <span class="op">%&gt;%</span></span>
+<span id="cb48-3"><a href="#cb48-3"></a><span class="st">    </span><span class="kw">summarize</span>(<span class="dt">count =</span> <span class="kw">n</span>())</span></code></pre></div>
 <p>For convenience, <code>count()</code> provides the <code>sort</code> argument:</p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1"></a>surveys <span class="op">%&gt;%</span></span>
-<span id="cb57-2"><a href="#cb57-2"></a><span class="st">    </span><span class="kw">count</span>(sex, <span class="dt">sort =</span> <span class="ot">TRUE</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1"></a>surveys <span class="op">%&gt;%</span></span>
+<span id="cb49-2"><a href="#cb49-2"></a><span class="st">    </span><span class="kw">count</span>(sex, <span class="dt">sort =</span> <span class="ot">TRUE</span>) </span></code></pre></div>
 <p>Previous example shows the use of <code>count()</code> to count the number of rows/observations for <em>one</em> factor (i.e., <code>sex</code>). If we wanted to count <em>combination of factors</em>, such as <code>sex</code> and <code>species</code>, we would specify the first and the second factor as the arguments of <code>count()</code>:</p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1"></a>surveys <span class="op">%&gt;%</span></span>
-<span id="cb58-2"><a href="#cb58-2"></a><span class="st">  </span><span class="kw">count</span>(sex, species) </span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a>surveys <span class="op">%&gt;%</span></span>
+<span id="cb50-2"><a href="#cb50-2"></a><span class="st">  </span><span class="kw">count</span>(sex, species) </span></code></pre></div>
 <p>With the above code, we can proceed with <code>arrange()</code> to sort the table according to a number of criteria so that we have a better comparison. For instance, we might want to arrange the table above in (i) an alphabetical order of the levels of the species and (ii) in descending order of the count:</p>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1"></a>surveys <span class="op">%&gt;%</span></span>
-<span id="cb59-2"><a href="#cb59-2"></a><span class="st">  </span><span class="kw">count</span>(sex, species) <span class="op">%&gt;%</span></span>
-<span id="cb59-3"><a href="#cb59-3"></a><span class="st">  </span><span class="kw">arrange</span>(species, <span class="kw">desc</span>(n))</span></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1"></a>surveys <span class="op">%&gt;%</span></span>
+<span id="cb51-2"><a href="#cb51-2"></a><span class="st">  </span><span class="kw">count</span>(sex, species) <span class="op">%&gt;%</span></span>
+<span id="cb51-3"><a href="#cb51-3"></a><span class="st">  </span><span class="kw">arrange</span>(species, <span class="kw">desc</span>(n))</span></code></pre></div>
 <p>From the table above, we may learn that, for instance, there are 75 observations of the <em>albigula</em> species that are not specified for its sex (i.e. <code>NA</code>).</p>
 <blockquote>
 <h3 id="challenge-3" class="challenge">Challenge</h3>
@@ -963,8 +955,8 @@ Answer
 Answer
 </h3>
 <div style="background: #fff;">
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1"></a>surveys <span class="op">%&gt;%</span></span>
-<span id="cb60-2"><a href="#cb60-2"></a><span class="st">    </span><span class="kw">count</span>(plot_type) </span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1"></a>surveys <span class="op">%&gt;%</span></span>
+<span id="cb52-2"><a href="#cb52-2"></a><span class="st">    </span><span class="kw">count</span>(plot_type) </span></code></pre></div>
 </div>
 </div>
 <ol start="2" style="list-style-type: decimal">
@@ -975,15 +967,15 @@ Answer
 Answer
 </h3>
 <div style="background: #fff;">
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1"></a>surveys <span class="op">%&gt;%</span></span>
-<span id="cb61-2"><a href="#cb61-2"></a><span class="st">    </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(hindfoot_length)) <span class="op">%&gt;%</span></span>
-<span id="cb61-3"><a href="#cb61-3"></a><span class="st">    </span><span class="kw">group_by</span>(species_id) <span class="op">%&gt;%</span></span>
-<span id="cb61-4"><a href="#cb61-4"></a><span class="st">    </span><span class="kw">summarize</span>(</span>
-<span id="cb61-5"><a href="#cb61-5"></a>        <span class="dt">mean_hindfoot_length =</span> <span class="kw">mean</span>(hindfoot_length),</span>
-<span id="cb61-6"><a href="#cb61-6"></a>        <span class="dt">min_hindfoot_length =</span> <span class="kw">min</span>(hindfoot_length),</span>
-<span id="cb61-7"><a href="#cb61-7"></a>        <span class="dt">max_hindfoot_length =</span> <span class="kw">max</span>(hindfoot_length),</span>
-<span id="cb61-8"><a href="#cb61-8"></a>        <span class="dt">n =</span> <span class="kw">n</span>()</span>
-<span id="cb61-9"><a href="#cb61-9"></a>    )</span></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1"></a>surveys <span class="op">%&gt;%</span></span>
+<span id="cb53-2"><a href="#cb53-2"></a><span class="st">    </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(hindfoot_length)) <span class="op">%&gt;%</span></span>
+<span id="cb53-3"><a href="#cb53-3"></a><span class="st">    </span><span class="kw">group_by</span>(species_id) <span class="op">%&gt;%</span></span>
+<span id="cb53-4"><a href="#cb53-4"></a><span class="st">    </span><span class="kw">summarize</span>(</span>
+<span id="cb53-5"><a href="#cb53-5"></a>        <span class="dt">mean_hindfoot_length =</span> <span class="kw">mean</span>(hindfoot_length),</span>
+<span id="cb53-6"><a href="#cb53-6"></a>        <span class="dt">min_hindfoot_length =</span> <span class="kw">min</span>(hindfoot_length),</span>
+<span id="cb53-7"><a href="#cb53-7"></a>        <span class="dt">max_hindfoot_length =</span> <span class="kw">max</span>(hindfoot_length),</span>
+<span id="cb53-8"><a href="#cb53-8"></a>        <span class="dt">n =</span> <span class="kw">n</span>()</span>
+<span id="cb53-9"><a href="#cb53-9"></a>    )</span></code></pre></div>
 <pre><code>#&gt; `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
 </div>
 </div>
@@ -995,12 +987,12 @@ Answer
 Answer
 </h3>
 <div style="background: #fff;">
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1"></a>surveys <span class="op">%&gt;%</span></span>
-<span id="cb63-2"><a href="#cb63-2"></a><span class="st">    </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(weight)) <span class="op">%&gt;%</span></span>
-<span id="cb63-3"><a href="#cb63-3"></a><span class="st">    </span><span class="kw">group_by</span>(year) <span class="op">%&gt;%</span></span>
-<span id="cb63-4"><a href="#cb63-4"></a><span class="st">    </span><span class="kw">filter</span>(weight <span class="op">==</span><span class="st"> </span><span class="kw">max</span>(weight)) <span class="op">%&gt;%</span></span>
-<span id="cb63-5"><a href="#cb63-5"></a><span class="st">    </span><span class="kw">select</span>(year, genus, species, weight) <span class="op">%&gt;%</span></span>
-<span id="cb63-6"><a href="#cb63-6"></a><span class="st">    </span><span class="kw">arrange</span>(year)</span></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1"></a>surveys <span class="op">%&gt;%</span></span>
+<span id="cb55-2"><a href="#cb55-2"></a><span class="st">    </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(weight)) <span class="op">%&gt;%</span></span>
+<span id="cb55-3"><a href="#cb55-3"></a><span class="st">    </span><span class="kw">group_by</span>(year) <span class="op">%&gt;%</span></span>
+<span id="cb55-4"><a href="#cb55-4"></a><span class="st">    </span><span class="kw">filter</span>(weight <span class="op">==</span><span class="st"> </span><span class="kw">max</span>(weight)) <span class="op">%&gt;%</span></span>
+<span id="cb55-5"><a href="#cb55-5"></a><span class="st">    </span><span class="kw">select</span>(year, genus, species, weight) <span class="op">%&gt;%</span></span>
+<span id="cb55-6"><a href="#cb55-6"></a><span class="st">    </span><span class="kw">arrange</span>(year)</span></code></pre></div>
 </div>
 </div>
 </blockquote>
@@ -1032,22 +1024,22 @@ Answer
 </ol>
 <p>Further arguments include <code>fill</code> which, if set, fills in missing values with the value provided.</p>
 <p>Let’s use <code>spread()</code> to transform surveys to find the mean weight of each genus in each plot over the entire survey period. We use <code>filter()</code>, <code>group_by()</code> and <code>summarize()</code> to filter our observations and variables of interest, and create a new variable for the <code>mean_weight</code>.</p>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1"></a>surveys_gw &lt;-<span class="st"> </span>surveys <span class="op">%&gt;%</span></span>
-<span id="cb64-2"><a href="#cb64-2"></a><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(weight)) <span class="op">%&gt;%</span></span>
-<span id="cb64-3"><a href="#cb64-3"></a><span class="st">  </span><span class="kw">group_by</span>(plot_id, genus) <span class="op">%&gt;%</span></span>
-<span id="cb64-4"><a href="#cb64-4"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">mean_weight =</span> <span class="kw">mean</span>(weight))</span></code></pre></div>
-<pre><code>#&gt; `summarise()` regrouping output by &#39;plot_id&#39; (override with `.groups` argument)</code></pre>
-<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1"></a><span class="kw">str</span>(surveys_gw)</span></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1"></a>surveys_gw &lt;-<span class="st"> </span>surveys <span class="op">%&gt;%</span></span>
+<span id="cb56-2"><a href="#cb56-2"></a><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(weight)) <span class="op">%&gt;%</span></span>
+<span id="cb56-3"><a href="#cb56-3"></a><span class="st">  </span><span class="kw">group_by</span>(plot_id, genus) <span class="op">%&gt;%</span></span>
+<span id="cb56-4"><a href="#cb56-4"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">mean_weight =</span> <span class="kw">mean</span>(weight))</span>
+<span id="cb56-5"><a href="#cb56-5"></a></span>
+<span id="cb56-6"><a href="#cb56-6"></a><span class="kw">str</span>(surveys_gw)</span></code></pre></div>
 <p>This yields <code>surveys_gw</code> where the observations for each plot are spread across multiple rows, 196 observations of 3 variables. Using <code>spread()</code> to key on <code>genus</code> with values from <code>mean_weight</code> this becomes 24 observations of 11 variables, one row for each plot.</p>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1"></a>surveys_spread &lt;-<span class="st"> </span>surveys_gw <span class="op">%&gt;%</span></span>
-<span id="cb67-2"><a href="#cb67-2"></a><span class="st">  </span><span class="kw">spread</span>(<span class="dt">key =</span> genus, <span class="dt">value =</span> mean_weight)</span>
-<span id="cb67-3"><a href="#cb67-3"></a></span>
-<span id="cb67-4"><a href="#cb67-4"></a><span class="kw">str</span>(surveys_spread)</span></code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1"></a>surveys_spread &lt;-<span class="st"> </span>surveys_gw <span class="op">%&gt;%</span></span>
+<span id="cb57-2"><a href="#cb57-2"></a><span class="st">  </span><span class="kw">spread</span>(<span class="dt">key =</span> genus, <span class="dt">value =</span> mean_weight)</span>
+<span id="cb57-3"><a href="#cb57-3"></a></span>
+<span id="cb57-4"><a href="#cb57-4"></a><span class="kw">str</span>(surveys_spread)</span></code></pre></div>
 <p><img src="img/spread_data_R.png" /></p>
 <p>We could now plot comparisons between the weight of genera in different plots, although we may wish to fill in the missing values first.</p>
-<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1"></a>surveys_gw <span class="op">%&gt;%</span></span>
-<span id="cb68-2"><a href="#cb68-2"></a><span class="st">  </span><span class="kw">spread</span>(genus, mean_weight, <span class="dt">fill =</span> <span class="dv">0</span>) <span class="op">%&gt;%</span></span>
-<span id="cb68-3"><a href="#cb68-3"></a><span class="st">  </span><span class="kw">head</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1"></a>surveys_gw <span class="op">%&gt;%</span></span>
+<span id="cb58-2"><a href="#cb58-2"></a><span class="st">  </span><span class="kw">spread</span>(genus, mean_weight, <span class="dt">fill =</span> <span class="dv">0</span>) <span class="op">%&gt;%</span></span>
+<span id="cb58-3"><a href="#cb58-3"></a><span class="st">  </span><span class="kw">head</span>()</span></code></pre></div>
 </div>
 <div id="gathering" class="section level4">
 <h4>Gathering</h4>
@@ -1060,17 +1052,17 @@ Answer
 <li>the <em>values</em> column variable we wish to create and fill with values associated with the key.</li>
 <li>the names of the columns we use to fill the key variable (or to drop).</li>
 </ol>
-<p>To recreate <code>surveys_gw</code> from <code>surveys_spread</code> we would create a key called <code>genus</code> and value called <code>mean_weight</code> and use all columns except <code>plot_id</code> for the key variable. Here we exclude <code>plot_id</code> from being <code>gather()</code>ed.</p>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1"></a>surveys_gather &lt;-<span class="st"> </span>surveys_spread <span class="op">%&gt;%</span></span>
-<span id="cb69-2"><a href="#cb69-2"></a><span class="st">  </span><span class="kw">gather</span>(<span class="dt">key =</span> <span class="st">&quot;genus&quot;</span>, <span class="dt">value =</span> <span class="st">&quot;mean_weight&quot;</span>, <span class="op">-</span>plot_id)</span>
-<span id="cb69-3"><a href="#cb69-3"></a></span>
-<span id="cb69-4"><a href="#cb69-4"></a><span class="kw">str</span>(surveys_gather)</span></code></pre></div>
+<p>To recreate <code>surveys_gw</code> from <code>surveys_spread</code> we would create a key called <code>genus</code> and value called <code>mean_weight</code> and use all columns except <code>plot_id</code> for the key variable. Here we exclude <code>plot_id</code> from being <code>gather()</code>-ed.</p>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1"></a>surveys_gather &lt;-<span class="st"> </span>surveys_spread <span class="op">%&gt;%</span></span>
+<span id="cb59-2"><a href="#cb59-2"></a><span class="st">  </span><span class="kw">gather</span>(<span class="dt">key =</span> <span class="st">&quot;genus&quot;</span>, <span class="dt">value =</span> <span class="st">&quot;mean_weight&quot;</span>, <span class="op">-</span>plot_id)</span>
+<span id="cb59-3"><a href="#cb59-3"></a></span>
+<span id="cb59-4"><a href="#cb59-4"></a><span class="kw">str</span>(surveys_gather)</span></code></pre></div>
 <p><img src="img/gather_data_R.png" /></p>
 <p>Note that now the <code>NA</code> genera are included in the re-gathered format. Spreading and then gathering can be a useful way to balance out a dataset so every replicate has the same composition.</p>
 <p>We could also have used a specification for what columns to include. This can be useful if you have a large number of identifying columns, and it’s easier to specify what to gather than what to leave alone. And if the columns are directly adjacent, we don’t even need to list them all out - just use the <code>:</code> operator!</p>
-<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1"></a>surveys_spread <span class="op">%&gt;%</span></span>
-<span id="cb70-2"><a href="#cb70-2"></a><span class="st">  </span><span class="kw">gather</span>(<span class="dt">key =</span> <span class="st">&quot;genus&quot;</span>, <span class="dt">value =</span> <span class="st">&quot;mean_weight&quot;</span>, Baiomys<span class="op">:</span>Spermophilus) <span class="op">%&gt;%</span></span>
-<span id="cb70-3"><a href="#cb70-3"></a><span class="st">  </span><span class="kw">head</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1"></a>surveys_spread <span class="op">%&gt;%</span></span>
+<span id="cb60-2"><a href="#cb60-2"></a><span class="st">  </span><span class="kw">gather</span>(<span class="dt">key =</span> <span class="st">&quot;genus&quot;</span>, <span class="dt">value =</span> <span class="st">&quot;mean_weight&quot;</span>, Baiomys<span class="op">:</span>Spermophilus) <span class="op">%&gt;%</span></span>
+<span id="cb60-3"><a href="#cb60-3"></a><span class="st">  </span><span class="kw">head</span>()</span></code></pre></div>
 <blockquote>
 <h3 id="challenge-4" class="challenge">Challenge</h3>
 <ol style="list-style-type: decimal">
@@ -1081,12 +1073,12 @@ Answer
 Answer
 </h3>
 <div style="background: #fff;">
-<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1"></a>surveys_spread_genera &lt;-<span class="st"> </span>surveys <span class="op">%&gt;%</span></span>
-<span id="cb71-2"><a href="#cb71-2"></a><span class="st">  </span><span class="kw">group_by</span>(plot_id, year) <span class="op">%&gt;%</span></span>
-<span id="cb71-3"><a href="#cb71-3"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">n_genera =</span> <span class="kw">n_distinct</span>(genus)) <span class="op">%&gt;%</span></span>
-<span id="cb71-4"><a href="#cb71-4"></a><span class="st">  </span><span class="kw">spread</span>(year, n_genera)</span></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1"></a>surveys_spread_genera &lt;-<span class="st"> </span>surveys <span class="op">%&gt;%</span></span>
+<span id="cb61-2"><a href="#cb61-2"></a><span class="st">  </span><span class="kw">group_by</span>(plot_id, year) <span class="op">%&gt;%</span></span>
+<span id="cb61-3"><a href="#cb61-3"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">n_genera =</span> <span class="kw">n_distinct</span>(genus)) <span class="op">%&gt;%</span></span>
+<span id="cb61-4"><a href="#cb61-4"></a><span class="st">  </span><span class="kw">spread</span>(year, n_genera)</span></code></pre></div>
 <pre><code>#&gt; `summarise()` regrouping output by &#39;plot_id&#39; (override with `.groups` argument)</code></pre>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1"></a><span class="kw">head</span>(surveys_spread_genera)</span></code></pre></div>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1"></a><span class="kw">head</span>(surveys_spread_genera)</span></code></pre></div>
 </div>
 </div>
 <ol start="2" style="list-style-type: decimal">
@@ -1097,8 +1089,8 @@ Answer
 Answer
 </h3>
 <div style="background: #fff;">
-<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1"></a>surveys_spread_genera <span class="op">%&gt;%</span></span>
-<span id="cb74-2"><a href="#cb74-2"></a><span class="st">  </span><span class="kw">gather</span>(<span class="st">&quot;year&quot;</span>, <span class="st">&quot;n_genera&quot;</span>, <span class="op">-</span>plot_id)</span></code></pre></div>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1"></a>surveys_spread_genera <span class="op">%&gt;%</span></span>
+<span id="cb64-2"><a href="#cb64-2"></a><span class="st">  </span><span class="kw">gather</span>(<span class="st">&quot;year&quot;</span>, <span class="st">&quot;n_genera&quot;</span>, <span class="op">-</span>plot_id)</span></code></pre></div>
 </div>
 </div>
 <ol start="3" style="list-style-type: decimal">
@@ -1109,8 +1101,8 @@ Answer
 Answer
 </h3>
 <div style="background: #fff;">
-<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1"></a>surveys_long &lt;-<span class="st"> </span>surveys <span class="op">%&gt;%</span></span>
-<span id="cb75-2"><a href="#cb75-2"></a><span class="st">  </span><span class="kw">gather</span>(<span class="st">&quot;measurement&quot;</span>, <span class="st">&quot;value&quot;</span>, hindfoot_length, weight)</span></code></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1"></a>surveys_long &lt;-<span class="st"> </span>surveys <span class="op">%&gt;%</span></span>
+<span id="cb65-2"><a href="#cb65-2"></a><span class="st">  </span><span class="kw">gather</span>(<span class="st">&quot;measurement&quot;</span>, <span class="st">&quot;value&quot;</span>, hindfoot_length, weight)</span></code></pre></div>
 </div>
 </div>
 <ol start="4" style="list-style-type: decimal">
@@ -1121,10 +1113,10 @@ Answer
 Answer
 </h3>
 <div style="background: #fff;">
-<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1"></a>surveys_long <span class="op">%&gt;%</span></span>
-<span id="cb76-2"><a href="#cb76-2"></a><span class="st">  </span><span class="kw">group_by</span>(year, measurement, plot_type) <span class="op">%&gt;%</span></span>
-<span id="cb76-3"><a href="#cb76-3"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">mean_value =</span> <span class="kw">mean</span>(value, <span class="dt">na.rm=</span><span class="ot">TRUE</span>)) <span class="op">%&gt;%</span></span>
-<span id="cb76-4"><a href="#cb76-4"></a><span class="st">  </span><span class="kw">spread</span>(measurement, mean_value)</span></code></pre></div>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1"></a>surveys_long <span class="op">%&gt;%</span></span>
+<span id="cb66-2"><a href="#cb66-2"></a><span class="st">  </span><span class="kw">group_by</span>(year, measurement, plot_type) <span class="op">%&gt;%</span></span>
+<span id="cb66-3"><a href="#cb66-3"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">mean_value =</span> <span class="kw">mean</span>(value, <span class="dt">na.rm=</span><span class="ot">TRUE</span>)) <span class="op">%&gt;%</span></span>
+<span id="cb66-4"><a href="#cb66-4"></a><span class="st">  </span><span class="kw">spread</span>(measurement, mean_value)</span></code></pre></div>
 <pre><code>#&gt; `summarise()` regrouping output by &#39;year&#39;, &#39;measurement&#39; (override with `.groups` argument)</code></pre>
 </div>
 </div>
@@ -1140,24 +1132,24 @@ Answer
 <p>Before using <code>write_csv()</code>, we are going to create a new folder, <code>data</code>, in our working directory that will store this generated dataset. We don’t want to write generated datasets in the same directory as our raw data. It’s good practice to keep them separate. The <code>data_raw</code> folder should only contain the raw, unaltered data, and should be left alone to make sure we don’t delete or modify it. In contrast, our script will generate the contents of the <code>data</code> directory, so even if the files it contains are deleted, we can always re-generate them.</p>
 <p>In preparation for our next lesson on plotting, we are going to prepare a cleaned up version of the data set that doesn’t include any missing data.</p>
 <p>Let’s start by removing observations of animals for which <code>weight</code> and <code>hindfoot_length</code> are missing, or the <code>sex</code> has not been determined:</p>
-<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1"></a>surveys_complete &lt;-<span class="st"> </span>surveys <span class="op">%&gt;%</span></span>
-<span id="cb78-2"><a href="#cb78-2"></a><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(weight),           <span class="co"># remove missing weight</span></span>
-<span id="cb78-3"><a href="#cb78-3"></a>         <span class="op">!</span><span class="kw">is.na</span>(hindfoot_length),  <span class="co"># remove missing hindfoot_length</span></span>
-<span id="cb78-4"><a href="#cb78-4"></a>         <span class="op">!</span><span class="kw">is.na</span>(sex))                <span class="co"># remove missing sex</span></span></code></pre></div>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1"></a>surveys_complete &lt;-<span class="st"> </span>surveys <span class="op">%&gt;%</span></span>
+<span id="cb68-2"><a href="#cb68-2"></a><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(weight),           <span class="co"># remove missing weight</span></span>
+<span id="cb68-3"><a href="#cb68-3"></a>         <span class="op">!</span><span class="kw">is.na</span>(hindfoot_length),  <span class="co"># remove missing hindfoot_length</span></span>
+<span id="cb68-4"><a href="#cb68-4"></a>         <span class="op">!</span><span class="kw">is.na</span>(sex))                <span class="co"># remove missing sex</span></span></code></pre></div>
 <p>Because we are interested in plotting how species abundances have changed through time, we are also going to remove observations for rare species (i.e., that have been observed less than 50 times). We will do this in two steps: first we are going to create a data set that counts how often each species has been observed, and filter out the rare species; then, we will extract only the observations for these more common species:</p>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1"></a><span class="co">## Extract the most common species_id</span></span>
-<span id="cb79-2"><a href="#cb79-2"></a>species_counts &lt;-<span class="st"> </span>surveys_complete <span class="op">%&gt;%</span></span>
-<span id="cb79-3"><a href="#cb79-3"></a><span class="st">    </span><span class="kw">count</span>(species_id) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb79-4"><a href="#cb79-4"></a><span class="st">    </span><span class="kw">filter</span>(n <span class="op">&gt;=</span><span class="st"> </span><span class="dv">50</span>)</span>
-<span id="cb79-5"><a href="#cb79-5"></a></span>
-<span id="cb79-6"><a href="#cb79-6"></a><span class="co">## Only keep the most common species</span></span>
-<span id="cb79-7"><a href="#cb79-7"></a>surveys_complete &lt;-<span class="st"> </span>surveys_complete <span class="op">%&gt;%</span></span>
-<span id="cb79-8"><a href="#cb79-8"></a><span class="st">  </span><span class="kw">filter</span>(species_id <span class="op">%in%</span><span class="st"> </span>species_counts<span class="op">$</span>species_id)</span></code></pre></div>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1"></a><span class="co">## Extract the most common species_id</span></span>
+<span id="cb69-2"><a href="#cb69-2"></a>species_counts &lt;-<span class="st"> </span>surveys_complete <span class="op">%&gt;%</span></span>
+<span id="cb69-3"><a href="#cb69-3"></a><span class="st">    </span><span class="kw">count</span>(species_id) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb69-4"><a href="#cb69-4"></a><span class="st">    </span><span class="kw">filter</span>(n <span class="op">&gt;=</span><span class="st"> </span><span class="dv">50</span>)</span>
+<span id="cb69-5"><a href="#cb69-5"></a></span>
+<span id="cb69-6"><a href="#cb69-6"></a><span class="co">## Only keep the most common species</span></span>
+<span id="cb69-7"><a href="#cb69-7"></a>surveys_complete &lt;-<span class="st"> </span>surveys_complete <span class="op">%&gt;%</span></span>
+<span id="cb69-8"><a href="#cb69-8"></a><span class="st">  </span><span class="kw">filter</span>(species_id <span class="op">%in%</span><span class="st"> </span>species_counts<span class="op">$</span>species_id)</span></code></pre></div>
 <p>To make sure that everyone has the same data set, check that <code>surveys_complete</code> has 30463 rows and 13 columns by typing <code>dim(surveys_complete)</code>.</p>
 <p>Now that our data set is ready, we can save it as a CSV file in our <code>data</code> folder.</p>
-<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1"></a><span class="kw">write_csv</span>(surveys_complete, <span class="dt">file =</span> <span class="st">&quot;data/surveys_complete.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1"></a><span class="kw">write_csv</span>(surveys_complete, <span class="dt">file =</span> <span class="st">&quot;data/surveys_complete.csv&quot;</span>)</span></code></pre></div>
 <p style="text-align: right; font-size: small;">
-Page built on: 📆 2020-11-10 ‒ 🕢 12:52:18
+Page built on: 📆 2020-11-10 ‒ 🕢 15:50:25
 </p>
 </div>
 

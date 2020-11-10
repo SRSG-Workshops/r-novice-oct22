@@ -387,8 +387,9 @@ yearly_counts_graph
 ## Faceting
 
 `ggplot` has a special technique called *faceting* that allows the user to split 
-one plot into multiple plots based on a factor included in the dataset. We will 
-use it to make a time series plot for each species:
+one plot into multiple plots based on a factor included in the dataset. In the 
+following `vars` is used to analyse the factors on which the plot will be split.
+We will use it to make a time series plot for each species:
 
 ```{r first-facet, purl = FALSE}
 ggplot(data = yearly_counts, aes(x = year, y = n)) +

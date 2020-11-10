@@ -12,7 +12,7 @@ suppressWarnings(surveys$date <- lubridate::ymd(paste(surveys$year,
                                                       sep = "-")))
 ```
 
-### Manipulating Data
+# Manipulating Data
 
 ------------
 
@@ -462,7 +462,7 @@ its right, we don't need to explicitly include the data frame as an argument
 to the `filter()` and `select()` functions any more.
 
 Some may find it helpful to read the pipe like the word "then". For instance,
-in the above example, we took the data frame `surveys`, *then* we `filter`ed
+in the above example, we took the data frame `surveys`, *then* we `filter`-ed
 for rows with `weight < 5`, *then* we `select`ed columns `species_id`, `sex`,
 and `weight`. The **`dplyr`** functions by themselves are somewhat simple,
 but by combining them into linear workflows with the pipe, we can accomplish
@@ -588,7 +588,7 @@ group into a single-row summary of that group.  `group_by()` takes as arguments
 the column names that contain the **categorical** variables for which you want
 to calculate the summary statistics. So to compute the mean `weight` by sex:
 
-```{r, purl = FALSE}
+```{r, purl = FALSE, warning = FALSE, message = FALSE}
 surveys %>%
   group_by(sex) %>%
   summarize(mean_weight = mean(weight, na.rm = TRUE))
@@ -599,7 +599,7 @@ screen anymore. It's one of the advantages of `tbl_df` over data frame.
 
 You can also group by multiple columns:
 
-```{r, purl = FALSE}
+```{r, purl = FALSE, warning = FALSE, message = FALSE}
 surveys %>%
   group_by(sex, species_id) %>%
   summarize(mean_weight = mean(weight, na.rm = TRUE)) %>% 
@@ -616,7 +616,7 @@ remove the missing values for weight before we attempt to calculate the summary
 statistics on weight. Because the missing values are removed first, we can omit 
 `na.rm = TRUE` when computing the mean:
 
-```{r, purl = FALSE}
+```{r, purl = FALSE, warning = FALSE, message = FALSE}
 surveys %>%
   filter(!is.na(weight)) %>%
   group_by(sex, species_id) %>%
@@ -628,7 +628,7 @@ anymore. If you want to display more data, you can use the `print()` function
 at the end of your chain with the argument `n` specifying the number of rows to
 display:
 
-```{r, purl = FALSE}
+```{r, purl = FALSE, warning = FALSE, message = FALSE}
 surveys %>%
   filter(!is.na(weight)) %>%
   group_by(sex, species_id) %>%
@@ -640,7 +640,7 @@ Once the data are grouped, you can also summarize multiple variables at the same
 time (and not necessarily on the same variable). For instance, we could add a
 column indicating the minimum weight for each species for each sex:
 
-```{r, purl = FALSE}
+```{r, purl = FALSE, warning = FALSE, message = FALSE}
 surveys %>%
   filter(!is.na(weight)) %>%
   group_by(sex, species_id) %>%
@@ -651,7 +651,7 @@ surveys %>%
 It is sometimes useful to rearrange the result of a query to inspect the values. For instance, we can sort on `min_weight` to put the lighter species first:
 
 
-```{r, purl = FALSE}
+```{r, purl = FALSE, warning = FALSE, message = FALSE}
 surveys %>%
   filter(!is.na(weight)) %>%
   group_by(sex, species_id) %>%
@@ -663,7 +663,7 @@ surveys %>%
 To sort in descending order, we need to add the `desc()` function. 
 If we want to sort the results by decreasing order of mean weight:
 
-```{r, purl = FALSE}
+```{r, purl = FALSE, warning = FALSE, message = FALSE}
 surveys %>%
   filter(!is.na(weight)) %>%
   group_by(sex, species_id) %>%
@@ -687,7 +687,7 @@ surveys %>%
 
 The `count()` function is shorthand for something we've already seen: grouping by a variable, and summarizing it by counting the number of observations in that group. In other words, `surveys %>% count()` is equivalent to:  
 
-```{r, purl = FALSE}
+```{r, purl = FALSE, warning = FALSE, message = FALSE}
 surveys %>%
     group_by(sex) %>%
     summarize(count = n())
@@ -827,7 +827,7 @@ genus in each plot over the entire survey period. We use `filter()`,
 `group_by()` and `summarize()` to filter our observations and variables of 
 interest, and create a new variable for the `mean_weight`.
 
-```{r, purl=FALSE}
+```{r, purl=FALSE, warning = FALSE, message = FALSE}
 surveys_gw <- surveys %>%
   filter(!is.na(weight)) %>%
   group_by(plot_id, genus) %>%
@@ -879,7 +879,7 @@ associated with the key.
 
 To recreate `surveys_gw` from `surveys_spread` we would create a key called
 `genus` and value called `mean_weight` and use all columns except `plot_id` for
-the key variable. Here we exclude `plot_id` from being `gather()`ed.
+the key variable. Here we exclude `plot_id` from being `gather()`-ed.
 
 ```{r, purl=FALSE}
 surveys_gather <- surveys_spread %>%
