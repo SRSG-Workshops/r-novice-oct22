@@ -10,6 +10,7 @@ suppressWarnings(surveys$date <- lubridate::ymd(paste(surveys$year,
                                                       surveys$month,
                                                       surveys$day,
                                                       sep = "-")))
+prioritize(dplyr)
 ```
 
 ### Manipulating Data
@@ -41,7 +42,7 @@ suppressWarnings(surveys$date <- lubridate::ymd(paste(surveys$year,
 
 ------------
 
-Fist we need to reload the surveys dataframe.
+Fist we need to reload the surveys data frame.
 
 ```{r, eval=TRUE,  purl=FALSE}
 surveys <- read.csv("data_raw/portal_data_joined.csv")
@@ -54,8 +55,24 @@ surveys <- read.csv("data_raw/portal_data_joined.csv")
 ```
 
 When we did `str(surveys)` we saw that several of the columns consist of
-integers. The columns `genus`, `species`, `sex`, `plot_type`, ... however, are
-of a special class called `factor`. Factors are very useful and actually
+integers. 
+
+Please note the default behavior of R has changed recently with the release of 
+4.0.0[https://stat.ethz.ch/pipermail/r-announce/2020/000653.html].
+
+If using R version 3.*.*:
+The columns `genus`, `species`, `sex`, `plot_type`, ... however, are
+of a special class called `factor`. 
+
+If using R version 4.*.*:
+The columns `genus`, `species`, `sex`, `plot_type`, ... are strings! The 
+behavior was changed so `stringsAsFactors = FALSE` is the default. So we are all 
+working with the same data types please reload the data using the following:
+```{r, eval=TRUE,  purl=FALSE}
+surveys <- read.csv("data_raw/portal_data_joined.csv", stringsAsFactors = TRUE)
+```
+
+Factors are very useful and actually
 contribute to making R particularly well suited to working with data. So we are
 going to spend a little time introducing them.
 
@@ -674,7 +691,7 @@ The `count()` function is shorthand for something we've already seen: grouping b
 ```{r, purl = FALSE}
 surveys %>%
     group_by(sex) %>%
-    summarise(count = n())
+    summarize(count = n())
 ```
 
 For convenience, `count()` provides the `sort` argument:  
@@ -808,7 +825,7 @@ the value provided.
 
 Let's use `spread()` to transform surveys to find the mean weight of each 
 genus in each plot over the entire survey period. We use `filter()`,
-`group_by()` and `summarise()` to filter our observations and variables of 
+`group_by()` and `summarize()` to filter our observations and variables of 
 interest, and create a new variable for the `mean_weight`.
 
 ```{r, purl=FALSE}

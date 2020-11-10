@@ -216,7 +216,8 @@ knitr::include_graphics("img/r-starting-how-it-should-look-like.png")
 ### The working directory
 
 The working directory is an important concept to understand. It is the place
-from where R will be looking for and saving the files. When you write code for
+from where R will be looking for and saving the files. When using R projects the 
+working directory has a .Rproj file in it. When you write code for
 your project, it should refer to files in relation to the root of your working
 directory and only need files within this structure.
 
@@ -341,7 +342,6 @@ query.
 ```{r, child="_page_built_on.Rmd"}
 ```
 # R Basics
-Now that we have a working envronment set up we can start on the basics of R.
 
 ------------
 
@@ -376,6 +376,7 @@ Now that we have a working envronment set up we can start on the basics of R.
 
 ------------
 
+Now that we have a working environment set up we can start on the basics of R.
 
 ## Creating objects in R
 
@@ -436,7 +437,7 @@ The arrow can be read as 55 **goes into** `weight_kg`.
 Once an _object_ is created we can get information about that object in the 
 Environment tab in the top right of RStudio. For example, 'weight_kg' has the type numeric
 length 1 and value 55. Make sure to keep an eye on the other values that appear here 
-when using R studio to understand what objects you have. This tab is great for small variables, 
+when using RStudio to understand what objects you have. This tab is great for small variables, 
 when inspecting larger or more complicated objects it is better to use more advanced methods we 
 will cover later on.
 
@@ -486,7 +487,8 @@ weight_kg          # and so does typing the name of the object
 ```
 
 Now that R has `weight_kg` in memory, we can do arithmetic with it. For
-instance, we may want to convert this weight into pounds (weight in pounds is 2.2 times the weight in kg):
+instance, we may want to convert this weight into pounds 
+(weight in pounds is 2.2 times the weight in kg):
 
 ```{r, results = TRUE, purl = FALSE}
 2.2 * weight_kg
@@ -500,7 +502,7 @@ weight_kg <- 57.5
 ```
 
 This means that assigning a value to one object does not change the values of
-other objects  For example, let's store the animal's weight in pounds in a new
+other objects.  For example, let's store the animal's weight in pounds in a new
 object, `weight_lb`:
 
 ```{r, purl = FALSE}
@@ -962,7 +964,7 @@ using in the other lessons, and learn about data frames.
 
 We have now learnt enough of the basics of R to be able to use R in place of spreadsheets. 
 As the previous lessons will have shown you spreadsheets can be good for small amounts of data
-that can be managed `by hand`. With R will will be able to load large sets of data and create 
+that can be managed _by hand_. With R will will be able to load large sets of data and create 
 readable, reliable, and reproducible data analysis scripts.
 
 ## Presentation of the Survey Data
@@ -1332,12 +1334,12 @@ str(surveys) # notice the new column, with 'date' as the class
 ```
 
 ### Note 
-> For completeness sake it is worth noting that the above could be acchived in one line.
+> For completeness sake it is worth noting that the above could be achieved in one line.
 > `surveys$date <- ymd(paste(surveys$year, surveys$month, surveys$day, sep = "-"))`
 > However, we would again see the warning and could inspect it like so:
 > `summary(surveys$date)`
 > `head(surveys[is.na(surveys$date), , c("year", "month", "day")])`
-> This way the r envronment is kept cleaner however it is more difficult to unpick where 
+> This way the r environment is kept cleaner however it is more difficult to unpick where 
 > errors have occured. 
 
 
