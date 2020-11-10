@@ -58,3 +58,7 @@ eng_text_answer <- knitr:::eng_html_asset(
                            )
 
 knitr::knit_engines$set(text_answer = eng_text_answer)
+
+
+library(needs)
+prioritize(dplyr)

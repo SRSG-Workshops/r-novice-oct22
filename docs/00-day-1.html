@@ -691,7 +691,7 @@ How it should look like at the beginning of this lesson
 </div>
 <div id="the-working-directory" class="section level3">
 <h3>The working directory</h3>
-<p>The working directory is an important concept to understand. It is the place from where R will be looking for and saving the files. When you write code for your project, it should refer to files in relation to the root of your working directory and only need files within this structure.</p>
+<p>The working directory is an important concept to understand. It is the place from where R will be looking for and saving the files. When using R projects the working directory has a .Rproj file in it. When you write code for your project, it should refer to files in relation to the root of your working directory and only need files within this structure.</p>
 <p>Using RStudio projects makes this easy and ensures that your working directory is set properly. If you need to check it, you can use <code>getwd()</code>. If for some reason your working directory is not what it should be, you can change it in the RStudio interface by navigating in the file browser where your working directory should be, and clicking on the blue gear icon “More”, and select “Set As Working Directory”. Alternatively you can use <code>setwd("/path/to/working/directory")</code> to reset your working directory. However, your scripts should not include this line because it will fail on someone else’s computer.</p>
 </div>
 </div>
@@ -738,14 +738,13 @@ How it should look like at the beginning of this lesson
 <li><a href="https://stackoverflow.com/questions/tagged/r?tab=Votes">Stack Overflow’s <code>[r]</code>-tag</a>: Most questions have already been answered, but the challenge is to use the right words in the search to find the answers. If your question hasn’t been answered before and is well crafted, chances are you will get an answer in less than 5 min. Remember to follow their guidelines on <a href="https://stackoverflow.com/help/how-to-ask">how to ask a good question</a>.</li>
 </ul>
 <p style="text-align: right; font-size: small;">
-Page built on: 📆 2020-11-09 ‒ 🕢 16:46:13
+Page built on: 📆 2020-11-10 ‒ 🕢 12:52:06
 </p>
 </div>
 </div>
 </div>
 <div id="r-basics-1" class="section level1">
 <h1>R Basics</h1>
-<p>Now that we have a working envronment set up we can start on the basics of R.</p>
 <hr />
 <blockquote>
 <h3 id="learning-objectives-recap">Learning Objectives: Recap</h3>
@@ -777,6 +776,7 @@ Page built on: 📆 2020-11-09 ‒ 🕢 16:46:13
 </ul>
 </blockquote>
 <hr />
+<p>Now that we have a working environment set up we can start on the basics of R.</p>
 <div id="creating-objects-in-r" class="section level2">
 <h2>Creating objects in R</h2>
 <p>You can get output from R simply by typing math in the console:</p>
@@ -806,7 +806,7 @@ Including but not limeted to: Species, Age, Colour, Name, Sex, Owner…
 <p><code>&lt;-</code> is the assignment operator. It assigns values on the right to objects on the left. So, after executing <code>weight_kg &lt;- 55</code>, the value of <code>weight_kg</code> is <code>55</code>. The arrow can be read as 55 <strong>goes into</strong> <code>weight_kg</code>.</p>
 <div id="what-is-my-object" class="section level3">
 <h3>What is my object?</h3>
-<p>Once an <em>object</em> is created we can get information about that object in the Environment tab in the top right of RStudio. For example, ‘weight_kg’ has the type numeric length 1 and value 55. Make sure to keep an eye on the other values that appear here when using R studio to understand what objects you have. This tab is great for small variables, when inspecting larger or more complicated objects it is better to use more advanced methods we will cover later on.</p>
+<p>Once an <em>object</em> is created we can get information about that object in the Environment tab in the top right of RStudio. For example, ‘weight_kg’ has the type numeric length 1 and value 55. Make sure to keep an eye on the other values that appear here when using RStudio to understand what objects you have. This tab is great for small variables, when inspecting larger or more complicated objects it is better to use more advanced methods we will cover later on.</p>
 </div>
 <div id="how-do-i-name-my-objects" class="section level3">
 <h3>How do I name my objects?</h3>
@@ -826,7 +826,7 @@ Including but not limeted to: Species, Age, Colour, Name, Sex, Owner…
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>weight_kg &lt;-<span class="st"> </span><span class="fl">57.5</span></span>
 <span id="cb8-2"><a href="#cb8-2"></a><span class="fl">2.2</span> <span class="op">*</span><span class="st"> </span>weight_kg</span></code></pre></div>
 <pre><code>#&gt; [1] 126.5</code></pre>
-<p>This means that assigning a value to one object does not change the values of other objects For example, let’s store the animal’s weight in pounds in a new object, <code>weight_lb</code>:</p>
+<p>This means that assigning a value to one object does not change the values of other objects. For example, let’s store the animal’s weight in pounds in a new object, <code>weight_lb</code>:</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>weight_lb &lt;-<span class="st"> </span><span class="fl">2.2</span> <span class="op">*</span><span class="st"> </span>weight_kg</span></code></pre></div>
 <p>and then change <code>weight_kg</code> to 100.</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>weight_kg &lt;-<span class="st"> </span><span class="dv">100</span></span></code></pre></div>
@@ -1101,7 +1101,7 @@ Answer
 </ul>
 </blockquote>
 <hr />
-<p>We have now learnt enough of the basics of R to be able to use R in place of spreadsheets. As the previous lessons will have shown you spreadsheets can be good for small amounts of data that can be managed <code>by hand</code>. With R will will be able to load large sets of data and create readable, reliable, and reproducible data analysis scripts.</p>
+<p>We have now learnt enough of the basics of R to be able to use R in place of spreadsheets. As the previous lessons will have shown you spreadsheets can be good for small amounts of data that can be managed <em>by hand</em>. With R will will be able to load large sets of data and create readable, reliable, and reproducible data analysis scripts.</p>
 <div id="presentation-of-the-survey-data" class="section level2">
 <h2>Presentation of the Survey Data</h2>
 <p>We are investigating the animal species diversity and weights found within plots at our study site. The dataset is stored as a comma separated value (CSV) file. Each row holds information for a single animal, and the columns represent:</p>
@@ -1407,7 +1407,7 @@ When you load the <strong><code>tidyverse</code></strong> (<code>library("tidyve
 <div id="note-2" class="section level3">
 <h3>Note</h3>
 <blockquote>
-<p>For completeness sake it is worth noting that the above could be acchived in one line. <code>surveys$date &lt;- ymd(paste(surveys$year, surveys$month, surveys$day, sep = "-"))</code> However, we would again see the warning and could inspect it like so: <code>summary(surveys$date)</code> <code>head(surveys[is.na(surveys$date), , c("year", "month", "day")])</code> This way the r envronment is kept cleaner however it is more difficult to unpick where errors have occured.</p>
+<p>For completeness sake it is worth noting that the above could be achieved in one line. <code>surveys$date &lt;- ymd(paste(surveys$year, surveys$month, surveys$day, sep = "-"))</code> However, we would again see the warning and could inspect it like so: <code>summary(surveys$date)</code> <code>head(surveys[is.na(surveys$date), , c("year", "month", "day")])</code> This way the r environment is kept cleaner however it is more difficult to unpick where errors have occured.</p>
 </blockquote>
 <hr />
 <blockquote>
@@ -1442,7 +1442,7 @@ When you load the <strong><code>tidyverse</code></strong> (<code>library("tidyve
 <hr />
 <p>You have now completed all the day one learning objectives. It is very common to make mistakes in programming languages, identifying and solving <code>debugging</code> these mistakes makes up a large part of the programming skill-set. Becoming familiar with the basics we have covered today and the inspection tools e.g.  <code>summary()</code>, <code>ls()</code>, <code>str()</code> will set you on a path to being a confident R programmer.</p>
 <p style="text-align: right; font-size: small;">
-Page built on: 📆 2020-11-09 ‒ 🕢 16:46:22
+Page built on: 📆 2020-11-10 ‒ 🕢 12:52:15
 </p>
 </div>
 </div>

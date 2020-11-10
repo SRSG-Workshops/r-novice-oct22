@@ -661,7 +661,7 @@ div.tocify {
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> surveys_complete, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> weight, <span class="dt">y =</span> hindfoot_length)) <span class="op">+</span></span>
 <span id="cb13-2"><a href="#cb13-2"></a><span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.1</span>, <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>)</span></code></pre></div>
 <p><img src="img/R-ecology-adding-colors-1.png" width="672" /></p>
-<p>Or to color each species in the plot differently, you could use a vector as an input to the argument <strong>color</strong>. <strong><code>ggplot2</code></strong> will provide a different color corresponding to different values in the vector. Here is an example where we color with <strong><code>species_id</code></strong>:</p>
+<p>Or to color each species in the plot differently, you could use a vector (which must have data-type factor) as an input to the argument <strong>color</strong>. <strong><code>ggplot2</code></strong> will provide a different color corresponding to different values in the vector. Here is an example where we color with <strong><code>species_id</code></strong>:</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="kw">ggplot</span>(<span class="dt">data =</span> surveys_complete, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> weight, <span class="dt">y =</span> hindfoot_length)) <span class="op">+</span></span>
 <span id="cb14-2"><a href="#cb14-2"></a><span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.1</span>, <span class="kw">aes</span>(<span class="dt">color =</span> species_id))</span></code></pre></div>
 <p><img src="img/R-ecology-color-by-species-1-1.png" width="672" /></p>
@@ -919,7 +919,7 @@ Answer
 <span id="cb39-19"><a href="#cb39-19"></a><span class="kw">ggsave</span>(<span class="st">&quot;combo_plot_abun_weight.png&quot;</span>, combo_plot, <span class="dt">width =</span> <span class="dv">10</span>, <span class="dt">dpi =</span> <span class="dv">300</span>)</span></code></pre></div>
 <p>Note: The parameters <code>width</code> and <code>height</code> also determine the font size in the saved plot.</p>
 <p style="text-align: right; font-size: small;">
-Page built on: 📆 2020-11-09 ‒ 🕢 16:46:46
+Page built on: 📆 2020-11-10 ‒ 🕢 12:52:40
 </p>
 </div>
 

@@ -10,7 +10,6 @@ suppressWarnings(surveys$date <- lubridate::ymd(paste(surveys$year,
                                                       surveys$month,
                                                       surveys$day,
                                                       sep = "-")))
-prioritize(dplyr)
 ```
 
 ### Manipulating Data
@@ -58,13 +57,13 @@ When we did `str(surveys)` we saw that several of the columns consist of
 integers. 
 
 Please note the default behavior of R has changed recently with the release of 
-4.0.0[https://stat.ethz.ch/pipermail/r-announce/2020/000653.html].
+4.0.0 [https://stat.ethz.ch/pipermail/r-announce/2020/000653.html].
 
-If using R version 3.*.*:
+If using R version 3.\*.\*:
 The columns `genus`, `species`, `sex`, `plot_type`, ... however, are
 of a special class called `factor`. 
 
-If using R version 4.*.*:
+If using R version 4.\*.\*:
 The columns `genus`, `species`, `sex`, `plot_type`, ... are strings! The 
 behavior was changed so `stringsAsFactors = FALSE` is the default. So we are all 
 working with the same data types please reload the data using the following:
