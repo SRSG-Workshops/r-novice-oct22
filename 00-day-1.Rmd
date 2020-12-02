@@ -205,7 +205,7 @@ will use `data/` for when we learn how to export data as CSV files, and a
   `fig` folder.
 
 We are going to keep the script in the root of our working directory because we
-are only going to use one file and it will make things easier.
+are only going to use one file and it will make things easier. Create this using the new file button in the top left hand corner and select R Script, the hit save and name it `data-carpentry-script`.
 
 Your working directory should now look like this:
 
