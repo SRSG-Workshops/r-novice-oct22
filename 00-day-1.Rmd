@@ -1,6 +1,5 @@
 ---
 title: "Day 1: Starting with Data"
-author: "Data Carpentry contributors"
 ---
 
 ```{r, echo=FALSE, purl=FALSE, message = FALSE}
