@@ -1122,8 +1122,6 @@ functions to get a sense of the content/structure of the data. Let's try them ou
 ## Based on the output of `str(surveys)`, can you answer the following questions?
 ## * What is the class of the object `surveys`?
 ## * How many rows and how many columns are in this object?
-## * How many species have been recorded during these surveys?
-
 ```
 
 
