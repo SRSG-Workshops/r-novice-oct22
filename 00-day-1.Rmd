@@ -1,5 +1,6 @@
 ---
 title: "Day 1: Starting with Data"
+author: "Data Carpentry contributors"
 ---
 
 ```{r, echo=FALSE, purl=FALSE, message = FALSE}
@@ -1102,7 +1103,6 @@ functions to get a sense of the content/structure of the data. Let's try them ou
 >
 > * What is the class of the object `surveys`?
 > * How many rows and how many columns are in this object?
-> * How many species have been recorded during these surveys?
 >
 > ```{r, answer=TRUE, results="markup", purl=FALSE}
 >
@@ -1110,7 +1110,6 @@ functions to get a sense of the content/structure of the data. Let's try them ou
 >
 > ## * class: data frame
 > ## * how many rows: 34786,  how many columns: 13
-> ## * how many species: 48
 >
 > ```
 
@@ -1121,6 +1120,7 @@ functions to get a sense of the content/structure of the data. Let's try them ou
 ## Based on the output of `str(surveys)`, can you answer the following questions?
 ## * What is the class of the object `surveys`?
 ## * How many rows and how many columns are in this object?
+
 ```
 
 
