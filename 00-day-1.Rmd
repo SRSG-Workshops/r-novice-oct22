@@ -42,7 +42,7 @@ source("setup.R")
 
 ------------
 
-This is a test
+This is a test...
 
 To start with we will focus on the first three learning objectives and 
 get your working environment set up.
