@@ -42,6 +42,8 @@ source("setup.R")
 
 ------------
 
+This is a test, I will remove it later
+
 To start with we will focus on the first three learning objectives and 
 get your working environment set up.
 
