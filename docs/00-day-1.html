@@ -20,13 +20,20 @@
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
 <script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <script src="site_libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
-<link href="site_libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
-<script src="site_libs/anchor-sections-1.0/anchor-sections.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 <link rel="shortcut icon" href="favicon/favicon.ico">
@@ -115,7 +122,14 @@ $(function () {
     </style>
 
 
-<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  code {
+    white-space: pre;
+  }
+  .sourceCode {
+    overflow: visible;
+  }
+</style>
 <style type="text/css" data-origin="pandoc">
 code.sourceCode > span { display: inline-block; line-height: 1.25; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -203,39 +217,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   }
 })();
 </script>
-<style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
 
 
-<style type="text/css">
-h1 {
-  font-size: 34px;
-}
-h1.title {
-  font-size: 38px;
-}
-h2 {
-  font-size: 30px;
-}
-h3 {
-  font-size: 24px;
-}
-h4 {
-  font-size: 18px;
-}
-h5 {
-  font-size: 16px;
-}
-h6 {
-  font-size: 12px;
-}
-.table th:not([align]) {
-  text-align: left;
-}
-</style>
+
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 
@@ -246,10 +230,6 @@ h6 {
   max-width: 940px;
   margin-left: auto;
   margin-right: auto;
-}
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
 }
 img {
   max-width:100%;
@@ -266,40 +246,13 @@ button.code-folding-btn:focus {
 summary {
   display: list-item;
 }
+pre code {
+  padding: 0;
+}
 </style>
 
 
 <style type="text/css">
-/* padding for bootstrap navbar */
-body {
-  padding-top: 51px;
-  padding-bottom: 40px;
-}
-/* offset scroll position for anchor links (for fixed navbar)  */
-.section h1 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h2 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h3 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h4 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h5 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h6 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
 .dropdown-submenu {
   position: relative;
 }
@@ -327,7 +280,7 @@ body {
   margin-right: -10px;
 }
 .dropdown-submenu:hover>a:after {
-  border-left-color: #ffffff;
+  border-left-color: #adb5bd;
 }
 .dropdown-submenu.pull-left {
   float: none;
@@ -339,7 +292,7 @@ body {
 }
 </style>
 
-<script>
+<script type="text/javascript">
 // manage active state of menu based on current page
 $(document).ready(function () {
   // active menu anchor
@@ -350,10 +303,23 @@ $(document).ready(function () {
   var menuAnchor = $('a[href="' + href + '"]');
 
   // mark it active
-  menuAnchor.parent().addClass('active');
+  menuAnchor.tab('show');
 
   // if it's got a parent navbar menu mark it active as well
   menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
 });
 </script>
 
@@ -365,7 +331,6 @@ $(document).ready(function () {
   max-height: 500px;
   min-height: 44px;
   overflow-y: auto;
-  background: white;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
@@ -497,7 +462,7 @@ div.tocify {
 
 
 <!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row-fluid">
+<div class="row">
 <div class="col-xs-12 col-sm-4 col-md-3">
 <div id="TOC" class="tocify">
 </div>
@@ -560,7 +525,7 @@ div.tocify {
   </div><!--/.container -->
 </div><!--/.navbar -->
 
-<div class="fluid-row" id="header">
+<div id="header">
 
 
 
@@ -667,6 +632,10 @@ div.tocify {
 <img src="img/rstudio-preferences.png" alt="" />
 <p class="caption">Set ‘Save workspace to .RData on exit’ to ‘Never’</p>
 </div>
+<blockquote>
+<h3 id="stretch-activity">Stretch Activity</h3>
+<p>Under the <code>File</code> menu, click on <code>New Project</code> and choose <code>New Directory</code> like before. Then investigate the other project structures that are available such as ‘Shiny Web Application’ or ‘R Package’. If you’re interested in either of these, have a look at this further information about making your own <a href="https://shiny.rstudio.com/">Shiny Web Application</a> or <a href="https://ourcodingclub.github.io/tutorials/writing-r-package/">R Package</a>.</p>
+</blockquote>
 <div id="organizing-your-working-directory" class="section level3">
 <h3>Organizing your working directory</h3>
 <p>Using a consistent folder structure across your projects will make it easy to find/file things in the future. This can be especially helpful when you have multiple projects. In general, you may create directories (folders) for <strong>scripts</strong>, <strong>data</strong>, and <strong>documents</strong>.</p>
@@ -682,12 +651,11 @@ div.tocify {
 </ul>
 <p>We are going to keep the script in the root of our working directory because we are only going to use one file and it will make things easier. Create this using the new file button in the top left hand corner and select R Script, the hit save and name it <code>data-carpentry-script</code>.</p>
 <p>Your working directory should now look like this:</p>
-<div class="figure" style="text-align: center">
-<img src="img/r-starting-how-it-should-look-like.png" alt="How it should look like at the beginning of this lesson" width="100%" />
-<p class="caption">
-How it should look like at the beginning of this lesson
-</p>
-</div>
+<blockquote>
+<h3 id="stretch-activity-1">Stretch Activity</h3>
+<p>Try creating the file structure shown below using only commands in the R console.</p>
+</blockquote>
+<p><img src="img/file_structure_diagram.png" /></p>
 </div>
 <div id="the-working-directory" class="section level3">
 <h3>The working directory</h3>
@@ -738,7 +706,7 @@ How it should look like at the beginning of this lesson
 <li><a href="https://stackoverflow.com/questions/tagged/r?tab=Votes">Stack Overflow’s <code>[r]</code>-tag</a>: Most questions have already been answered, but the challenge is to use the right words in the search to find the answers. If your question hasn’t been answered before and is well crafted, chances are you will get an answer in less than 5 min. Remember to follow their guidelines on <a href="https://stackoverflow.com/help/how-to-ask">how to ask a good question</a>.</li>
 </ul>
 <p style="text-align: right; font-size: small;">
-Page built on: 📆 2020-12-03 ‒ 🕢 10:40:04
+Page built on: &lt;U+0001F4C6&gt; 2021-09-09 - &lt;U+0001F562&gt; 16:55:10
 </p>
 </div>
 </div>
@@ -1342,32 +1310,33 @@ Answer
 When you load the <strong><code>tidyverse</code></strong> (<code>library("tidyverse")</code>), the core packages get loaded. <strong><code>lubridate</code></strong> however does not belong to the core tidyverse, so you have to load it explicitly with <code>library(lubridate)</code></p>
 <p>Start by loading the required package:</p>
 <div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1"></a><span class="kw">library</span>(<span class="st">&quot;lubridate&quot;</span>)</span></code></pre></div>
+<pre><code>#&gt; Warning: package &#39;lubridate&#39; was built under R version 4.0.5</code></pre>
 <p><code>ymd()</code> takes a vector representing year, month, and day, and converts it to a <code>Date</code> vector. <code>Date</code> is a class of data recognized by R as being a date and can be manipulated as such. The argument that the function requires is a character vector formatted as “YYYY-MM-DD”.</p>
 <p>Let’s create a date object and inspect the structure:</p>
-<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1"></a>my_date &lt;-<span class="st"> </span><span class="kw">ymd</span>(<span class="st">&quot;2015-01-01&quot;</span>)</span>
-<span id="cb84-2"><a href="#cb84-2"></a><span class="kw">str</span>(my_date)</span></code></pre></div>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1"></a>my_date &lt;-<span class="st"> </span><span class="kw">ymd</span>(<span class="st">&quot;2015-01-01&quot;</span>)</span>
+<span id="cb85-2"><a href="#cb85-2"></a><span class="kw">str</span>(my_date)</span></code></pre></div>
 <p>Now let’s paste the year, month, and day separately - we get the same result:</p>
-<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1"></a><span class="co"># sep indicates the character to use to separate each component</span></span>
-<span id="cb85-2"><a href="#cb85-2"></a>my_date &lt;-<span class="st"> </span><span class="kw">ymd</span>(<span class="kw">paste</span>(<span class="st">&quot;2015&quot;</span>, <span class="st">&quot;1&quot;</span>, <span class="st">&quot;1&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;-&quot;</span>)) </span>
-<span id="cb85-3"><a href="#cb85-3"></a><span class="kw">str</span>(my_date)</span></code></pre></div>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1"></a><span class="co"># sep indicates the character to use to separate each component</span></span>
+<span id="cb86-2"><a href="#cb86-2"></a>my_date &lt;-<span class="st"> </span><span class="kw">ymd</span>(<span class="kw">paste</span>(<span class="st">&quot;2015&quot;</span>, <span class="st">&quot;1&quot;</span>, <span class="st">&quot;1&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;-&quot;</span>)) </span>
+<span id="cb86-3"><a href="#cb86-3"></a><span class="kw">str</span>(my_date)</span></code></pre></div>
 <p>We can apply this operation to each row of the surveys dataset. We extract the vectors <code>surveys$year</code>, <code>surveys$month</code>, and <code>surveys$day</code>. Using <code>paste()</code> we can combine these vectors into a new vector for character dates.</p>
-<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1"></a>dates_char_vec &lt;-<span class="st"> </span><span class="kw">paste</span>(surveys<span class="op">$</span>year, surveys<span class="op">$</span>month, surveys<span class="op">$</span>day, <span class="dt">sep =</span> <span class="st">&quot;-&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="#cb87-1"></a>dates_char_vec &lt;-<span class="st"> </span><span class="kw">paste</span>(surveys<span class="op">$</span>year, surveys<span class="op">$</span>month, surveys<span class="op">$</span>day, <span class="dt">sep =</span> <span class="st">&quot;-&quot;</span>)</span></code></pre></div>
 <p>This character vector can be used as the argument for <code>ymd()</code>:</p>
-<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="#cb87-1"></a>date_vec &lt;-<span class="st"> </span><span class="kw">ymd</span>(dates_char_vec)</span></code></pre></div>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="#cb88-1"></a>date_vec &lt;-<span class="st"> </span><span class="kw">ymd</span>(dates_char_vec)</span></code></pre></div>
 <pre><code>#&gt; Warning: 129 failed to parse.</code></pre>
 <p>Something went wrong lets use <code>summary</code> to inspect <code>date_vec</code>:</p>
-<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="#cb89-1"></a><span class="kw">summary</span>(date_vec)</span></code></pre></div>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="#cb90-1"></a><span class="kw">summary</span>(date_vec)</span></code></pre></div>
 <pre><code>#&gt;         Min.      1st Qu.       Median         Mean      3rd Qu.         Max. 
 #&gt; &quot;1977-07-16&quot; &quot;1984-03-12&quot; &quot;1990-07-22&quot; &quot;1990-12-15&quot; &quot;1997-07-29&quot; &quot;2002-12-31&quot; 
 #&gt;         NA&#39;s 
 #&gt;        &quot;129&quot;</code></pre>
 <p>Some dates have missing values. Let’s investigate where they are coming from.</p>
-<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="#cb91-1"></a>missing_dates_vec &lt;-<span class="st"> </span>dates_char_vec[<span class="kw">is.na</span>(date_vec)]</span>
-<span id="cb91-2"><a href="#cb91-2"></a><span class="kw">head</span>(missing_dates_vec)</span></code></pre></div>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1"></a>missing_dates_vec &lt;-<span class="st"> </span>dates_char_vec[<span class="kw">is.na</span>(date_vec)]</span>
+<span id="cb92-2"><a href="#cb92-2"></a><span class="kw">head</span>(missing_dates_vec)</span></code></pre></div>
 <pre><code>#&gt; [1] &quot;2000-9-31&quot; &quot;2000-4-31&quot; &quot;2000-4-31&quot; &quot;2000-4-31&quot; &quot;2000-4-31&quot; &quot;2000-9-31&quot;</code></pre>
 <p>or</p>
-<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="#cb93-1"></a>missing_dates_tab &lt;-<span class="st"> </span>surveys[<span class="kw">is.na</span>(date_vec), <span class="kw">c</span>(<span class="st">&quot;year&quot;</span>, <span class="st">&quot;month&quot;</span>, <span class="st">&quot;day&quot;</span>)]</span>
-<span id="cb93-2"><a href="#cb93-2"></a><span class="kw">head</span>(missing_dates_tab)</span></code></pre></div>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1"></a>missing_dates_tab &lt;-<span class="st"> </span>surveys[<span class="kw">is.na</span>(date_vec), <span class="kw">c</span>(<span class="st">&quot;year&quot;</span>, <span class="st">&quot;month&quot;</span>, <span class="st">&quot;day&quot;</span>)]</span>
+<span id="cb94-2"><a href="#cb94-2"></a><span class="kw">head</span>(missing_dates_tab)</span></code></pre></div>
 <pre><code>#&gt;      year month day
 #&gt; 3144 2000     9  31
 #&gt; 3817 2000     4  31
@@ -1384,8 +1353,8 @@ When you load the <strong><code>tidyverse</code></strong> (<code>library("tidyve
 <p>However for now we will include the bad dates and can us this simple filter later if needed.</p>
 </blockquote>
 <p>The resulting <code>Date</code> vector <code>date_vec</code> can be added to <code>surveys</code> as a new column called <code>date</code>:</p>
-<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="#cb96-1"></a>surveys<span class="op">$</span>date &lt;-<span class="st"> </span>date_vec</span>
-<span id="cb96-2"><a href="#cb96-2"></a><span class="kw">str</span>(surveys) <span class="co"># notice the new column, with &#39;date&#39; as the class</span></span></code></pre></div>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="#cb97-1"></a>surveys<span class="op">$</span>date &lt;-<span class="st"> </span>date_vec</span>
+<span id="cb97-2"><a href="#cb97-2"></a><span class="kw">str</span>(surveys) <span class="co"># notice the new column, with &#39;date&#39; as the class</span></span></code></pre></div>
 <pre><code>#&gt; &#39;data.frame&#39;:    34786 obs. of  14 variables:
 #&gt;  $ record_id      : int  1 72 224 266 349 363 435 506 588 661 ...
 #&gt;  $ month          : int  7 8 9 10 11 11 12 1 2 3 ...
@@ -1440,7 +1409,7 @@ When you load the <strong><code>tidyverse</code></strong> (<code>library("tidyve
 <hr />
 <p>You have now completed all the day one learning objectives. It is very common to make mistakes in programming languages, identifying and solving <code>debugging</code> these mistakes makes up a large part of the programming skill-set. Becoming familiar with the basics we have covered today and the inspection tools e.g.  <code>summary()</code>, <code>ls()</code>, <code>str()</code> will set you on a path to being a confident R programmer.</p>
 <p style="text-align: right; font-size: small;">
-Page built on: 📆 2020-12-03 ‒ 🕢 10:40:12
+Page built on: &lt;U+0001F4C6&gt; 2021-09-09 - &lt;U+0001F562&gt; 16:55:19
 </p>
 </div>
 </div>
@@ -1511,7 +1480,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
   $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
+    $(this).parent().toggleClass('nav-tabs-open');
   });
 });
 </script>
@@ -1520,6 +1489,9 @@ $(document).ready(function () {
 
 <script>
 $(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
 
     // move toc-ignore selectors from section div to header
     $('div.section.toc-ignore')

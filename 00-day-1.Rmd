@@ -1,9 +1,9 @@
 ---
-title: "Day 1: Starting with Data"
+title: 'Day 1: Starting with Data'
 author: "Data Carpentry contributors"
 ---
 
-```{r, echo=FALSE, purl=FALSE, message = FALSE}
+```{r, echo=FALSE, purl=FALSE, message = FALSE, warning=FALSE}
 source("setup.R")
 ```
 
@@ -41,8 +41,6 @@ source("setup.R")
 > * Format dates.
 
 ------------
-
-This is a test...
 
 To start with we will focus on the first three learning objectives and 
 get your working environment set up.
@@ -171,6 +169,13 @@ for 'Save workspace to .RData' on exit.'
 
 ![Set 'Save workspace to .RData on exit' to 'Never'](img/rstudio-preferences.png)
 
+> ### Stretch Activity
+> Under the `File` menu, click on `New Project` and choose `New Directory` like before.
+> Then investigate the other project structures that are available such as 'Shiny 
+> Web Application' or 'R Package'. If you're interested in either of these, have a look at this further information 
+> about making your own [Shiny Web Application](https://shiny.rstudio.com/)
+> or [R Package](https://ourcodingclub.github.io/tutorials/writing-r-package/).
+
 ### Organizing your working directory
 
 Using a consistent folder structure across your projects will make it easy to 
@@ -211,9 +216,16 @@ are only going to use one file and it will make things easier. Create this using
 
 Your working directory should now look like this:
 
+
+
 ```{r, results='markup',fig.cap="How it should look like at the beginning of this lesson", echo=FALSE, purl=FALSE, out.width='100%', fig.align='center'}
 knitr::include_graphics("img/r-starting-how-it-should-look-like.png")
 ```
+
+> ### Stretch Activity
+> Try creating the file structure shown below using only commands in the R console.
+
+![](img/file_structure_diagram.png)
 
 ### The working directory
 
