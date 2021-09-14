@@ -181,17 +181,28 @@ head(sex)
 ```
 
 
-> ### Challenge
+<!-- > ### Challenge -->
+<!-- > * Rename "F" and "M" to "female" and "male" respectively. -->
+<!-- > * Now that we have renamed the factor level to "undetermined", can you recreate the -->
+<!-- > barplot such that "undetermined" is last (after "male")? -->
+<!-- >  -->
+<!-- > ```{r, answer = TRUE, purl=FALSE} -->
+<!-- > levels(sex)[2:3] <- c("female", "male") -->
+<!-- > sex <- factor(sex, levels = c("female", "male", "undetermined")) -->
+<!-- > plot(sex) -->
+<!-- > ```  -->
+
+> ### Challenge {.challenge}
 >
-> * Rename "F" and "M" to "female" and "male" respectively.
-> * Now that we have renamed the factor level to "undetermined", can you recreate the
->  barplot such that "undetermined" is last (after "male")?
->
-> ```{r, answer=TRUE, purl=FALSE}
+>  * Rename "F" and "M" to "female" and "male" respectively.
+>  * Now that we have renamed the factor level to "undetermined", can you recreate the
+> barplot such that "undetermined" is last (after "male")? 
+> 
+> ```{r, answer=TRUE, eval=FALSE, purl=FALSE}
 > levels(sex)[2:3] <- c("female", "male")
-> sex <- factor(sex, levels = c("female", "male", "undetermined"))
+> sex <- factor(sex, levels = c("female", "male", "undetermined")) 
 > plot(sex)
-> ``` 
+> ```
 
 
 ```{r wrong-order, results='show', echo=FALSE, purl=TRUE}
@@ -201,6 +212,29 @@ head(sex)
 ## * Now that we have renamed the factor level to "undetermined", can you recreate the
 ##   barplot such that "undetermined" is last (after "male")
 ```
+
+
+> ### Stretch Challenge {.challenge}
+>
+> * Group data from the continuous variable `hindfoot_length` into chunks of 10 units
+> and convert this variable into a factor. i.e. you should have factor levels '0-10',
+> '11-20', '21-30', '31-40', '41-50', '51-60', and '60+'.
+>
+> * Create a barplot of `hindfoot_length`
+>
+> ```{r, answer=TRUE, eval=FALSE, purl=FALSE}
+> surveys$hindfoot_length[surveys$hindfoot_length <= 10] <- "0-10"
+> surveys$hindfoot_length[surveys$hindfoot_length > 10 & surveys$hindfoot_length <= 20] <- "11-20"
+> surveys$hindfoot_length[surveys$hindfoot_length > 20 & surveys$hindfoot_length <= 30] <- "21-30"
+> surveys$hindfoot_length[surveys$hindfoot_length > 30 & surveys$hindfoot_length <= 40] <- "31-40"
+> surveys$hindfoot_length[surveys$hindfoot_length > 40 & surveys$hindfoot_length <= 50] <- "41-50"
+> surveys$hindfoot_length[surveys$hindfoot_length > 50 & surveys$hindfoot_length <= 60] <- "51-60"
+> surveys$hindfoot_length[surveys$hindfoot_length > 60] <- "61+"
+
+> surveys$hindfoot_length <- as.factor(surveys$hindfoot_length)
+> plot(surveys$hindfoot_length)
+> ```
+
 
 
 ### Using `stringsAsFactors=FALSE`
@@ -337,6 +371,15 @@ To learn more about **`dplyr`** and **`tidyr`** after the workshop, you may want
 [handy data transformation with **`dplyr`** cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf)
 and this [one about **`tidyr`**](https://github.com/rstudio/cheatsheets/raw/master/data-import.pdf).
 
+> ### Stretch Challenge
+> * Install and load dplyr and tidyr within your project environment.
+> This is great for making your code reproducible. You can do this using 
+> [renv](https://cran.r-project.org/web/packages/renv/vignettes/renv.html)
+>
+> * If you have more packages loaded, filter and select from  dplyr can be 
+> overwritten by functions of the same name in different packages.  Use `dplyr::select` 
+> or [prioritize()](https://rdrr.io/cran/needs/man/prioritize.html) to ensure 
+> you’re using the correct version of the function.
 
 ### Getting started with Tidyverse
 
@@ -497,6 +540,25 @@ Note that the final data frame is the leftmost part of this expression.
 >     select(year, sex, weight)
 > ```
 
+> ### Stretch Challenge {.challenge}
+>
+>  Rewrite the code below using as few lines of code as possible and using pipes 
+> to remove the intermediary variables. 
+>  
+> ```{r, purl = FALSE}
+> surveys_2 <- filter(surveys, year > 2000)
+> surveys_3 <- filter(surveys_2, year != 2001)
+> surveys_4 <- filter(surveys_3, plot_type == 'Control')
+> surveys_5 <- select(surveys_4, record_id, month, day, year, sex, weight)
+> surveys_6 <- select(surveys_5, -day)
+> 
+> ```{r, answer=TRUE, eval=FALSE, purl=FALSE}
+> surveys %>%
+>     filter(year < 1995, year != 2001, plot_type == 'Control') %>%
+>     select(record_id, month, year, sex, weight)
+> ```
+
+
 ```{r, eval=FALSE, purl=TRUE, echo=FALSE}
 ## Pipes Challenge:
 ##  Using pipes, subset the data to include animals collected
@@ -565,6 +627,25 @@ symbol negates the result, so we're asking for every row where weight *is not* a
 >     select(species_id, hindfoot_cm)
 > ```
  
+> ### Stretch Challenge {.challenge}
+>
+> * Create a new dataframe fom the `surveys` data with a new column 
+> called `weight_simplified` which has the value `1` if weight is 
+> less than or equal to the mean weight and `2` if the weight is more than the 
+> mean weight.
+>
+>  ```{r, answer=TRUE, eval=FALSE, purl=FALSE}
+> surveys_simplified <- surveys %>%
+>      mutate(weight_simplified = 
+>        ifelse(weight <= mean(weight, na.rm = TRUE), 1, 2))
+> ```
+>
+> * What's the name of the function in `dplyr` which both selects and mutates?  Have a look
+> at the [documentation for dplyr](https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf)
+> 
+> ```{text_answer, echo=FALSE, purl=FALSE}
+> transmute
+> ```
 
 ```{r, eval=FALSE, purl=TRUE, echo=FALSE}
 ## Mutate Challenge:
@@ -1060,6 +1141,12 @@ write_csv(surveys_complete, file = "data/surveys_complete.csv")
 if (!dir.exists("data")) dir.create("data")
 write_csv(surveys_complete, file = "data/surveys_complete.csv")
 ```
+
+> ### Stretch Challenge
+> Data can also be imported and exported in the form of binary files. Have a look
+> at documentation for the [readBin() and writeBin() functions](https://www.rdocumentation.org/packages/base/versions/3.0.3/topics/readBin), as well as this
+> [helpful guide](https://www.javatpoint.com/r-binary-file#:~:text=R%20Binary%20File%20A%20binary%20file%20is%20a,and%20symbols%20that%20contain%20many%20other%20non-printable%20characters.) to binary files in r. Then try to export the surveys data as a binary
+> file before importing the binary file back into r. 
 
 
 ```{r, child="_page_built_on.Rmd"}
