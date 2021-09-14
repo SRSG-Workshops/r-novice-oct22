@@ -214,7 +214,7 @@ head(sex)
 ```
 
 
-> ### Stretch Challenge {.challenge}
+> ### Stretch Challenge (Intermediate - 20 mins) {.challenge}
 >
 > * Group data from the continuous variable `hindfoot_length` into chunks of 10 units
 > and convert this variable into a factor. i.e. you should have factor levels '0-10',
@@ -368,10 +368,10 @@ for this and more sophisticated  data manipulation.
 > back into R only what you need for analysis.
 
 To learn more about **`dplyr`** and **`tidyr`** after the workshop, you may want to check out this
-[handy data transformation with **`dplyr`** cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf)
-and this [one about **`tidyr`**](https://github.com/rstudio/cheatsheets/raw/master/data-import.pdf).
+[handy data transformation with **`dplyr`** cheatsheet](https://dplyr.tidyverse.org/)
+and this [one about **`tidyr`**](https://tidyr.tidyverse.org/).
 
-> ### Stretch Challenge
+> ### Stretch Challenge (Difficult - 30 mins)
 > * Install and load dplyr and tidyr within your project environment.
 > This is great for making your code reproducible. You can do this using 
 > [renv](https://cran.r-project.org/web/packages/renv/vignettes/renv.html)
@@ -540,9 +540,9 @@ Note that the final data frame is the leftmost part of this expression.
 >     select(year, sex, weight)
 > ```
 
-> ### Stretch Challenge {.challenge}
+> ### Stretch Challenge (Intermediate - 15 mins) {.challenge}
 >
->  Rewrite the code below using as few lines of code as possible and using pipes 
+>  Create `surveys_final` using as few lines of code as possible and using pipes 
 > to remove the intermediary variables. 
 >  
 > ```{r, purl = FALSE}
@@ -550,10 +550,10 @@ Note that the final data frame is the leftmost part of this expression.
 > surveys_3 <- filter(surveys_2, year != 2001)
 > surveys_4 <- filter(surveys_3, plot_type == 'Control')
 > surveys_5 <- select(surveys_4, record_id, month, day, year, sex, weight)
-> surveys_6 <- select(surveys_5, -day)
+> surveys_final <- select(surveys_5, -day)
 > 
 > ```{r, answer=TRUE, eval=FALSE, purl=FALSE}
-> surveys %>%
+> surveys_final <- surveys %>%
 >     filter(year < 1995, year != 2001, plot_type == 'Control') %>%
 >     select(record_id, month, year, sex, weight)
 > ```
@@ -627,7 +627,7 @@ symbol negates the result, so we're asking for every row where weight *is not* a
 >     select(species_id, hindfoot_cm)
 > ```
  
-> ### Stretch Challenge {.challenge}
+> ### Stretch Challenge (Difficult - 20 mins) {.challenge}
 >
 > * Create a new dataframe fom the `surveys` data with a new column 
 > called `weight_simplified` which has the value `1` if weight is 
@@ -641,7 +641,7 @@ symbol negates the result, so we're asking for every row where weight *is not* a
 > ```
 >
 > * What's the name of the function in `dplyr` which both selects and mutates?  Have a look
-> at the [documentation for dplyr](https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf)
+> at the [documentation for dplyr](https://dplyr.tidyverse.org/)
 > 
 > ```{text_answer, echo=FALSE, purl=FALSE}
 > transmute
@@ -1142,7 +1142,7 @@ if (!dir.exists("data")) dir.create("data")
 write_csv(surveys_complete, file = "data/surveys_complete.csv")
 ```
 
-> ### Stretch Challenge
+> ### Stretch Challenge (Fiendish - 45 mins)
 > Data can also be imported and exported in the form of binary files. Have a look
 > at documentation for the [readBin() and writeBin() functions](https://www.rdocumentation.org/packages/base/versions/3.0.3/topics/readBin), as well as this
 > [helpful guide](https://www.javatpoint.com/r-binary-file#:~:text=R%20Binary%20File%20A%20binary%20file%20is%20a,and%20symbols%20that%20contain%20many%20other%20non-printable%20characters.) to binary files in r. Then try to export the surveys data as a binary

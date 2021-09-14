@@ -650,7 +650,7 @@ Answer
 </div>
 </blockquote>
 <blockquote>
-<h3 id="stretch-challenge" class="challenge">Stretch Challenge</h3>
+<h3 id="stretch-challenge-intermediate---20-mins" class="challenge">Stretch Challenge (Intermediate - 20 mins)</h3>
 <ul>
 <li><p>Group data from the continuous variable <code>hindfoot_length</code> into chunks of 10 units and convert this variable into a factor. i.e. you should have factor levels ‘0-10’, ‘11-20’, ‘21-30’, ‘31-40’, ‘41-50’, ‘51-60’, and ‘60+’.</p></li>
 <li><p>Create a barplot of <code>hindfoot_length</code></p></li>
@@ -742,9 +742,9 @@ Answer
 <blockquote>
 <p>An additional feature of <strong><code>dplyr</code></strong> is the ability to work directly with data stored in an external database. The benefits of doing this are that the data can be managed natively in a relational database, queries can be conducted on that database, and only the results of the query are returned. This addresses a common problem with R in that all operations are conducted in-memory and thus the amount of data you can work with is limited by available memory. The database connections essentially remove that limitation in that you can connect to a database of many hundreds of GB, conduct queries on it directly, and pull back into R only what you need for analysis.</p>
 </blockquote>
-<p>To learn more about <strong><code>dplyr</code></strong> and <strong><code>tidyr</code></strong> after the workshop, you may want to check out this <a href="https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf">handy data transformation with <strong><code>dplyr</code></strong> cheatsheet</a> and this <a href="https://github.com/rstudio/cheatsheets/raw/master/data-import.pdf">one about <strong><code>tidyr</code></strong></a>.</p>
+<p>To learn more about <strong><code>dplyr</code></strong> and <strong><code>tidyr</code></strong> after the workshop, you may want to check out this <a href="https://dplyr.tidyverse.org/">handy data transformation with <strong><code>dplyr</code></strong> cheatsheet</a> and this <a href="https://tidyr.tidyverse.org/">one about <strong><code>tidyr</code></strong></a>.</p>
 <blockquote>
-<h3 id="stretch-challenge-1">Stretch Challenge</h3>
+<h3 id="stretch-challenge-difficult---30-mins">Stretch Challenge (Difficult - 30 mins)</h3>
 <ul>
 <li><p>Install and load dplyr and tidyr within your project environment. This is great for making your code reproducible. You can do this using <a href="https://cran.r-project.org/web/packages/renv/vignettes/renv.html">renv</a></p></li>
 <li><p>If you have more packages loaded, filter and select from dplyr can be overwritten by functions of the same name in different packages. Use <code>dplyr::select</code> or <a href="https://rdrr.io/cran/needs/man/prioritize.html">prioritize()</a> to ensure you’re using the correct version of the function.</p></li>
@@ -845,19 +845,19 @@ Answer
 </div>
 </blockquote>
 <blockquote>
-<h3 id="stretch-challenge-2" class="challenge">Stretch Challenge</h3>
-<p>Rewrite the code below using as few lines of code as possible and using pipes to remove the intermediary variables.</p>
+<h3 id="stretch-challenge-intermediate---15-mins" class="challenge">Stretch Challenge (Intermediate - 15 mins)</h3>
+<p>Create <code>surveys_final</code> using as few lines of code as possible and using pipes to remove the intermediary variables.</p>
 <div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a>surveys_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">filter</span>(surveys, year <span class="op">&gt;</span><span class="st"> </span><span class="dv">2000</span>)</span>
 <span id="cb35-2"><a href="#cb35-2"></a>surveys_<span class="dv">3</span> &lt;-<span class="st"> </span><span class="kw">filter</span>(surveys_<span class="dv">2</span>, year <span class="op">!=</span><span class="st"> </span><span class="dv">2001</span>)</span>
 <span id="cb35-3"><a href="#cb35-3"></a>surveys_<span class="dv">4</span> &lt;-<span class="st"> </span><span class="kw">filter</span>(surveys_<span class="dv">3</span>, plot_type <span class="op">==</span><span class="st"> &#39;Control&#39;</span>)</span>
 <span id="cb35-4"><a href="#cb35-4"></a>surveys_<span class="dv">5</span> &lt;-<span class="st"> </span><span class="kw">select</span>(surveys_<span class="dv">4</span>, record_id, month, day, year, sex, weight)</span>
-<span id="cb35-5"><a href="#cb35-5"></a>surveys_<span class="dv">6</span> &lt;-<span class="st"> </span><span class="kw">select</span>(surveys_<span class="dv">5</span>, <span class="op">-</span>day)</span></code></pre></div>
+<span id="cb35-5"><a href="#cb35-5"></a>surveys_final &lt;-<span class="st"> </span><span class="kw">select</span>(surveys_<span class="dv">5</span>, <span class="op">-</span>day)</span></code></pre></div>
 <div class="accordion">
 <h3 class="toc-ignore">
 Answer
 </h3>
 <div style="background: #fff;">
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a>surveys <span class="op">%&gt;%</span></span>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a>surveys_final &lt;-<span class="st"> </span>surveys <span class="op">%&gt;%</span></span>
 <span id="cb36-2"><a href="#cb36-2"></a><span class="st">    </span><span class="kw">filter</span>(year <span class="op">&lt;</span><span class="st"> </span><span class="dv">1995</span>, year <span class="op">!=</span><span class="st"> </span><span class="dv">2001</span>, plot_type <span class="op">==</span><span class="st"> &#39;Control&#39;</span>) <span class="op">%&gt;%</span></span>
 <span id="cb36-3"><a href="#cb36-3"></a><span class="st">    </span><span class="kw">select</span>(record_id, month, year, sex, weight)</span></code></pre></div>
 </div>
@@ -901,7 +901,7 @@ Answer
 </div>
 </blockquote>
 <blockquote>
-<h3 id="stretch-challenge-3" class="challenge">Stretch Challenge</h3>
+<h3 id="stretch-challenge-difficult---20-mins" class="challenge">Stretch Challenge (Difficult - 20 mins)</h3>
 <ul>
 <li>Create a new dataframe fom the <code>surveys</code> data with a new column called <code>weight_simplified</code> which has the value <code>1</code> if weight is less than or equal to the mean weight and <code>2</code> if the weight is more than the mean weight.</li>
 </ul>
@@ -916,7 +916,7 @@ Answer
 </div>
 </div>
 <ul>
-<li>What’s the name of the function in <code>dplyr</code> which both selects and mutates? Have a look at the <a href="https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf">documentation for dplyr</a></li>
+<li>What’s the name of the function in <code>dplyr</code> which both selects and mutates? Have a look at the <a href="https://dplyr.tidyverse.org/">documentation for dplyr</a></li>
 </ul>
 <div class="accordion">
 <h3 class="toc-ignore">
@@ -1199,11 +1199,11 @@ Answer
 <p>Now that our data set is ready, we can save it as a CSV file in our <code>data</code> folder.</p>
 <div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1"></a><span class="kw">write_csv</span>(surveys_complete, <span class="dt">file =</span> <span class="st">&quot;data/surveys_complete.csv&quot;</span>)</span></code></pre></div>
 <blockquote>
-<h3 id="stretch-challenge-4">Stretch Challenge</h3>
+<h3 id="stretch-challenge-fiendish---45-mins">Stretch Challenge (Fiendish - 45 mins)</h3>
 <p>Data can also be imported and exported in the form of binary files. Have a look at documentation for the <a href="https://www.rdocumentation.org/packages/base/versions/3.0.3/topics/readBin">readBin() and writeBin() functions</a>, as well as this <a href="https://www.javatpoint.com/r-binary-file#:~:text=R%20Binary%20File%20A%20binary%20file%20is%20a,and%20symbols%20that%20contain%20many%20other%20non-printable%20characters.">helpful guide</a> to binary files in r. Then try to export the surveys data as a binary file before importing the binary file back into r.</p>
 </blockquote>
 <p style="text-align: right; font-size: small;">
-Page built on: &lt;U+0001F4C6&gt; 2021-09-14 - &lt;U+0001F562&gt; 13:45:50
+Page built on: &lt;U+0001F4C6&gt; 2021-09-14 - &lt;U+0001F562&gt; 16:14:28
 </p>
 </div>
 
