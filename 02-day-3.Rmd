@@ -209,6 +209,12 @@ surveys_plot +
 ## plot compared to a scatter plot?
 ```
 
+> ### Stretch Challenge
+> Add a smoothing line to the plot so that it is easier to interpret.  You could also 
+> investigate whether a contour plot or heatmap improves clarity of interpretation.  
+> Hint: Have a look at the [**`ggplot2`** cheat sheet](https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf) 
+
+
 ## Building your plots iteratively
 
 Building plots with **`ggplot2`** is typically an iterative process. We start by
@@ -245,13 +251,13 @@ ggplot(data = surveys_complete, mapping = aes(x = weight, y = hindfoot_length)) 
     geom_point(alpha = 0.1, aes(color = species_id))
 ```
 
-> ### Challenge
+> ### Challenge {.challenge}
 >
 > Use what you just learned to create a scatter plot of `weight` over
 > `species_id` with the plot types showing in different colors.
 > Is this a good way to show this type of data?
 >
-> ```{r scatter-challenge-answer, answer=TRUE, purl=FALSE}
+> ```{r scatter-challenge-answer, answer=TRUE, eval = FALSE, purl=FALSE}
 > ggplot(data = surveys_complete, 
 >        mapping = aes(x = species_id, y = weight)) +
 >    geom_point(aes(color = plot_type))
@@ -337,6 +343,12 @@ ggplot(data = surveys_complete, mapping = aes(x = species_id, y = weight)) +
 ##  makes the graph?
 
 ```
+> ### Stretch Challenge
+> * Add even more information to your boxplot by adding another variable as the colour 
+> or fill in the aesthetic mappings. 
+>
+> * Try different ways of visualising error on your boxplot
+> e.g. 95% error bars, pointrange, deciles, quintiles
 
 
 ## Plotting time series data
@@ -507,7 +519,7 @@ themes.
 > Use what you just learned to create a plot that depicts how the average weight
 > of each species changes through the years.
 > 
-> ```{r average-weight-time-series, answer=TRUE, purl=FALSE}
+> ```{r average-weight-time-series, answer=TRUE, eval=FALSE, purl=FALSE}
 > yearly_weight <- surveys_complete %>%
 >                 group_by(year, species_id) %>%
 >                  summarize(avg_weight = mean(weight))
