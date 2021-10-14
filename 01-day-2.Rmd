@@ -940,7 +940,7 @@ although we may wish to fill in the missing values first.
 
 ```{r, purl=FALSE}
 surveys_gw %>%
-  pivot_wider(genus, mean_weight, values_fill = 0) %>%
+  pivot_wider(names_from = genus, values_from = mean_weight, values_fill = 0) %>%
   head()
 ```
 
