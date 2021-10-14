@@ -960,7 +960,7 @@ the other variable contains the values previously associated with the column nam
 2. *cols* indicates the columns to pivot into longer format (or those not to pivot)
 3. *names_to* indicates the name of the column to create from the data stored in the column names of data.
 4. *values_to* indicates the name of the column to create from the data stored in cell values. 
-. the names of the columns we use to fill the key variable (or to drop).
+
 
 To recreate `surveys_gw` from `surveys_wide` we would set *names_to* 
 `genus` and *values_to* `mean_weight` and use all columns except `plot_id` for
@@ -1032,7 +1032,7 @@ surveys_wide %>%
 >
 > 4. With this new data set, calculate the average of each
 >    `measurement` in each `year` for each different `plot_type`. Then
->    `spread()` them into a data set with a column for `hindfoot_length` and
+>    `pivot_wider()` them into a data set with a column for `hindfoot_length` and
 >    `weight`. *Hint*: You only need to specify the name and value
 >    columns for `pivot_wider()`.
 >
