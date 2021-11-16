@@ -1088,7 +1088,7 @@ Answer
 <p><img src="img/pivot_wider.png" /></p>
 <p>We could now plot comparisons between the weight of genera in different plots, although we may wish to fill in the missing values first.</p>
 <div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1"></a>surveys_gw <span class="op">%&gt;%</span></span>
-<span id="cb60-2"><a href="#cb60-2"></a><span class="st">  </span><span class="kw">pivot_wider</span>(genus, mean_weight, <span class="dt">values_fill =</span> <span class="dv">0</span>) <span class="op">%&gt;%</span></span>
+<span id="cb60-2"><a href="#cb60-2"></a><span class="st">  </span><span class="kw">pivot_wider</span>(<span class="dt">names_from =</span> genus, <span class="dt">values_from =</span> mean_weight, <span class="dt">values_fill =</span> <span class="dv">0</span>) <span class="op">%&gt;%</span></span>
 <span id="cb60-3"><a href="#cb60-3"></a><span class="st">  </span><span class="kw">head</span>()</span></code></pre></div>
 </div>
 <div id="pivot_longer" class="section level4">
@@ -1100,7 +1100,7 @@ Answer
 <li>the data</li>
 <li><em>cols</em> indicates the columns to pivot into longer format (or those not to pivot)</li>
 <li><em>names_to</em> indicates the name of the column to create from the data stored in the column names of data.</li>
-<li><em>values_to</em> indicates the name of the column to create from the data stored in cell values. . the names of the columns we use to fill the key variable (or to drop).</li>
+<li><em>values_to</em> indicates the name of the column to create from the data stored in cell values.</li>
 </ol>
 <p>To recreate <code>surveys_gw</code> from <code>surveys_wide</code> we would set <em>names_to</em> <code>genus</code> and <em>values_to</em> <code>mean_weight</code> and use all columns except <code>plot_id</code> for the key variable. Here we exclude <code>plot_id</code> from being pivoted.</p>
 <div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1"></a>surveys_long &lt;-<span class="st"> </span>surveys_wide <span class="op">%&gt;%</span></span>
@@ -1156,7 +1156,7 @@ Answer
 </div>
 </div>
 <ol start="4" style="list-style-type: decimal">
-<li>With this new data set, calculate the average of each <code>measurement</code> in each <code>year</code> for each different <code>plot_type</code>. Then <code>spread()</code> them into a data set with a column for <code>hindfoot_length</code> and <code>weight</code>. <em>Hint</em>: You only need to specify the name and value columns for <code>pivot_wider()</code>.</li>
+<li>With this new data set, calculate the average of each <code>measurement</code> in each <code>year</code> for each different <code>plot_type</code>. Then <code>pivot_wider()</code> them into a data set with a column for <code>hindfoot_length</code> and <code>weight</code>. <em>Hint</em>: You only need to specify the name and value columns for <code>pivot_wider()</code>.</li>
 </ol>
 <div class="accordion">
 <h3 class="toc-ignore">
@@ -1203,7 +1203,7 @@ Answer
 <p>Data can also be imported and exported in the form of binary files. Have a look at documentation for the <a href="https://www.rdocumentation.org/packages/base/versions/3.0.3/topics/readBin">readBin() and writeBin() functions</a>, as well as this <a href="https://www.javatpoint.com/r-binary-file#:~:text=R%20Binary%20File%20A%20binary%20file%20is%20a,and%20symbols%20that%20contain%20many%20other%20non-printable%20characters.">helpful guide</a> to binary files in r. Then try to export the surveys data as a binary file before importing the binary file back into r.</p>
 </blockquote>
 <p style="text-align: right; font-size: small;">
-Page built on: &lt;U+0001F4C6&gt; 2021-09-14 - &lt;U+0001F562&gt; 16:14:28
+Page built on: &lt;U+0001F4C6&gt; 2021-11-16 - &lt;U+0001F562&gt; 10:14:02
 </p>
 </div>
 
