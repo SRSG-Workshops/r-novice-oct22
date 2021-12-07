@@ -15,9 +15,9 @@ introduction to plotting.
 
 ## Days
 
-1. [Day1](00-day-1.Rmd)
-2. [Day2](01-day-2.Rmd)
-3. [Day3](2-day-3.Rmd)
+1. [Day1](_episodes_rmd/00-day-1.Rmd)
+2. [Day2](_episodes_rmd/01-day-2.Rmd)
+3. [Day3](_episodes_rmd/02-day-3.Rmd)
 
 ## Code handout
 
