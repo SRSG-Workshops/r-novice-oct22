@@ -4,7 +4,7 @@ author: "Data Carpentry contributors"
 ---
 
 ```{r, echo=FALSE, purl=FALSE, message = FALSE, warning=FALSE}
-source("setup.R")
+source(getwd()+"setup.R")
 ```
 
 # Working Environment
