@@ -1,11 +1,12 @@
 ---
 title: "Data Analysis and Visualization in R"
+output: html_document
 ---
 
 <p></p>
 
 <div style="text-align: center; margin-top: 30px; margin-bottom: 30px;">
-![](./img/DC-logo-vision.png)
+![](assets/fig/DC-logo-vision.png)
 </div>
 
 <p></p>
@@ -27,13 +28,13 @@ experience. These lessons will be taught over three days. They start with
 some basic information about R syntax, the RStudio interface, and move through
 how to import CSV files, the structure of data frames, how to deal with factors,
 how to add/remove rows and columns, how to calculate summary statistics from a
-data frame, and a brief introduction to plotting. 
+data frame, and a brief introduction to plotting.
 
 ## Days
 
-1. [Day1](00-day-1.html)
-2. [Day2](01-day-2.html)
-3. [Day3](02-day-3.html)
+1. [Day1](_episodes_rmd/00-day-1.Rmd)
+2. [Day2](_episodes_rmd/01-day-2.Rmd)
+3. [Day3](_episodes_rmd/02-day-3.Rmd)
 
 ## Requirements
 
