@@ -8,7 +8,7 @@ editor_options:
 
 
 ```{r setup, echo=FALSE, message = FALSE, warning = FALSE, purl=FALSE}
-source(getwd()+"setup.R")
+source(paste(getwd(), "setup.R", sep='')
 surveys_complete <- read_csv(file = "data_raw/portal_data_joined.csv", col_types = cols()) %>% 
   drop_na(weight, hindfoot_length, sex) %>% 
   group_by(species_id) %>% 
