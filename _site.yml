@@ -1,6 +1,5 @@
 output_dir: "docs"
-exclude: ["portal-database.sqlite", "DESCRIPTION", "Makefile"]
-include: ["code-handout.R"]
+exclude: ["portal-database.sqlite", "DESCRIPTION", "Makefile", "readme.md"]
 output:
   html_document:
     highlight: pygments
@@ -8,6 +7,6 @@ output:
     toc_float:
       collapsed: false
     include:
-      in_header: header.html
-      after_body: footer.html
+      in_header: _includes/header.html
+      after_body: _includes/footer.html
     css: style.css
