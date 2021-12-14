@@ -20,7 +20,7 @@ surveys_complete <- read_csv(file = "data_raw/portal_data_joined.csv", col_types
 ### Data Visualization with ggplot2
 ```
 
-## If you didnt finish the previous day (or are having problems with the data) run this to create the needed envronment.
+## If you didn't finish the previous day (or are having problems with the data) run this to create the needed envronment.
 
 ```{r catch-up, eval = FALSE, purl = FALSE}
 library("tidyverse")
