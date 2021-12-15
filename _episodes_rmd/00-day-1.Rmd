@@ -215,12 +215,8 @@ We are going to keep the script in the root of our working directory because we
 are only going to use one file and it will make things easier. Create this using the new file button in the top left hand corner and select R Script, the hit save and name it `data-carpentry-script`.
 
 Your working directory should now look like this:
+![]("../../fig/r-starting-how-it-should-look-like.png")
 
-
-
-```{r, results='markup',fig.cap="How it should look like at the beginning of this lesson", echo=FALSE, purl=FALSE, out.width='100%', fig.align='center'}
-knitr::include_graphics("../../fig/r-starting-how-it-should-look-like.png")
-```
 
 > ### Stretch Challenge (Intermediate - 15 mins)
 > Try creating the file structure shown below using only commands in the R console.
