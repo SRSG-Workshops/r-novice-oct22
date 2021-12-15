@@ -431,7 +431,7 @@ An _object_ is programming speak for a thing with known properties. Lets conside
 an example that we would all be familiar with before jumping into some R. 
 
 I tell you that I have a _car_, in this case the car is the _object_.
-Without any further information you instinctivly know that the _object_ called _car_
+Without any further information you instinctively know that the _object_ called _car_
 has several _attributes_. For example, _colour_, _make_, _model_, _numberplate_. You can 
 use this predefined model to ask sensible questions. For example if you ask me,
 what model the car is (or model(_car_)) I can tell you 'Corsa'. However, if you were to ask me breed(_car_) this would be a
