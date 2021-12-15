@@ -1459,5 +1459,5 @@ skill-set.
 Becoming familiar with the basics we have covered today and the inspection tools e.g. 
 `summary()`, `ls()`, `str()` will set you on a path to being a confident R programmer.
 
-```{r, child="../_page_built_on.Rmd"}
+```{r, child="_page_built_on.Rmd"}
 ```
