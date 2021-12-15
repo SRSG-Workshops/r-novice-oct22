@@ -349,7 +349,7 @@ query.
   answer in less than 5 min. Remember to follow their guidelines on [how to ask
   a good question](https://stackoverflow.com/help/how-to-ask).
 
-```{r, child="../_page_built_on.Rmd"}
+```{r, child="_page_built_on.Rmd"}
 ```
 # R Basics
 
