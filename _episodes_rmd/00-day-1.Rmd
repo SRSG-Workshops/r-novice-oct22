@@ -4,8 +4,8 @@ author: "Data Carpentry contributors"
 ---
 
 ```{r, echo=FALSE, purl=FALSE, message = FALSE, warning=FALSE}
+print(getwd())
 source("r-novice_setup.R")
-
 ```
 
 # Working Environment
