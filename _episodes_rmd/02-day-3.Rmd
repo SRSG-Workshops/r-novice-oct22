@@ -8,7 +8,7 @@ editor_options:
 
 
 ```{r setup, echo=FALSE, message = FALSE, warning = FALSE, purl=FALSE}
-source(paste(getwd(), "/setup.R", sep=''))
+source(paste(getwd(), "/r_novice_setup.R", sep=''))
 surveys_complete <- read_csv(file = "data_raw/portal_data_joined.csv", col_types = cols()) %>% 
   drop_na(weight, hindfoot_length, sex) %>% 
   group_by(species_id) %>% 
@@ -24,7 +24,6 @@ surveys_complete <- read_csv(file = "data_raw/portal_data_joined.csv", col_types
 
 ```{r catch-up, eval = FALSE, purl = FALSE}
 library("tidyverse")
-mainDir = getwd()
 dir.create(file.path(mainDir, "data_raw"), showWarnings = FALSE)
 dir.create(file.path(mainDir, "data"), showWarnings = FALSE)
 download.file(url = "https://ndownloader.figshare.com/files/2292169", destfile = "data_raw/portal_data_joined.csv")
