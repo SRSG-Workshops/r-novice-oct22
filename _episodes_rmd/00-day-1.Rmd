@@ -4,7 +4,7 @@ author: "Data Carpentry contributors"
 ---
 
 ```{r, echo=FALSE, purl=FALSE, message = FALSE, warning=FALSE}
-source("r_novice_setup.R")
+source("r-novice_setup.R")
 
 ```
 
