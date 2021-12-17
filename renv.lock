@@ -429,6 +429,13 @@
       "Repository": "CRAN",
       "Hash": "6dfe8bf774944bd5595785e3229d8771"
     },
+    "needs": {
+      "Package": "needs",
+      "Version": "0.0.3",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "e0f6b66e013fb7d961d46de463bd8ca6"
+    },
     "nlme": {
       "Package": "nlme",
       "Version": "3.1-153",
