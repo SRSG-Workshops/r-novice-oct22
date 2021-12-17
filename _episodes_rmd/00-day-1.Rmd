@@ -3,8 +3,12 @@ title: 'Day 1: Starting with Data'
 author: "Data Carpentry contributors"
 ---
 
+```{r}
+print(getwd)
+```
+
+
 ```{r, echo=FALSE, purl=FALSE, message = FALSE, warning=FALSE}
-print(getwd())
 source("r-novice_setup.R")
 ```
 
