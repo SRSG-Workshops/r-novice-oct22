@@ -4,7 +4,7 @@ author: "Data Carpentry contributors"
 ---
 
 ```{r}
-print(getwd)
+print(getwd())
 ```
 
 
