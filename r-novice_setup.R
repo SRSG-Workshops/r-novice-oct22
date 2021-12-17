@@ -1,16 +1,12 @@
-## Working Directory
-# Get the Current wd, this is ususually where the file is
-wd <- getwd()
-figdir <- paste(getwd(), "/fig/", sep='')
-
 if (dir.exists(paste(getwd(), "/_episodes_rmd/", sep=''))) {
     epdir <- paste(getwd(), "/_episodes_rmd/", sep='')
 } else if (dir.exists(paste(getwd(), "/collections/_episodes_rmd/r-novice/", sep=''))) {
     epdir <- paste(getwd(), "/collections/_episodes_rmd/r-novice/", sep='')
 }
 
+data_raw_path <- paste(getwd(), "/data_raw/", sep='')
 ## file structure
-if (!file.exists(data_raw_path)) dir.create(data_raw_path)
+if (!dir.exists(data_raw_path)) dir.create(data_raw_path)
 
 if (!file.exists("data_raw/surveys.csv")) {
     download.file("https://ndownloader.figshare.com/files/2292172",
