@@ -626,7 +626,7 @@ symbol negates the result, so we're asking for every row where weight *is not* a
 >     filter(hindfoot_cm < 3) %>%
 >     select(species_id, hindfoot_cm)
 > ```
- 
+
 > ### Stretch Challenge (Difficult - 20 mins) {.challenge}
 >
 > * Create a new dataframe fom the `surveys` data with a new column 
@@ -634,7 +634,7 @@ symbol negates the result, so we're asking for every row where weight *is not* a
 > less than or equal to the mean weight and `2` if the weight is more than the 
 > mean weight.
 >
->  ```{r, answer=TRUE, eval=FALSE, purl=FALSE}
+> ```{r, answer=TRUE, eval=FALSE, purl=FALSE}
 > surveys_simplified <- surveys %>%
 >      mutate(weight_simplified = 
 >        ifelse(weight <= mean(weight, na.rm = TRUE), 1, 2))
