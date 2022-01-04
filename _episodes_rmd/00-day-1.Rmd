@@ -1,5 +1,6 @@
 ---
 title: 'Day 1: Starting with Data'
+slug: 'starting-data'
 author: "Data Carpentry contributors"
 ---
 
@@ -396,7 +397,7 @@ Now that we have a working environment set up we can start on the basics of R.
 
 You can get output from R simply by typing math in the console:
 
-```{r, purl = FALSE}
+```{r, purl = FALSE}z
 3 + 5
 12 / 7
 ```

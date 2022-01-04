@@ -1,5 +1,6 @@
 ---
 title: "Day 3: Visualising Data"
+slug: "visualising-data"
 author: "Data Carpentry contributors"
 editor_options: 
   chunk_output_type: console
