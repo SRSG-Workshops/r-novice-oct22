@@ -1,6 +1,6 @@
 ---
 title: 'Day 2: Manipulating Data'
-slug: 'manipulating-data'
+slug: 'r-novice-manipulating-data'
 author: "Data Carpentry contributors"
 ---
 
@@ -55,18 +55,18 @@ surveys <- read.csv("data_raw/portal_data_joined.csv")
 ```
 
 When we did `str(surveys)` we saw that several of the columns consist of
-integers. 
+integers.
 
-Please note the default behavior of R has changed recently with the release of 
+Please note the default behavior of R has changed recently with the release of
 4.0.0 [https://stat.ethz.ch/pipermail/r-announce/2020/000653.html].
 
 If using R version 3.\*.\*:
 The columns `genus`, `species`, `sex`, `plot_type`, ... however, are
-of a special class called `factor`. 
+of a special class called `factor`.
 
 If using R version 4.\*.\*:
-The columns `genus`, `species`, `sex`, `plot_type`, ... are strings! The 
-behavior was changed so `stringsAsFactors = FALSE` is the default. So we are all 
+The columns `genus`, `species`, `sex`, `plot_type`, ... are strings! The
+behavior was changed so `stringsAsFactors = FALSE` is the default. So we are all
 working with the same data types please reload the data using the following:
 ```{r, eval=TRUE,  purl=FALSE}
 surveys <- read.csv("data_raw/portal_data_joined.csv", stringsAsFactors = TRUE)
@@ -76,9 +76,9 @@ Factors are very useful and actually
 contribute to making R particularly well suited to working with data. So we are
 going to spend a little time introducing them.
 
-Factors represent categorical data. They are stored as integers associated with labels and 
-they can be ordered or unordered. While factors look (and often behave) like character 
-vectors, they are actually treated as integer vectors by R. So you need to be very careful 
+Factors represent categorical data. They are stored as integers associated with labels and
+they can be ordered or unordered. While factors look (and often behave) like character
+vectors, they are actually treated as integer vectors by R. So you need to be very careful
 when treating them as strings.
 
 Once created, factors can only contain a pre-defined set of values, known as
@@ -197,11 +197,11 @@ head(sex)
 >
 >  * Rename "F" and "M" to "female" and "male" respectively.
 >  * Now that we have renamed the factor level to "undetermined", can you recreate the
-> barplot such that "undetermined" is last (after "male")? 
-> 
+> barplot such that "undetermined" is last (after "male")?
+>
 > ```{r, answer=TRUE, eval=FALSE, purl=FALSE}
 > levels(sex)[2:3] <- c("female", "male")
-> sex <- factor(sex, levels = c("female", "male", "undetermined")) 
+> sex <- factor(sex, levels = c("female", "male", "undetermined"))
 > plot(sex)
 > ```
 
@@ -241,13 +241,13 @@ head(sex)
 ### Using `stringsAsFactors=FALSE`
 
 In R versions previous to 4.0, when building or importing a data frame, the columns that contain
-characters (i.e. text) are coerced (= converted) into factors by default. However, since version 4.0 
+characters (i.e. text) are coerced (= converted) into factors by default. However, since version 4.0
 columns that contain characters (i.e. text) are NOT coerced (= converted) into factors.
 
 Depending on what you want to do with the data, you may want to keep these
-columns as `character` or you may want them to be `factor`. 
+columns as `character` or you may want them to be `factor`.
 
- `read.csv()` and `read.table()` have an argument called `stringsAsFactors` 
+ `read.csv()` and `read.table()` have an argument called `stringsAsFactors`
  which can be set to `FALSE` for character or `TRUE` for factor.
 
 In most cases, it is preferable to keep `stringsAsFactors = FALSE` when importing
@@ -302,7 +302,7 @@ you import in R are of the correct type within your data frame.
 
 Bracket subsetting is handy, but it can be cumbersome and difficult to read,
 especially for complicated operations. **`dplyr`** is a package for
-making tabular data manipulation easier. It pairs nicely with **`tidyr`** which enables 
+making tabular data manipulation easier. It pairs nicely with **`tidyr`** which enables
 you to swiftly convert between different data formats for plotting and analysis.
 
 Packages in R are basically sets of additional functions that let you do more
@@ -324,16 +324,16 @@ doing data analysis with some of the functions that come with R:
 3. Hidden arguments, having default operations that new learners are not aware
    of.
 
-We have seen above that when building or importing a data frame, 
-the columns that contain characters (i.e., text) are coerced (=converted) into 
-the `factor` data type. We had to set **`stringsAsFactors`** to **`FALSE`** to 
-avoid this hidden argument to convert our data type. 
+We have seen above that when building or importing a data frame,
+the columns that contain characters (i.e., text) are coerced (=converted) into
+the `factor` data type. We had to set **`stringsAsFactors`** to **`FALSE`** to
+avoid this hidden argument to convert our data type.
 
-This time we will use the **`tidyverse`** package to read the data and avoid having 
+This time we will use the **`tidyverse`** package to read the data and avoid having
 to set **`stringsAsFactors`** to **`FALSE`**
 
-If we haven't already done so, we can type `install.packages("tidyverse")` straight 
-into the console. In fact, it's better to write this in the console than in our script 
+If we haven't already done so, we can type `install.packages("tidyverse")` straight
+into the console. In fact, it's better to write this in the console than in our script
 for any package, as there's no need to re-install packages every time we run the script.
 
 Then, to load the package type:
@@ -347,7 +347,7 @@ library(tidyverse)
 ## What are **`dplyr`** and **`tidyr`**?
 
 The package **`dplyr`** provides easy tools for the most common data manipulation
-tasks, built to work directly with data frames. 
+tasks, built to work directly with data frames.
 
 The package **`tidyr`** addresses the common problem of wanting to reshape your data for
 plotting and use by different R functions. Sometimes we want data sets where we have one
@@ -357,7 +357,7 @@ own column, and rows are instead more aggregated groups
 Moving back and forth between these formats is non-trivial, and **`tidyr`** gives you tools
 for this and more sophisticated  data manipulation.
 
-### Note 
+### Note
 > An additional feature of **`dplyr`** is the
 > ability to work directly with data stored in an external database. The benefits of
 > doing this are that the data can be managed natively in a relational database,
@@ -374,17 +374,17 @@ and this [one about **`tidyr`**](https://tidyr.tidyverse.org/).
 
 > ### Stretch Challenge (Difficult - 30 mins)
 > * Install and load dplyr and tidyr within your project environment.
-> This is great for making your code reproducible. You can do this using 
+> This is great for making your code reproducible. You can do this using
 > [renv](https://cran.r-project.org/web/packages/renv/vignettes/renv.html)
 >
-> * If you have more packages loaded, filter and select from  dplyr can be 
-> overwritten by functions of the same name in different packages.  Use `dplyr::select` 
-> or [prioritize()](https://rdrr.io/cran/needs/man/prioritize.html) to ensure 
+> * If you have more packages loaded, filter and select from  dplyr can be
+> overwritten by functions of the same name in different packages.  Use `dplyr::select`
+> or [prioritize()](https://rdrr.io/cran/needs/man/prioritize.html) to ensure
 > you’re using the correct version of the function.
 
 ### Getting started with Tidyverse
 
-We'll read in our data using the `read_csv()` function, from the tidyverse package 
+We'll read in our data using the `read_csv()` function, from the tidyverse package
 **`readr`**, instead of `read.csv()`.
 
 
@@ -434,7 +434,7 @@ We're going to learn some of the most common **`dplyr`** functions:
 ```{r, eval=FALSE, purl=TRUE, echo=FALSE}
 ## Challenge:
 ## Before we use the functions...
-## Thinking about the survey dataset, or another dataset you are familiar with 
+## Thinking about the survey dataset, or another dataset you are familiar with
 ## can you think of a use case for each of the functions based on their descriptions above?
 ## Discuss and share them within your group.
 ```
@@ -478,7 +478,7 @@ surveys2 <- filter(surveys, weight < 5)
 surveys_sml <- select(surveys2, species_id, sex, weight)
 ```
 
-This is readable, but can clutter up your workspace with lots of objects that you have to name individually. 
+This is readable, but can clutter up your workspace with lots of objects that you have to name individually.
 With multiple steps, that can be hard to keep track of.
 
 You can also nest functions (i.e. one function inside of another), like this:
@@ -533,8 +533,8 @@ Note that the final data frame is the leftmost part of this expression.
 >
 >  Using pipes, subset the `surveys` data to include animals collected before
 >  1995 and retain only the columns `year`, `sex`, and `weight`.
-> 
-> 
+>
+>
 > ```{r, answer=TRUE, eval=FALSE, purl=FALSE}
 > surveys %>%
 >     filter(year < 1995) %>%
@@ -543,16 +543,16 @@ Note that the final data frame is the leftmost part of this expression.
 
 > ### Stretch Challenge (Intermediate - 15 mins) {.challenge}
 >
->  Create `surveys_final` using as few lines of code as possible and using pipes 
-> to remove the intermediary variables. 
->  
+>  Create `surveys_final` using as few lines of code as possible and using pipes
+> to remove the intermediary variables.
+>
 > ```{r, purl = FALSE}
 > surveys_2 <- filter(surveys, year > 2000)
 > surveys_3 <- filter(surveys_2, year != 2001)
 > surveys_4 <- filter(surveys_3, plot_type == 'Control')
 > surveys_5 <- select(surveys_4, record_id, month, day, year, sex, weight)
 > surveys_final <- select(surveys_5, -day)
-> 
+>
 > ```{r, answer=TRUE, eval=FALSE, purl=FALSE}
 > surveys_final <- surveys %>%
 >     filter(year < 1995, year != 2001, plot_type == 'Control') %>%
@@ -619,7 +619,7 @@ symbol negates the result, so we're asking for every row where weight *is not* a
 >  than 3.
 >
 >  **Hint**: think about how the commands should be ordered to produce this data frame!
-> 
+>
 > ```{r, answer=TRUE, eval=FALSE, purl=FALSE}
 > surveys_hindfoot_cm <- surveys %>%
 >     filter(!is.na(hindfoot_length)) %>%
@@ -630,20 +630,20 @@ symbol negates the result, so we're asking for every row where weight *is not* a
 
 > ### Stretch Challenge (Difficult - 20 mins) {.challenge}
 >
-> * Create a new dataframe fom the `surveys` data with a new column 
-> called `weight_simplified` which has the value `1` if weight is 
-> less than or equal to the mean weight and `2` if the weight is more than the 
+> * Create a new dataframe fom the `surveys` data with a new column
+> called `weight_simplified` which has the value `1` if weight is
+> less than or equal to the mean weight and `2` if the weight is more than the
 > mean weight.
 >
 > ```{r, answer=TRUE, eval=FALSE, purl=FALSE}
 > surveys_simplified <- surveys %>%
->      mutate(weight_simplified = 
+>      mutate(weight_simplified =
 >        ifelse(weight <= mean(weight, na.rm = TRUE), 1, 2))
 > ```
 >
 > * What's the name of the function in `dplyr` which both selects and mutates?  Have a look
 > at the [documentation for dplyr](https://dplyr.tidyverse.org/)
-> 
+>
 > ```{text_answer, echo=FALSE, purl=FALSE}
 > transmute
 > ```
@@ -688,18 +688,18 @@ You can also group by multiple columns:
 ```{r, purl = FALSE, warning = FALSE, message = FALSE}
 surveys %>%
   group_by(sex, species_id) %>%
-  summarize(mean_weight = mean(weight, na.rm = TRUE)) %>% 
+  summarize(mean_weight = mean(weight, na.rm = TRUE)) %>%
   tail()
 ```
 
-Here, we used `tail()` to look at the last six rows of our summary. Before, we had 
-used `head()` to look at the first six rows. We can see that the `sex` column contains 
-`NA` values because some animals had escaped before their sex and body weights 
-could be determined. The resulting `mean_weight` column does not contain `NA` but 
-`NaN` (which refers to "Not a Number") because `mean()` was called on a vector of 
-`NA` values while at the same time setting `na.rm = TRUE`. To avoid this, we can 
-remove the missing values for weight before we attempt to calculate the summary 
-statistics on weight. Because the missing values are removed first, we can omit 
+Here, we used `tail()` to look at the last six rows of our summary. Before, we had
+used `head()` to look at the first six rows. We can see that the `sex` column contains
+`NA` values because some animals had escaped before their sex and body weights
+could be determined. The resulting `mean_weight` column does not contain `NA` but
+`NaN` (which refers to "Not a Number") because `mean()` was called on a vector of
+`NA` values while at the same time setting `na.rm = TRUE`. To avoid this, we can
+remove the missing values for weight before we attempt to calculate the summary
+statistics on weight. Because the missing values are removed first, we can omit
 `na.rm = TRUE` when computing the mean:
 
 ```{r, purl = FALSE, warning = FALSE, message = FALSE}
@@ -746,7 +746,7 @@ surveys %>%
   arrange(min_weight)
 ```
 
-To sort in descending order, we need to add the `desc()` function. 
+To sort in descending order, we need to add the `desc()` function.
 If we want to sort the results by decreasing order of mean weight:
 
 ```{r, purl = FALSE, warning = FALSE, message = FALSE}
@@ -768,10 +768,10 @@ each sex, we would do:
 
 ```{r, purl = FALSE}
 surveys %>%
-    count(sex) 
+    count(sex)
 ```
 
-The `count()` function is shorthand for something we've already seen: grouping by a variable, and summarizing it by counting the number of observations in that group. In other words, `surveys %>% count()` is equivalent to:  
+The `count()` function is shorthand for something we've already seen: grouping by a variable, and summarizing it by counting the number of observations in that group. In other words, `surveys %>% count()` is equivalent to:
 
 ```{r, purl = FALSE, warning = FALSE, message = FALSE}
 surveys %>%
@@ -779,26 +779,26 @@ surveys %>%
     summarize(count = n())
 ```
 
-For convenience, `count()` provides the `sort` argument:  
+For convenience, `count()` provides the `sort` argument:
 
 ```{r, purl = FALSE}
 surveys %>%
-    count(sex, sort = TRUE) 
+    count(sex, sort = TRUE)
 ```
 
-Previous example shows the use of `count()` to count the number of rows/observations 
-for *one* factor (i.e., `sex`). 
-If we wanted to count *combination of factors*, such as `sex` and `species`, 
+Previous example shows the use of `count()` to count the number of rows/observations
+for *one* factor (i.e., `sex`).
+If we wanted to count *combination of factors*, such as `sex` and `species`,
 we would specify the first and the second factor as the arguments of `count()`:
 
 ```{r purl = FALSE}
 surveys %>%
-  count(sex, species) 
+  count(sex, species)
 ```
 
-With the above code, we can proceed with `arrange()` to sort the table 
-according to a number of criteria so that we have a better comparison. 
-For instance, we might want to arrange the table above in (i) an alphabetical order of 
+With the above code, we can proceed with `arrange()` to sort the table
+according to a number of criteria so that we have a better comparison.
+For instance, we might want to arrange the table above in (i) an alphabetical order of
 the levels of the species and (ii) in descending order of the count:
 
 ```{r purl = FALSE}
@@ -807,7 +807,7 @@ surveys %>%
   arrange(species, desc(n))
 ```
 
-From the table above, we may learn that, for instance, there are 75 observations of 
+From the table above, we may learn that, for instance, there are 75 observations of
 the *albigula* species that are not specified for its sex (i.e. `NA`).
 
 > ### Challenge {.challenge}
@@ -816,7 +816,7 @@ the *albigula* species that are not specified for its sex (i.e. `NA`).
 >
 > ```{r, answer=TRUE, purl=FALSE}
 > surveys %>%
->     count(plot_type) 
+>     count(plot_type)
 > ```
 >
 > 2. Use `group_by()` and `summarize()` to find the mean, min, and max hindfoot
@@ -875,17 +875,17 @@ dataset:
 Here we examine the fourth rule: Each type of observational unit forms a table.
 
 In `surveys`, the rows of `surveys` contain the values of variables associated
-with each record (the unit), values such as the weight or sex of each animal 
-associated with each record. What if instead of comparing records, we 
-wanted to compare the different mean weight of each genus between plots? 
+with each record (the unit), values such as the weight or sex of each animal
+associated with each record. What if instead of comparing records, we
+wanted to compare the different mean weight of each genus between plots?
 (Ignoring `plot_type` for simplicity).
 
-We'd need to create a new table where each row (the unit) is comprised of 
+We'd need to create a new table where each row (the unit) is comprised of
 values of variables associated with each plot. In practical terms this means the values
-in `genus` would become the names of column variables and the cells 
+in `genus` would become the names of column variables and the cells
 would contain the values of the mean weight observed on each plot.
 
-Having created a new table, it is therefore straightforward to explore the 
+Having created a new table, it is therefore straightforward to explore the
 relationship between the weight of different genera within, and between, the
 plots. The key point here is that we are still following a tidy data structure,
 but we have **reshaped** the data according to the observations of interest:
@@ -901,16 +901,16 @@ and `pivot_wider()`.
 
 `pivot_wider()` takes three principal arguments:
 
-1. the data 
+1. the data
 2. *names_from* indicates which column (or columns) to get the name of the output column from
 3. *values_from* indicates which column (or columns) to get the cell values from
 
 Further arguments include *values_fill* which, if set, fills in missing values with the value provided.
 
 
-Let's use `pivot_wider()` to transform surveys to find the mean weight of each 
+Let's use `pivot_wider()` to transform surveys to find the mean weight of each
 genus in each plot over the entire survey period. We use `filter()`,
-`group_by()` and `summarize()` to filter our observations and variables of 
+`group_by()` and `summarize()` to filter our observations and variables of
 interest, and create a new variable for the `mean_weight`.
 
 ```{r, purl=FALSE, warning = FALSE, message = FALSE}
@@ -923,7 +923,7 @@ str(surveys_gw)
 ```
 
 This yields `surveys_gw` where the observations for each plot are spread across
-multiple rows, 196 observations of 3 variables. 
+multiple rows, 196 observations of 3 variables.
 Using `pivot_wider()` with *names_from* `genus` and *values_from* `mean_weight` this becomes
 24 observations of 11 variables, one row for each plot.
 
@@ -936,7 +936,7 @@ str(surveys_wide)
 
 ![](fig/pivot_wider.png)
 
-We could now plot comparisons between the weight of genera in different plots, 
+We could now plot comparisons between the weight of genera in different plots,
 although we may wish to fill in the missing values first.
 
 ```{r, purl=FALSE}
@@ -948,7 +948,7 @@ surveys_gw %>%
 #### Pivot_longer
 
 The opposing situation could occur if we had been provided with data in the
-form of `surveys_wide`, where the genus names are column names, but we 
+form of `surveys_wide`, where the genus names are column names, but we
 wish to treat them as values of a genus variable instead.
 
 In this situation we are gathering the column names and turning them into a
@@ -960,12 +960,12 @@ the other variable contains the values previously associated with the column nam
 1. the data
 2. *cols* indicates the columns to pivot into longer format (or those not to pivot)
 3. *names_to* indicates the name of the column to create from the data stored in the column names of data.
-4. *values_to* indicates the name of the column to create from the data stored in cell values. 
+4. *values_to* indicates the name of the column to create from the data stored in cell values.
 
 
-To recreate `surveys_gw` from `surveys_wide` we would set *names_to* 
+To recreate `surveys_gw` from `surveys_wide` we would set *names_to*
 `genus` and *values_to* `mean_weight` and use all columns except `plot_id` for
-the key variable. Here we exclude `plot_id` from being pivoted. 
+the key variable. Here we exclude `plot_id` from being pivoted.
 
 ```{r, purl=FALSE}
 surveys_long <- surveys_wide %>%
@@ -993,19 +993,19 @@ surveys_wide %>%
 
 > ### Challenge {.challenge}
 >
-> 1. Use `pivot_wider()` on the `surveys` data frame with `year` as columns, `plot_id` 
+> 1. Use `pivot_wider()` on the `surveys` data frame with `year` as columns, `plot_id`
 >   as rows, and the
 >   number of genera per plot as the values. You will need to summarize before
 >   reshaping, and use the function `n_distinct()` to get the number of unique
 >   genera within a particular chunk of data. It's a powerful function! See
 >   `?n_distinct` for more.
-> 
+>
 > ```{r, answer=TRUE, purl=FALSE}
 >surveys_wide_genera <- surveys %>%
 >   group_by(plot_id, year) %>%
 >    summarize(n_genera = n_distinct(genus))%>%
 >    pivot_wider(names_from = year, values_from = n_genera)
-> 
+>
 > head(surveys_wide_genera)
 > ```
 >
@@ -1097,7 +1097,7 @@ observations for these more common species:
 ```{r, purl=FALSE}
 ## Extract the most common species_id
 species_counts <- surveys_complete %>%
-    count(species_id) %>% 
+    count(species_id) %>%
     filter(n >= 50)
 
 ## Only keep the most common species
@@ -1118,7 +1118,7 @@ surveys_complete <- surveys %>%
 ##  Now remove rare species in two steps. First, make a list of species which
 ##  appear at least 50 times in our dataset:
 species_counts <- surveys_complete %>%
-    count(species_id) %>% 
+    count(species_id) %>%
     filter(n >= 50) %>%
     select(species_id)
 
@@ -1147,7 +1147,7 @@ write_csv(surveys_complete, file = "data/surveys_complete.csv")
 > Data can also be imported and exported in the form of binary files. Have a look
 > at documentation for the [readBin() and writeBin() functions](https://www.rdocumentation.org/packages/base/versions/3.0.3/topics/readBin), as well as this
 > [helpful guide](https://www.javatpoint.com/r-binary-file#:~:text=R%20Binary%20File%20A%20binary%20file%20is%20a,and%20symbols%20that%20contain%20many%20other%20non-printable%20characters.) to binary files in r. Then try to export the surveys data as a binary
-> file before importing the binary file back into r. 
+> file before importing the binary file back into r.
 
 
 ```{r, child="_page_built_on.Rmd"}

@@ -1,6 +1,6 @@
 ---
 title: 'Day 1: Starting with Data'
-slug: 'starting-data'
+slug: 'r-novice-starting-with-data'
 author: "Data Carpentry contributors"
 ---
 
@@ -38,12 +38,12 @@ source("r-novice_setup.R")
 > * Load external data from a .csv file into a data frame.
 > * Describe what a data frame is.
 > * Summarize the contents of a data frame.
-> * Use indexing to subset specific portions of data frames. 
+> * Use indexing to subset specific portions of data frames.
 > * Format dates.
 
 ------------
 
-To start with we will focus on the first three learning objectives and 
+To start with we will focus on the first three learning objectives and
 get your working environment set up.
 
 ## What is R? What is RStudio?
@@ -51,7 +51,7 @@ get your working environment set up.
 The term "`R`" is used to refer to both the programming language and the
 software that interprets the scripts written using it.
 
-[RStudio](https://rstudio.com) is a very popular way to not only write R 
+[RStudio](https://rstudio.com) is a very popular way to not only write R
 scripts but also to interact with the R software. To function correctly,
 RStudio needs R and therefore both need to be installed on your computer.
 
@@ -101,7 +101,7 @@ R is designed for data analysis. It comes with special data structures and data
 types that make handling of missing data and statistical factors convenient.
 
 R can connect to spreadsheets, databases, and many other data formats, on your
-computer or on the web.  
+computer or on the web.
 
 
 ### R produces high-quality graphics
@@ -113,14 +113,14 @@ aspect of your graph to convey most effectively the message from your data.
 ### R has a large and welcoming community
 
 Thousands of people use R daily. Many of them are willing to help you through
-mailing lists and websites such as [Stack Overflow](https://stackoverflow.com/), 
+mailing lists and websites such as [Stack Overflow](https://stackoverflow.com/),
 or on the [RStudio community](https://community.rstudio.com/).
 
 
 
 ## Knowing your way around RStudio
 
-Let's start by learning about [RStudio](https://www.rstudio.com/), which is an 
+Let's start by learning about [RStudio](https://www.rstudio.com/), which is an
 open-source Integrated Development Environment (IDE) for working with R.
 
 We will use RStudio IDE to write code, navigate the files on our computer,
@@ -130,9 +130,9 @@ generate.
 ![RStudio interface screenshot. Clockwise from top left: Source, Environment/History, Files/Plots/Packages/Help/Viewer, Console.](fig/rstudio-screenshot.png)
 
 RStudio is divided into 4 "Panes": the **Source** for your scripts and documents
-(top-left, in the default layout), your **Environment/History** (top-right) which shows 
+(top-left, in the default layout), your **Environment/History** (top-right) which shows
 all the objects in your working space (Environment) and your command history (History),
-your **Files/Plots/Packages/Help/Viewer** (bottom-right), and 
+your **Files/Plots/Packages/Help/Viewer** (bottom-right), and
 the R **Console** (bottom-left). The placement of these
 panes and their content can be customized (see menu, Tools -> Global Options ->
 Pane Layout).
@@ -147,8 +147,8 @@ a lot easier to move your project around on your computer and share it with
 others.
 
 RStudio provides a helpful set of tools to do this through its "Projects"
-interface, which not only creates a working directory for you, but also 
-remembers its location (allowing you to quickly navigate to it). Go through 
+interface, which not only creates a working directory for you, but also
+remembers its location (allowing you to quickly navigate to it). Go through
 the steps for creating an "R Project" for this tutorial below.
 
 1. Start RStudio.
@@ -161,7 +161,7 @@ the steps for creating an "R Project" for this tutorial below.
 5. (Optional) Set Preferences to 'Never' save workspace in RStudio.
 
 A workspace is your current working environment in R which includes any user-defined
-object. By default, all of these objects will be saved, and automatically loaded, 
+object. By default, all of these objects will be saved, and automatically loaded,
 when you reopen your project. Saving a workspace to `.RData` can be cumbersome,
 especially if you are working with larger datasets, and it can lead to hard to
 debug errors by having objects in memory you forgot you had.
@@ -179,9 +179,9 @@ for 'Save workspace to .RData' on exit.'
 
 ### Organizing your working directory
 
-Using a consistent folder structure across your projects will make it easy to 
-find/file things in the future. This can be especially helpful when you have multiple 
-projects. In general, you may create directories (folders) for **scripts**, **data**, 
+Using a consistent folder structure across your projects will make it easy to
+find/file things in the future. This can be especially helpful when you have multiple
+projects. In general, you may create directories (folders) for **scripts**, **data**,
 and **documents**.
 
  - **`data_raw/` & `data/`** Use these folders to store raw data and intermediate
@@ -227,7 +227,7 @@ Your working directory should now look like this:
 ### The working directory
 
 The working directory is an important concept to understand. It is the place
-from where R will be looking for and saving the files. When using R projects the 
+from where R will be looking for and saving the files. When using R projects the
 working directory has a .Rproj file in it. When you write code for
 your project, it should refer to files in relation to the root of your working
 directory and only need files within this structure.
@@ -343,7 +343,7 @@ query.
   the workshop to keep learning from each other.
 * Your friendly colleagues: if you know someone with more experience than you,
   they might be able and willing to help you.
-* [Stack Overflow's `[r]`-tag](https://stackoverflow.com/questions/tagged/r?tab=Votes): 
+* [Stack Overflow's `[r]`-tag](https://stackoverflow.com/questions/tagged/r?tab=Votes):
   Most questions have already been answered, but the challenge is to use the right
   words in the search to find the answers. If your question
   hasn't been answered before and is well crafted, chances are you will get an
@@ -382,7 +382,7 @@ query.
 > * Load external data from a .csv file into a data frame.
 > * Describe what a data frame is.
 > * Summarize the contents of a data frame.
-> * Use indexing to subset specific portions of data frames. 
+> * Use indexing to subset specific portions of data frames.
 > * Format dates.
 
 ------------
@@ -417,33 +417,33 @@ You can get output from R simply by typing math in the console:
 >```
 
 However, to do useful and interesting things, we need to assign _values_ to
-_objects_. 
+_objects_.
 
-A _value_ is a piece of information that we want to store and retrieve at some 
-later time, i.e. a number, a sequence of numbers, or even collections of data, for now 
-we will start with numbers and later move onto collections of numbers which in R are 
+A _value_ is a piece of information that we want to store and retrieve at some
+later time, i.e. a number, a sequence of numbers, or even collections of data, for now
+we will start with numbers and later move onto collections of numbers which in R are
 called _vectors_.
 
-An _object_ is programming speak for a thing with known properties. Lets consider 
-an example that we would all be familiar with before jumping into some R. 
+An _object_ is programming speak for a thing with known properties. Lets consider
+an example that we would all be familiar with before jumping into some R.
 
 I tell you that I have a _car_, in this case the car is the _object_.
 Without any further information you instinctively know that the _object_ called _car_
-has several _attributes_. For example, _colour_, _make_, _model_, _numberplate_. You can 
+has several _attributes_. For example, _colour_, _make_, _model_, _numberplate_. You can
 use this predefined model to ask sensible questions. For example if you ask me,
 what model the car is (or model(_car_)) I can tell you 'Corsa'. However, if you were to ask me breed(_car_) this would be a
 nonsense question to which I would not be able to answer, where as breed(_pet_)
-then I could tell you 'sheepdog'. 
+then I could tell you 'sheepdog'.
 
 > ### Challenge
 > Write down three other attributes for the object pet?
 ```{text_answer, echo=FALSE, purl=FALSE}
-> Including but not limited to: Species, Age, Colour, Name, Sex, Owner... 
+> Including but not limited to: Species, Age, Colour, Name, Sex, Owner...
 ```
 
 In this tutorial we will use the predefined R objects for vectors and numerical values.
 We will see that these are much simpler than the linguistic examples above, and we learn the
-sort of _attributes_ we expect them to have and how to inspect an object to tell us its 
+sort of _attributes_ we expect them to have and how to inspect an object to tell us its
 set of _attributes_.
 
 To create an object, we need to give it a name followed by the
@@ -454,16 +454,16 @@ weight_kg <- 55
 ```
 
 `<-` is the assignment operator. It assigns values on the right to objects on
-the left. So, after executing `weight_kg <- 55`, the value of `weight_kg` is `55`. 
-The arrow can be read as 55 **goes into** `weight_kg`.  
+the left. So, after executing `weight_kg <- 55`, the value of `weight_kg` is `55`.
+The arrow can be read as 55 **goes into** `weight_kg`.
 
 ### What is my object?
 
-Once an _object_ is created we can get information about that object in the 
+Once an _object_ is created we can get information about that object in the
 Environment tab in the top right of RStudio. For example, 'weight_kg' has the type numeric
-length 1 and value 55. Make sure to keep an eye on the other values that appear here 
-when using RStudio to understand what objects you have. This tab is great for small variables, 
-when inspecting larger or more complicated objects it is better to use more advanced methods we 
+length 1 and value 55. Make sure to keep an eye on the other values that appear here
+when using RStudio to understand what objects you have. This tab is great for small variables,
+when inspecting larger or more complicated objects it is better to use more advanced methods we
 will cover later on.
 
 
@@ -481,10 +481,10 @@ other function names (e.g., `c`, `T`, `mean`, `data`, `df`, `weights`). If in
 doubt, check the help to see if the name is already in use. It's also best to
 avoid dots (`.`) within names. Many function names in R itself have them and
 dots also have a special meaning (methods) in R and other programming languages.
-To avoid confusion, don't include dots in names. It is also recommended to use nouns 
-for object names, and verbs for function names. It's important to be consistent 
-in the styling of your code (where you put spaces, how you name objects, etc.). 
-Using a consistent coding style makes your code clearer to read for your future 
+To avoid confusion, don't include dots in names. It is also recommended to use nouns
+for object names, and verbs for function names. It's important to be consistent
+in the styling of your code (where you put spaces, how you name objects, etc.).
+Using a consistent coding style makes your code clearer to read for your future
 self and your collaborators. In R, three popular style guides are
 [Google's](https://google.github.io/styleguide/Rguide.xml), [Jean
 Fan's](https://jef.works/R-style-guide/) and the
@@ -502,7 +502,7 @@ for issues in the styling of your code.
 > https://cran.r-project.org/doc/manuals/r-release/R-lang.html#Objects
 
 
-When assigning a value to an object, R does not print anything. 
+When assigning a value to an object, R does not print anything.
 You can force R to print the value by using parentheses or by typing the object name:
 
 ```{r, purl = FALSE}
@@ -512,7 +512,7 @@ weight_kg          # and so does typing the name of the object
 ```
 
 Now that R has `weight_kg` in memory, we can do arithmetic with it. For
-instance, we may want to convert this weight into pounds 
+instance, we may want to convert this weight into pounds
 (weight in pounds is 2.2 times the weight in kg):
 
 ```{r, results = TRUE, purl = FALSE}
@@ -613,7 +613,7 @@ round(3.14159)
 Here, we've called `round()` with just one argument, `3.14159`, and it has
 returned the value `3`.  That's because the default is to round to the nearest
 whole number. If we want more digits we can see how to do that by getting
-information about the `round` function.  We can use `args(round)` to find what 
+information about the `round` function.  We can use `args(round)` to find what
 arguments it takes, or look at the
 help for this function using `?round`.
 
@@ -653,9 +653,9 @@ round(3.14159, digits = 2)
 ### Vectors and data types
 ```
 
-A vector is the most common and basic data type in R. A vector is composed by a series 
-of values, which can be either numbers or characters. We can assign a series of values 
-to a vector using the `c()` function. For example we can create a vector of animal 
+A vector is the most common and basic data type in R. A vector is composed by a series
+of values, which can be either numbers or characters. We can assign a series of values
+to a vector using the `c()` function. For example we can create a vector of animal
 weights and assign it to a new object `weight_g`:
 
 ```{r, results = TRUE, purl = FALSE}
@@ -670,7 +670,7 @@ animals <- c("mouse", "rat", "dog")
 animals
 ```
 
-The quotes around "mouse", "rat", etc. are essential here to tell R that 
+The quotes around "mouse", "rat", etc. are essential here to tell R that
 these are characters and not objects.
 
 There are many functions that allow you to inspect the content of a
@@ -724,7 +724,7 @@ The 6 **atomic vector** types are:
   `1 + 4i`) and that's all we're going to say about them
 * `"raw"` for bitstreams that we won't discuss further
 
-You can check the type of your vector using the `typeof()` function and inputting 
+You can check the type of your vector using the `typeof()` function and inputting
 your vector as the argument.
 
 Vectors are one of the many **data structures** that R uses. Other important
@@ -738,7 +738,7 @@ factors (`factor`) and arrays (`array`).
 > * We’ve seen that atomic vectors can be of type character,
 >   numeric (or double), integer, and logical. But what happens if we try to mix these types in
 >   a single vector?
-> 
+>
 > ```{text_answer, echo=FALSE, purl=FALSE}
 > R implicitly converts them to all be the same type
 > ```
@@ -901,20 +901,20 @@ animals[animals %in% c("rat", "cat", "dog", "duck", "goat")]
 
 > ### Stretch Challenge (Difficult - 10 mins)
 > ``` {r, purl = FALSE}
-> creatures <- c('rat', 'sheep','squirrel', 'tiger', 'whale', 'dolphin', 
->                'jellyfish','octopus', 'shark') 
+> creatures <- c('rat', 'sheep','squirrel', 'tiger', 'whale', 'dolphin',
+>                'jellyfish','octopus', 'shark')
 > mammals <- c('rat', 'sheep','squirrel', 'tiger', 'whale', 'dolphin')
 > sea_creatures <- c('jellyfish', 'whale', 'octopus', 'shark', 'dolphin')
 > ```
 > Create a vector of creatures that are either mammals or sea creatures but not both
 > ```{r, answer = TRUE, purl=FALSE}
->  creatures[!(creatures %in% mammals & creatures %in% sea_creatures)] 
+>  creatures[!(creatures %in% mammals & creatures %in% sea_creatures)]
 > ```
 
 
 ## Missing data
 
-As R was designed to analyze datasets it includes the concept of missing data. 
+As R was designed to analyze datasets it includes the concept of missing data.
 Missing data are represented in vectors as `NA`.
 
 When doing operations on numbers, most functions will return `NA` if the data
@@ -940,11 +940,11 @@ examples.
 ## Extract those elements which are not missing values.
 heights[!is.na(heights)]
 
-## Returns the object with incomplete cases removed. 
+## Returns the object with incomplete cases removed.
 #The returned object is an atomic vector of type `"numeric"` (or #`"double"`).
 na.omit(heights)
 
-## Extract those elements which are complete cases. 
+## Extract those elements which are complete cases.
 #The returned object is an atomic vector of type `"numeric"` (or #`"double"`).
 heights[complete.cases(heights)]
 ```
@@ -963,9 +963,9 @@ Recall that you can use the `typeof()` function to find the type of your atomic 
 >
 > ```{r, answer=TRUE}
 > heights <- c(63, 69, 60, 65, NA, 68, 61, 70, 61, 59, 64, 69, 63, 63, NA, 72, 65, 64, 70, 63, 65)
-> 
+>
 > # 1.
-> heights_no_na <- heights[!is.na(heights)] 
+> heights_no_na <- heights[!is.na(heights)]
 > # or
 > heights_no_na <- na.omit(heights)
 > # or
@@ -996,8 +996,8 @@ structures, we are ready to start working with the Portal dataset we have been
 using in the other lessons, and learn about data frames.
 
 > ### Stretch Challenge (Fiendish - 1hr+)
-> Have a look at a package called [mice](https://www.jstatsoft.org/article/view/v045i03) for some more 
-> advanced methods of dealing with multivariate missing data. 
+> Have a look at a package called [mice](https://www.jstatsoft.org/article/view/v045i03) for some more
+> advanced methods of dealing with multivariate missing data.
 
 # Load Data
 
@@ -1029,14 +1029,14 @@ using in the other lessons, and learn about data frames.
 > * Load external data from a .csv file into a data frame.
 > * Describe what a data frame is.
 > * Summarize the contents of a data frame.
-> * Use indexing to subset specific portions of data frames. 
+> * Use indexing to subset specific portions of data frames.
 > * Format dates.
 
 ------------
 
-We have now learnt enough of the basics of R to be able to use R in place of spreadsheets. 
+We have now learnt enough of the basics of R to be able to use R in place of spreadsheets.
 As the previous lessons will have shown you spreadsheets can be good for small amounts of data
-that can be managed _by hand_. With R will will be able to load large sets of data and create 
+that can be managed _by hand_. With R will will be able to load large sets of data and create
 readable, reliable, and reproducible data analysis scripts.
 
 ## Presentation of the Survey Data
@@ -1066,20 +1066,20 @@ Each row holds information for a single animal, and the columns represent:
 | plot\_type       | type of plot                       |
 
 We are going to use the R function `download.file()` to download the CSV file
-that contains the survey data from Figshare. 
+that contains the survey data from Figshare.
 Lets investigate the `download.file()` function.
 
-In the R console type `?download.file` and then look at the help view that will 
+In the R console type `?download.file` and then look at the help view that will
 open on the bottom right. We can see a description and a list of arguments. We need
-the first two, `url` and `destfile`. 
+the first two, `url` and `destfile`.
 
-> * url: A character string giving a source URL for the data we 
+> * url: A character string giving a source URL for the data we
 >   use "https://ndownloader.figshare.com/files/2292169".
-> * destfile: A character string (or _vector_) denoting the destination and name for 
+> * destfile: A character string (or _vector_) denoting the destination and name for
 >   the downloaded data we use "data_raw/portal_data_joined.csv".
 
-You'll need the folder on your machine called "data_raw" in your working envronment 
-which we made earlier. So this command downloads a file from Figshare, names it 
+You'll need the folder on your machine called "data_raw" in your working envronment
+which we made earlier. So this command downloads a file from Figshare, names it
 "portal_data_joined.csv" and adds it to the preexisting folder named "data_raw".
 
 ```{r, eval=FALSE, purl=TRUE}
@@ -1087,13 +1087,13 @@ download.file(url = "https://ndownloader.figshare.com/files/2292169",
               destfile = "data_raw/portal_data_joined.csv")
 ```
 
-You are now ready to load the data we use `read.csv()` to load the content of the 
+You are now ready to load the data we use `read.csv()` to load the content of the
 CSV file as an object of class `data.frame`, we can again use `?`
-and find the arguments of `?read.csv`. This time we just need the first argument 
+and find the arguments of `?read.csv`. This time we just need the first argument
 `file` which we give the location of the file i.e. `destfile` from before.
 
 ### Note
-> It would be worth your time looking over all the arguments of `read.csv` as reading 
+> It would be worth your time looking over all the arguments of `read.csv` as reading
 > in CSV files will likely be a useful skill during your research.
 
 ```{r, eval=TRUE,  purl=FALSE}
@@ -1102,7 +1102,7 @@ surveys <- read.csv("data_raw/portal_data_joined.csv")
 
 This statement doesn't produce any output because, as you might recall,
 assignments don't display anything. If we want to check that our data has been
-loaded, we can check the environment pane in RStudio. 
+loaded, we can check the environment pane in RStudio.
 
 To check the top (the first 6 lines) of this data frame we use the
 function `head()`:
@@ -1214,19 +1214,19 @@ different classes.
 
 ```{r, purl=FALSE}
 # first element in the first column of the data frame (as a vector)
-surveys[1, 1]   
+surveys[1, 1]
 # first element in the 6th column (as a vector)
-surveys[1, 6]   
+surveys[1, 6]
 # first column of the data frame (as a vector)
-surveys[, 1]    
+surveys[, 1]
 # first column of the data frame (as a data.frame)
-surveys[1]      
+surveys[1]
 # first three elements in the 7th column (as a vector)
-surveys[1:3, 7] 
+surveys[1:3, 7]
 # the 3rd row of the data frame (as a data.frame)
-surveys[3, ]    
+surveys[3, ]
 # equivalent to head_surveys <- head(surveys)
-head_surveys <- surveys[1:6, ] 
+head_surveys <- surveys[1:6, ]
 ```
 
 `:` is a special function that creates numeric vectors of integers in increasing
@@ -1309,9 +1309,9 @@ In RStudio, you can use the autocompletion feature to get the full and correct n
 ```
 
 > ### Stretch Challenge (Intermediate - 10 mins)
-> Create a subset of the `surveys` dataframe that contains only observations 
+> Create a subset of the `surveys` dataframe that contains only observations
 > from December of the year 2000.  The dataframe should only contain the variables
-> record_id, genus, and species. 
+> record_id, genus, and species.
 > ```{r, answer = TRUE, purl=FALSE}
 >  surveys[surveys$month == 12 & surveys$year == 2000,c("record_id", "genus", "species")]
 > ```
@@ -1330,10 +1330,10 @@ integer values.
 ```{r, eval=FALSE, purl=FALSE}
 str(surveys)
 ```
-We are going to use the `ymd()` function from the package **`lubridate`** 
-(which belongs to the **`tidyverse`**; learn more [here](https://www.tidyverse.org/)).  
-When you load  the **`tidyverse`** (`library("tidyverse")`), the core packages get loaded. 
-**`lubridate`** however does not belong to the core tidyverse, so you have to 
+We are going to use the `ymd()` function from the package **`lubridate`**
+(which belongs to the **`tidyverse`**; learn more [here](https://www.tidyverse.org/)).
+When you load  the **`tidyverse`** (`library("tidyverse")`), the core packages get loaded.
+**`lubridate`** however does not belong to the core tidyverse, so you have to
 load it explicitly with `library(lubridate)`
 
 Start by loading the required package:
@@ -1344,7 +1344,7 @@ library("lubridate")
 
 `ymd()` takes a vector representing year, month, and day, and converts it to a
 `Date` vector. `Date` is a class of data recognized by R as being a date and can
-be manipulated as such. The argument that the function requires is a character 
+be manipulated as such. The argument that the function requires is a character
 vector formatted as "YYYY-MM-DD".
 
 Let's create a date object and inspect the structure:
@@ -1358,7 +1358,7 @@ Now let's paste the year, month, and day separately - we get the same result:
 
 ```{r, purl=FALSE}
 # sep indicates the character to use to separate each component
-my_date <- ymd(paste("2015", "1", "1", sep = "-")) 
+my_date <- ymd(paste("2015", "1", "1", sep = "-"))
 str(my_date)
 ```
 We can apply this operation to each row of the surveys dataset.
@@ -1373,7 +1373,7 @@ This character vector can be used as the argument for `ymd()`:
 date_vec <- ymd(dates_char_vec)
 ```
 
-Something went wrong lets use `summary` to inspect `date_vec`: 
+Something went wrong lets use `summary` to inspect `date_vec`:
 
 ```{r, results=TRUE, purl=FALSE}
 summary(date_vec)
@@ -1402,7 +1402,7 @@ analyses, how would you deal with this situation?
 > ```
 > However for now we will include the bad dates and can us this simple filter later if needed.
 
-The resulting `Date` vector `date_vec` can be added to `surveys` as a new column 
+The resulting `Date` vector `date_vec` can be added to `surveys` as a new column
 called `date`:
 
 ```{r, results=TRUE, purl=FALSE}
@@ -1410,14 +1410,14 @@ surveys$date <- date_vec
 str(surveys) # notice the new column, with 'date' as the class
 ```
 
-### Note 
+### Note
 > For completeness sake it is worth noting that the above could be achieved in one line.
 > `surveys$date <- ymd(paste(surveys$year, surveys$month, surveys$day, sep = "-"))`
 > However, we would again see the warning and could inspect it like so:
 > `summary(surveys$date)`
 > `head(surveys[is.na(surveys$date), , c("year", "month", "day")])`
-> This way the r environment is kept cleaner however it is more difficult to unpick where 
-> errors have occured. 
+> This way the r environment is kept cleaner however it is more difficult to unpick where
+> errors have occured.
 
 
 ------------
@@ -1457,7 +1457,7 @@ You have now completed all the day one learning objectives.
 It is very common to make mistakes in programming languages,
 identifying and solving `debugging` these mistakes makes up a large part of the programming
 skill-set.
-Becoming familiar with the basics we have covered today and the inspection tools e.g. 
+Becoming familiar with the basics we have covered today and the inspection tools e.g.
 `summary()`, `ls()`, `str()` will set you on a path to being a confident R programmer.
 
 ```{r, child="_page_built_on.Rmd"}
