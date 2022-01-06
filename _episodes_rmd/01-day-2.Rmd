@@ -2,6 +2,13 @@
 title: 'Day 2: Manipulating Data'
 slug: 'r-novice-manipulating-data'
 author: "Data Carpentry contributors"
+output:
+  md_document:
+    variant: gfm
+    preserve_yaml: TRUE
+knit: (function(inputFile, encoding) {
+  rmarkdown::render(inputFile, encoding = encoding, output_dir = "../_posts") })
+always_allow_html: true
 ---
 
 ```{r, echo=FALSE, purl=FALSE, message = FALSE, warning=FALSE}
