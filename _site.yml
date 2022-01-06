@@ -7,6 +7,6 @@ output:
     toc_float:
       collapsed: false
     include:
-      in_header: _includes/header.html
-      after_body: _includes/footer.html
+      in_header: _includes/navbar.html
+      after_body: _includes/workshop_footer.html
     css: style.css
