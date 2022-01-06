@@ -9,6 +9,7 @@ output:
 knit: (function(inputFile, encoding) {
   rmarkdown::render(inputFile, encoding = encoding) })
 always_allow_html: true
+layout: episode
 ---
 
 ```{r, echo=FALSE, purl=FALSE, message = FALSE, warning=FALSE}
