@@ -44,7 +44,7 @@ base_url <- "/" # keep as is
 if (!is.null(knitr::current_input())){
 
   # Output path for figures
-  fig_path <- paste0("assets/img/", str_remove(knitr::current_input(), ".Rmd"), "/")
+  fig_path <- "/"
 
   # Set base directories
   knitr::opts_knit$set(base.dir = base_dir, base.url = base_url)
