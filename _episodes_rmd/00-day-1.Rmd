@@ -4,10 +4,11 @@ slug: 'r-novice-starting-with-data'
 author: "Data Carpentry contributors"
 output:
   md_document:
-    variant: gfm
+    variant: md
     preserve_yaml: TRUE
 knit: (function(inputFile, encoding) {
   rmarkdown::render(inputFile, encoding = encoding)})
+always_allow_html: true
 layout: episode
 ---
 
