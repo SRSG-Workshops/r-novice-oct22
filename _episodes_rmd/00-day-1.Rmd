@@ -8,7 +8,6 @@ output:
     preserve_yaml: TRUE
 knit: (function(inputFile, encoding) {
   rmarkdown::render(inputFile, encoding = encoding)})
-always_allow_html: true
 layout: episode
 ---
 
@@ -414,11 +413,11 @@ You can get output from R simply by typing math in the console:
 > the r arithmetic operators for the following operations:
 >
 > Remainder from integer division (modulus) e.g. remainder of 8/3
-> ```{answer = TRUE, purl=FALSE}
+> ```{r, answer = TRUE, purl=FALSE}
 > 8 %% 3
 > ```
 > Raise to the power of (exponentiation) e.g. 5 to the power of 2
->```{answer = TRUE, purl = FALSE}
+>```{r, answer = TRUE, purl = FALSE}
 > 5 ^ 2
 >```
 
