@@ -19,7 +19,6 @@ source("r-novice_setup.R")
 # Working Environment
 
 ------------
-
 > ### Learning Objectives
 >
 > #### Working Environment
@@ -48,7 +47,6 @@ source("r-novice_setup.R")
 > * Summarize the contents of a data frame.
 > * Use indexing to subset specific portions of data frames.
 > * Format dates.
-
 ------------
 
 To start with we will focus on the first three learning objectives and
@@ -405,7 +403,7 @@ Now that we have a working environment set up we can start on the basics of R.
 
 You can get output from R simply by typing math in the console:
 
-```{r, purl = FALSE}z
+```{r, purl = FALSE}
 3 + 5
 12 / 7
 ```
