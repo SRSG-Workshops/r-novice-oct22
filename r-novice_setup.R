@@ -61,7 +61,6 @@ knitr::knit_hooks$set(answer = function(before, options, envir) {
     if (before) {
     paste(
         "## solution",
-        "> > ",
         sep = "\n")
     } else {
     paste(
@@ -80,11 +79,10 @@ knitr::knit_hooks$set(answer = function(before, options, envir) {
 
 eng_text_answer <- knitr:::eng_html_asset(
                                 paste(
-                                    "> > ## solution",
-                                    "> > ",
+                                    "## solution",
                                     sep = "\n"),
                                 paste(
-                                    "> {: .solution}",
+                                    "{: .solution}",
                                     sep = "\n")
 #                                paste(
 #                                    "<div class=\"accordion\">",
