@@ -54,13 +54,23 @@ if (!is.null(knitr::current_input())){
 
 
 ### Custom hooks
-
 ## hook for challenges answers
+
+# If we are in an answer block indent by one
+hook_source <- knitr::knit_hooks$get("source")  # save the old hook
+knitr::knit_hooks$set(NAME = function(x, options) {
+    if (options$answer) {
+        for (str in x) {
+            str = paste("> ", str, sep="")
+        }
+    }
+    hook_source(x, options)
+})
 
 knitr::knit_hooks$set(answer = function(before, options, envir) {
     if (before) {
     paste(
-        "## solution",
+        "## Solution",
         sep = "\n")
     } else {
     paste(
@@ -79,7 +89,7 @@ knitr::knit_hooks$set(answer = function(before, options, envir) {
 
 eng_text_answer <- knitr:::eng_html_asset(
                                 paste(
-                                    "## solution",
+                                    "## Solution",
                                     sep = "\n"),
                                 paste(
                                     "{: .solution}",
