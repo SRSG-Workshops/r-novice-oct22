@@ -59,7 +59,7 @@ if (!is.null(knitr::current_input())){
 # If we are in an answer block indent by one
 hook_source <- knitr::knit_hooks$get("source")  # save the old hook
 knitr::knit_hooks$set(source = function(x, options) {
-    if (options$answer) {
+    if (options$answer == TRUE) {
         for (str_idx in 1:length(x)) {
             x[str_idx] = paste("> ", x[str_idx], sep="")
         }
