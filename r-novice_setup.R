@@ -60,8 +60,8 @@ if (!is.null(knitr::current_input())){
 hook_source <- knitr::knit_hooks$get("source")  # save the old hook
 knitr::knit_hooks$set(NAME = function(x, options) {
     if (options$answer) {
-        for (str in x) {
-            str = paste("> ", str, sep="")
+        for (str_idx in 1:length(x)) {
+            x[str_idx] = paste("> ", x[str_idx], sep="")
         }
     }
     hook_source(x, options)

@@ -416,15 +416,15 @@ You can get output from R simply by typing math in the console:
 >
 > Remainder from integer division (modulus) e.g. remainder of 8/3
 >
-> > ```{r, answer = TRUE, purl=FALSE}
-> > 8 %% 3
-> > ```
+> ```{r, answer = TRUE, purl=FALSE}
+> 8 %% 3
+> ```
 >
 > Raise to the power of (exponentiation) e.g. 5 to the power of 2
 >
-> > ```{r, answer = TRUE, purl = FALSE}
-> > 5 ^ 2
-> > ```
+> ```{r, answer = TRUE, purl = FALSE}
+> 5 ^ 2
+> ```
 {: .challenge}
 
 However, to do useful and interesting things, we need to assign _values_ to
