@@ -60,13 +60,13 @@ if (!is.null(knitr::current_input())){
 knitr::knit_hooks$set(answer = function(before, options, envir) {
     if (before) {
     paste(
-        "> > ## solution",
+        "## solution",
         "> > ",
         sep = "\n")
     } else {
     paste(
-        "> {: .solution}",
-        sep = "")
+        "{: .solution}",
+        sep = "\n")
     }
 #     if (before) {
 #         paste(
@@ -85,7 +85,7 @@ eng_text_answer <- knitr:::eng_html_asset(
                                     sep = "\n"),
                                 paste(
                                     "> {: .solution}",
-                                    sep = "")
+                                    sep = "\n")
 #                                paste(
 #                                    "<div class=\"accordion\">",
 #                                    "<h3 class=\"toc-ignore\">Answer</h3>",
