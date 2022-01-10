@@ -62,7 +62,7 @@ hook_source <- knitr::knit_hooks$get("source")  # save the old hook
 knitr::knit_hooks$set(source = function(x, options) {
     if (isTruthy(options$answer)) {
         x <- xfun::split_lines(x)
-        x <- paste('> ', x,  i, sep = '', collapse = '\n')
+        x <- paste('> ', x, sep = '', collapse = '\n')
     }
     hook_source(x, options)
 })
