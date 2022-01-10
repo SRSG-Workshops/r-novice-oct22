@@ -19,6 +19,7 @@ source("r-novice_setup.R")
 # Working Environment
 
 ------------
+
 > ### Learning Objectives
 >
 > #### Working Environment
@@ -47,6 +48,7 @@ source("r-novice_setup.R")
 > * Summarize the contents of a data frame.
 > * Use indexing to subset specific portions of data frames.
 > * Format dates.
+
 ------------
 
 To start with we will focus on the first three learning objectives and
@@ -415,12 +417,12 @@ You can get output from R simply by typing math in the console:
 >
 > Remainder from integer division (modulus) e.g. remainder of 8/3
 >     ```{r, answer = TRUE, purl=FALSE}
-> 8 %% 3
+>     8 %% 3
 >     ```
 > Raise to the power of (exponentiation) e.g. 5 to the power of 2
->```{r, answer = TRUE, purl = FALSE}
-> 5 ^ 2
->```
+>     ```{r, answer = TRUE, purl = FALSE}
+>     5 ^ 2
+>     ```
 
 However, to do useful and interesting things, we need to assign _values_ to
 _objects_.
@@ -559,11 +561,11 @@ scripts. So that others can understand your code and that you can remember what 
 > What are the values after each statement in the following?
 >
 >     ```{r, purl = FALSE}
-> mass <- 47.5            # mass?
-> age  <- 122             # age?
-> mass <- mass * 2.0      # mass?
-> age  <- age - 20        # age?
-> mass_index <- mass/age  # mass_index?
+>     mass <- 47.5            # mass?
+>     age  <- 122             # age?
+>     mass <- mass * 2.0      # mass?
+>     age  <- age - 20        # age?
+>     mass_index <- mass/age  # mass_index?
 >     ```
 
 ```{r, echo = FALSE, purl = TRUE}
@@ -647,11 +649,11 @@ round(3.14159, digits = 2)
 > 3. Write your own function and then inspect it using `args()`. You can use the basic function below
 > as a template.
 >
->```{r, purl = FALSE}
-> add_together <- function (x, y) {
->    x + y
-> }
->```
+>     ```{r, purl = FALSE}
+>     add_together <- function (x, y) {
+>        x + y
+>     }
+>     ```
 
 ## Vectors and data types
 
@@ -746,7 +748,7 @@ factors (`factor`) and arrays (`array`).
 >   a single vector?
 >
 >     ```{text_answer, echo=FALSE, purl=FALSE}
-> R implicitly converts them to all be the same type
+>      R implicitly converts them to all be the same type
 >     ```
 >
 > * What will happen in each of these examples? (hint: use `class()`
@@ -775,10 +777,10 @@ factors (`factor`) and arrays (`array`).
 >     ```
 >
 >     ```{text_answer, echo=FALSE, purl=FALSE}
-> Only one. There is no memory of past data types, and the coercion happens the
-> first time the vector is evaluated. Therefore, the `TRUE` in `num_logical`
-> gets converted into a `1` before it gets converted into `"1"` in
-> `combined_logical`.
+>     Only one. There is no memory of past data types, and the coercion happens the
+>     first time the vector is evaluated. Therefore, the `TRUE` in `num_logical`
+>     gets converted into a `1` before it gets converted into `"1"` in
+>     `combined_logical`.
 >     ```
 >
 > * You've probably noticed that objects of different types get
@@ -790,7 +792,7 @@ factors (`factor`) and arrays (`array`).
 >   these data types are coerced?
 >
 >     ```{text_answer, echo=FALSE, purl=FALSE}
-> logical &#8594; numeric &#8594; character &#8592; logical
+>     logical &#8594; numeric &#8594; character &#8592; logical
 >     ```
 
 ```{r, echo = FALSE, eval = FALSE, purl = TRUE}
@@ -830,11 +832,11 @@ combined_logical <- c(num_logical, char_logical)
 >
 > 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5
 >     ```{r, answer = TRUE, purl=FALSE}
->  rep(1:5, 3)
+>     rep(1:5, 3)
 >     ```
 > 3 6 9 12 15 18 21 24 27 30
 >     ```{r, answer = TRUE, purl=FALSE}
-> seq(3, 30, 3)
+>     seq(3, 30, 3)
 >     ```
 >
 > Note: there are several possible solutions
@@ -907,14 +909,14 @@ animals[animals %in% c("rat", "cat", "dog", "duck", "goat")]
 
 > ### Stretch Challenge (Difficult - 10 mins)
 >     ``` {r, purl = FALSE}
-> creatures <- c('rat', 'sheep','squirrel', 'tiger', 'whale', 'dolphin',
->                'jellyfish','octopus', 'shark')
-> mammals <- c('rat', 'sheep','squirrel', 'tiger', 'whale', 'dolphin')
-> sea_creatures <- c('jellyfish', 'whale', 'octopus', 'shark', 'dolphin')
+>     creatures <- c('rat', 'sheep','squirrel', 'tiger', 'whale', 'dolphin',
+>                    'jellyfish','octopus', 'shark')
+>     mammals <- c('rat', 'sheep','squirrel', 'tiger', 'whale', 'dolphin')
+>     sea_creatures <- c('jellyfish', 'whale', 'octopus', 'shark', 'dolphin')
 >     ```
 > Create a vector of creatures that are either mammals or sea creatures but not both
 >     ```{r, answer = TRUE, purl=FALSE}
->  creatures[!(creatures %in% mammals & creatures %in% sea_creatures)]
+>      creatures[!(creatures %in% mammals & creatures %in% sea_creatures)]
 >     ```
 
 
@@ -968,21 +970,21 @@ Recall that you can use the `typeof()` function to find the type of your atomic 
 > 3. Use R to figure out how many people in the set are taller than 67 inches.
 >
 >     ```{r, answer=TRUE}
-> heights <- c(63, 69, 60, 65, NA, 68, 61, 70, 61, 59, 64, 69, 63, 63, NA, 72, 65, 64, 70, 63, 65)
+>     heights <- c(63, 69, 60, 65, NA, 68, 61, 70, 61, 59, 64, 69, 63, 63, NA, 72, 65, 64, 70, 63, 65)
 >
-> # 1.
-> heights_no_na <- heights[!is.na(heights)]
-> # or
-> heights_no_na <- na.omit(heights)
-> # or
-> heights_no_na <- heights[complete.cases(heights)]
+>     # 1.
+>     heights_no_na <- heights[!is.na(heights)]
+>     # or
+>     heights_no_na <- na.omit(heights)
+>     # or
+>     heights_no_na <- heights[complete.cases(heights)]
 >
-> # 2.
-> median(heights, na.rm = TRUE)
+>     # 2.
+>     median(heights, na.rm = TRUE)
 >
-> # 3.
-> heights_above_67 <- heights_no_na[heights_no_na > 67]
-> length(heights_above_67)
+>     # 3.
+>     heights_above_67 <- heights_no_na[heights_no_na > 67]
+>     length(heights_above_67)
 >     ```
 
 
@@ -1184,10 +1186,10 @@ functions to get a sense of the content/structure of the data. Let's try them ou
 >
 >     ```{r, answer=TRUE, results="markup", purl=FALSE}
 >
-> str(surveys)
+>     str(surveys)
 >
-> ## * class: data frame
-> ## * how many rows: 34786,  how many columns: 13
+>     ## * class: data frame
+>     ## * how many rows: 34786,  how many columns: 13
 >
 >     ```
 
@@ -1277,16 +1279,16 @@ In RStudio, you can use the autocompletion feature to get the full and correct n
 >    dataset.
 >
 >     ```{r, answer=TRUE, purl=FALSE}
-> ## 1.
-> surveys_200 <- surveys[200, ]
-> ## 2.
-> # Saving `n_rows` to improve readability and reduce duplication
-> n_rows <- nrow(surveys)
-> surveys_last <- surveys[n_rows, ]
-> ## 3.
-> surveys_middle <- surveys[n_rows / 2, ]
-> ## 4.
-> surveys_head <- surveys[-(7:n_rows), ]
+>     ## 1.
+>     surveys_200 <- surveys[200, ]
+>     ## 2.
+>     # Saving `n_rows` to improve readability and reduce duplication
+>     n_rows <- nrow(surveys)
+>     surveys_last <- surveys[n_rows, ]
+>     ## 3.
+>     surveys_middle <- surveys[n_rows / 2, ]
+>     ## 4.
+>     surveys_head <- surveys[-(7:n_rows), ]
 >     ```
 
 
@@ -1319,7 +1321,7 @@ In RStudio, you can use the autocompletion feature to get the full and correct n
 > from December of the year 2000.  The dataframe should only contain the variables
 > record_id, genus, and species.
 >     ```{r, answer = TRUE, purl=FALSE}
->  surveys[surveys$month == 12 & surveys$year == 2000,c("record_id", "genus", "species")]
+>      surveys[surveys$month == 12 & surveys$year == 2000,c("record_id", "genus", "species")]
 >     ```
 
 
