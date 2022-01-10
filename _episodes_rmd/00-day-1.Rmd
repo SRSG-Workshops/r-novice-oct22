@@ -25,7 +25,7 @@ source("r-novice_setup.R")
 > * Describe the purpose of the RStudio Script, Console, Environment, and Plots
 >   panes.
 > * Organize files and directories for a set of analyses as an R
->   Project, and understand the purpose of the working directory.
+>   Project, and understand the purpose of the  working directory.
 > * Use the built-in RStudio help interface to search for more information on R
 >   functions.
 >

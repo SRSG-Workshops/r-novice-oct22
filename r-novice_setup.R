@@ -57,16 +57,16 @@ if (!is.null(knitr::current_input())){
 
 ## hook for challenges answers
 
-knitr::knit_hooks$set(answer = function(before, options, envir) {
-    if (before) {
-        paste(
-            "<div class=\"accordion\">",
-              "<h3 class=\"toc-ignore\">Answer</h3>",
-              "<div style=\"background: #fff;\">",  sep = "\n")
-    } else {
-        paste("</div>", "</div>", sep = "\n")
-    }
-})
+# knitr::knit_hooks$set(answer = function(before, options, envir) {
+#     if (before) {
+#         paste(
+#             "<div class=\"accordion\">",
+#               "<h3 class=\"toc-ignore\">Answer</h3>",
+#               "<div style=\"background: #fff;\">",  sep = "\n")
+#     } else {
+#         paste("</div>", "</div>", sep = "\n")
+#     }
+# })
 
 eng_text_answer <- knitr:::eng_html_asset(
                                paste(
