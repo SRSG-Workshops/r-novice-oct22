@@ -409,21 +409,22 @@ You can get output from R simply by typing math in the console:
 12 / 7
 ```
 
-
+{: .challenge}
 > ### Stretch Challenge (Intermediate - 15 mins)
 > Using the information above about how and where to ask a question online, find out
 > the r arithmetic operators for the following operations:
 >
 > Remainder from integer division (modulus) e.g. remainder of 8/3
 >
-> ```{r, answer = TRUE, purl=FALSE}
-> 8 %% 3
-> ```
+> > ```{r, answer = TRUE, purl=FALSE}
+> > 8 %% 3
+> > ```
+>
 > Raise to the power of (exponentiation) e.g. 5 to the power of 2
 >
-> ```{r, answer = TRUE, purl = FALSE}
-> 5 ^ 2
-> ```
+> > ```{r, answer = TRUE, purl = FALSE}
+> > 5 ^ 2
+> > ```
 
 However, to do useful and interesting things, we need to assign _values_ to
 _objects_.
@@ -446,9 +447,9 @@ then I could tell you 'sheepdog'.
 
 > ### Challenge
 > Write down three other attributes for the object pet?
-```{text_answer, echo=FALSE, purl=FALSE}
+> ```{text_answer, echo=FALSE, purl=FALSE}
 > Including but not limited to: Species, Age, Colour, Name, Sex, Owner...
-```
+> ```
 
 In this tutorial we will use the predefined R objects for vectors and numerical values.
 We will see that these are much simpler than the linguistic examples above, and we learn the
