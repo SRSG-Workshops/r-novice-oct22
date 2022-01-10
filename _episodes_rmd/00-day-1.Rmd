@@ -4,7 +4,7 @@ slug: 'r-novice-starting-with-data'
 author: "Data Carpentry contributors"
 output:
   md_document:
-    variant: md
+    variant: gfm
     preserve_yaml: TRUE
 knit: (function(inputFile, encoding) {
   rmarkdown::render(inputFile, encoding = encoding)})
@@ -414,9 +414,9 @@ You can get output from R simply by typing math in the console:
 > the r arithmetic operators for the following operations:
 >
 > Remainder from integer division (modulus) e.g. remainder of 8/3
-> ```{r, answer = TRUE, purl=FALSE}
+>     ```{r, answer = TRUE, purl=FALSE}
 > 8 %% 3
-> ```
+>     ```
 > Raise to the power of (exponentiation) e.g. 5 to the power of 2
 >```{r, answer = TRUE, purl = FALSE}
 > 5 ^ 2
@@ -558,13 +558,13 @@ scripts. So that others can understand your code and that you can remember what 
 >
 > What are the values after each statement in the following?
 >
-> ```{r, purl = FALSE}
+>     ```{r, purl = FALSE}
 > mass <- 47.5            # mass?
 > age  <- 122             # age?
 > mass <- mass * 2.0      # mass?
 > age  <- age - 20        # age?
 > mass_index <- mass/age  # mass_index?
-> ```
+>     ```
 
 ```{r, echo = FALSE, purl = TRUE}
 ### Challenge
@@ -745,9 +745,9 @@ factors (`factor`) and arrays (`array`).
 >   numeric (or double), integer, and logical. But what happens if we try to mix these types in
 >   a single vector?
 >
-> ```{text_answer, echo=FALSE, purl=FALSE}
+>     ```{text_answer, echo=FALSE, purl=FALSE}
 > R implicitly converts them to all be the same type
-> ```
+>     ```
 >
 > * What will happen in each of these examples? (hint: use `class()`
 >   to check the data type of your objects):
@@ -761,11 +761,11 @@ factors (`factor`) and arrays (`array`).
 >
 > * Why do you think it happens?
 >
-> ```{text_answer, echo=FALSE, purl=FALSE}
+>     ```{text_answer, echo=FALSE, purl=FALSE}
 > Vectors can be of only one data type. R tries to
 > convert (coerce) the content of this vector to find a "common
 > denominator" that doesn't lose any information.
-> ```
+>     ```
 >
 > * How many values in `combined_logical` are `"TRUE"` (as a character) in the
 >   following example (reusing the 2 `..._logical`s from above):
@@ -774,12 +774,12 @@ factors (`factor`) and arrays (`array`).
 >     combined_logical <- c(num_logical, char_logical)
 >     ```
 >
-> ```{text_answer, echo=FALSE, purl=FALSE}
+>     ```{text_answer, echo=FALSE, purl=FALSE}
 > Only one. There is no memory of past data types, and the coercion happens the
 > first time the vector is evaluated. Therefore, the `TRUE` in `num_logical`
 > gets converted into a `1` before it gets converted into `"1"` in
 > `combined_logical`.
-> ```
+>     ```
 >
 > * You've probably noticed that objects of different types get
 >   converted into a single, shared type within a vector. In R, we
@@ -789,9 +789,9 @@ factors (`factor`) and arrays (`array`).
 >   types. Can you draw a diagram that represents the hierarchy of how
 >   these data types are coerced?
 >
-> ```{text_answer, echo=FALSE, purl=FALSE}
+>     ```{text_answer, echo=FALSE, purl=FALSE}
 > logical &#8594; numeric &#8594; character &#8592; logical
-> ```
+>     ```
 
 ```{r, echo = FALSE, eval = FALSE, purl = TRUE}
 ## We’ve seen that atomic vectors can be of type character, numeric, integer, and
@@ -829,13 +829,13 @@ combined_logical <- c(num_logical, char_logical)
 > Use these functions to create the following vectors:
 >
 > 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5
-> ```{r, answer = TRUE, purl=FALSE}
+>     ```{r, answer = TRUE, purl=FALSE}
 >  rep(1:5, 3)
-> ```
+>     ```
 > 3 6 9 12 15 18 21 24 27 30
-> ```{r, answer = TRUE, purl=FALSE}
+>     ```{r, answer = TRUE, purl=FALSE}
 > seq(3, 30, 3)
-> ```
+>     ```
 >
 > Note: there are several possible solutions
 
@@ -906,16 +906,16 @@ animals[animals %in% c("rat", "cat", "dog", "duck", "goat")]
 ```
 
 > ### Stretch Challenge (Difficult - 10 mins)
-> ``` {r, purl = FALSE}
+>     ``` {r, purl = FALSE}
 > creatures <- c('rat', 'sheep','squirrel', 'tiger', 'whale', 'dolphin',
 >                'jellyfish','octopus', 'shark')
 > mammals <- c('rat', 'sheep','squirrel', 'tiger', 'whale', 'dolphin')
 > sea_creatures <- c('jellyfish', 'whale', 'octopus', 'shark', 'dolphin')
-> ```
+>     ```
 > Create a vector of creatures that are either mammals or sea creatures but not both
-> ```{r, answer = TRUE, purl=FALSE}
+>     ```{r, answer = TRUE, purl=FALSE}
 >  creatures[!(creatures %in% mammals & creatures %in% sea_creatures)]
-> ```
+>     ```
 
 
 ## Missing data
@@ -967,7 +967,7 @@ Recall that you can use the `typeof()` function to find the type of your atomic 
 >
 > 3. Use R to figure out how many people in the set are taller than 67 inches.
 >
-> ```{r, answer=TRUE}
+>     ```{r, answer=TRUE}
 > heights <- c(63, 69, 60, 65, NA, 68, 61, 70, 61, 59, 64, 69, 63, 63, NA, 72, 65, 64, 70, 63, 65)
 >
 > # 1.
@@ -983,7 +983,7 @@ Recall that you can use the `typeof()` function to find the type of your atomic 
 > # 3.
 > heights_above_67 <- heights_no_na[heights_no_na > 67]
 > length(heights_above_67)
-> ```
+>     ```
 
 
 ```{r, echo = FALSE, purl = TRUE}
@@ -1182,14 +1182,14 @@ functions to get a sense of the content/structure of the data. Let's try them ou
 > * What is the class of the object `surveys`?
 > * How many rows and how many columns are in this object?
 >
-> ```{r, answer=TRUE, results="markup", purl=FALSE}
+>     ```{r, answer=TRUE, results="markup", purl=FALSE}
 >
 > str(surveys)
 >
 > ## * class: data frame
 > ## * how many rows: 34786,  how many columns: 13
 >
-> ```
+>     ```
 
 
 ```{r, echo=FALSE, purl=TRUE}
@@ -1276,7 +1276,7 @@ In RStudio, you can use the autocompletion feature to get the full and correct n
 >    `head(surveys)`, keeping just the first through 6th rows of the surveys
 >    dataset.
 >
-> ```{r, answer=TRUE, purl=FALSE}
+>     ```{r, answer=TRUE, purl=FALSE}
 > ## 1.
 > surveys_200 <- surveys[200, ]
 > ## 2.
@@ -1287,7 +1287,7 @@ In RStudio, you can use the autocompletion feature to get the full and correct n
 > surveys_middle <- surveys[n_rows / 2, ]
 > ## 4.
 > surveys_head <- surveys[-(7:n_rows), ]
-> ```
+>     ```
 
 
 ```{r, echo=FALSE, purl=TRUE}
@@ -1318,9 +1318,9 @@ In RStudio, you can use the autocompletion feature to get the full and correct n
 > Create a subset of the `surveys` dataframe that contains only observations
 > from December of the year 2000.  The dataframe should only contain the variables
 > record_id, genus, and species.
-> ```{r, answer = TRUE, purl=FALSE}
+>     ```{r, answer = TRUE, purl=FALSE}
 >  surveys[surveys$month == 12 & surveys$year == 2000,c("record_id", "genus", "species")]
-> ```
+>     ```
 
 
 ## Formatting Dates
@@ -1403,9 +1403,9 @@ analyses, how would you deal with this situation?
 ### Note
 > If the data is to be discarded we can use the `not` logical operator `!` to make a
 > filter for the bad dates.
-> ```
+>     ```
 > date_vec_cleaned <- date_vec[!is.na(date_vec)]
-> ```
+>     ```
 > However for now we will include the bad dates and can us this simple filter later if needed.
 
 The resulting `Date` vector `date_vec` can be added to `surveys` as a new column
