@@ -34,6 +34,7 @@ if (!file.exists("data_raw/portal_mammals.sqlite")) {
 ## knitr options
 library(knitr)
 library(methods)
+library(ufs)
 suppressPackageStartupMessages(library(tidyverse))
 knitr::opts_chunk$set(results='hide', comment = "#>", purl = FALSE, fig.keep='last')
 
@@ -59,7 +60,7 @@ if (!is.null(knitr::current_input())){
 # If we are in an answer block indent by one
 hook_source <- knitr::knit_hooks$get("source")  # save the old hook
 knitr::knit_hooks$set(source = function(x, options) {
-    if (isTrue(options$answer)) {
+    if (isTruthy(options$answer)) {
         x <- xfun::split_lines(x)
         x <- paste('> ', x,  i, sep = '', collapse = '\n')
     }
