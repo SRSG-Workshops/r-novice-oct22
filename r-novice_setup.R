@@ -73,7 +73,7 @@ knitr::knit_hooks$set(answer = function(before, options, envir) {
     paste(
         "> ## Solution \n",
         "> \n",
-        "> "
+        "> ",
         sep = "")
     } else {
     paste(
