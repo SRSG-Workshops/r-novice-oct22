@@ -61,8 +61,8 @@ if (!is.null(knitr::current_input())){
 hook_source <- knitr::knit_hooks$get("source")  # save the old hook
 knitr::knit_hooks$set(source = function(x, options) {
     if (isTruthy(options$answer)) {
-        c(paste(
-            paste('> ',
+        paste(
+            c(paste('> ',
                   c('## Solution',
                     '',
                     unlist(strsplit(x, '\n'))
