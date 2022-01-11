@@ -63,7 +63,7 @@ knitr::knit_hooks$set(source = function(x, options) {
     if (isTruthy(options$answer)) {
         x <- xfun::split_lines(x)
         x <- paste('> ', x, sep = '', collapse = '\n')
-        x <- paste(x, '> ', sep = '')
+        x <- paste(x, '\n> ', sep = '')
     }
     hook_source(x, options)
 })
@@ -77,8 +77,8 @@ knitr::knit_hooks$set(answer = function(before, options, envir) {
         sep = "")
     } else {
     paste(
-        "{: .solution}",
-        sep = "\n")
+        "{: .solution}\n",
+        sep = "")
     }
 })
 
