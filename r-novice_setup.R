@@ -63,6 +63,7 @@ knitr::knit_hooks$set(source = function(x, options) {
     if (isTruthy(options$answer)) {
         x <- xfun::split_lines(x)
         x <- paste('> ', x, sep = '', collapse = '\n')
+        x <- paste(x, '> ', sep = '')
     }
     hook_source(x, options)
 })
@@ -70,21 +71,15 @@ knitr::knit_hooks$set(source = function(x, options) {
 knitr::knit_hooks$set(answer = function(before, options, envir) {
     if (before) {
     paste(
-        "## Solution",
-        sep = "\n")
+        "> ## Solution \n",
+        "> \n"
+        "> "
+        sep = "")
     } else {
     paste(
         "{: .solution}",
-        sep = "")
+        sep = "\n")
     }
-#     if (before) {
-#         paste(
-#             "<div class=\"accordion\">",
-#               "<h3 class=\"toc-ignore\">Answer</h3>",
-#               "<div style=\"background: #fff;\">",  sep = "\n")
-#     } else {
-#         paste("</div>", "</div>", sep = "\n")
-#     }
 })
 
 eng_text_answer <- knitr:::eng_html_asset(
@@ -93,15 +88,7 @@ eng_text_answer <- knitr:::eng_html_asset(
                                     sep = "\n"),
                                 paste(
                                     "{: .solution}",
-                                    sep = "")
-#                                paste(
-#                                    "<div class=\"accordion\">",
-#                                    "<h3 class=\"toc-ignore\">Answer</h3>",
-#                                    "<div style=\"background: #fff;\">",
-#                                    "<p>",  sep = "\n"),
-#                                paste(
-#                                    "</div>", "</div>", "</p>", sep = "\n"
-#                                )
+                                    sep = "\n")
                             )
 
 knitr::knit_engines$set(text_answer = eng_text_answer)
