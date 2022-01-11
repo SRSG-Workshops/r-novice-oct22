@@ -63,25 +63,20 @@ knitr::knit_hooks$set(source = function(x, options) {
     if (isTruthy(options$answer)) {
         paste(c('> ## Solution',
                 '>',
-                paste('> ', unlist(strsplit(x, '\n')), sep = ''),
-                '\n{: .solution}'), sep = '', collapse = '\n')
-} else {
+                paste('> ', unlist(strsplit(x, '\n')), sep = '')),
+              sep = '', collapse = '\n')
+    } else {
         hook_source(x, options)
     }
 })
 
-# knitr::knit_hooks$set(answer = function(before, options, envir) {
-#     if (before) {
-#     paste(
-#         "> ## Solution \n",
-#         "> > \n",
-#         sep = "")
-#     } else {
-#     paste(
-#         "{: .solution}\n",
-#         sep = "")
-#     }
-# })
+knitr::knit_hooks$set(answer = function(before, options, envir) {
+    if (!before) {
+        paste(
+            "{: .solution}\n",
+            sep = "")
+    }
+})
 
 eng_text_answer <- knitr:::eng_html_asset(
                                 paste(
