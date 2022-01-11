@@ -427,6 +427,12 @@ You can get output from R simply by typing math in the console:
 > ```
 {: .challenge}
 
+
+```{r, answer = TRUE, purl=FALSE}
+8 %% 3
+```
+
+
 However, to do useful and interesting things, we need to assign _values_ to
 _objects_.
 
