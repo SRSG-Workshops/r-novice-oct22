@@ -61,24 +61,28 @@ if (!is.null(knitr::current_input())){
 hook_source <- knitr::knit_hooks$get("source")  # save the old hook
 knitr::knit_hooks$set(source = function(x, options) {
     if (isTruthy(options$answer)) {
-        paste('> ',
-              c('## Solution',
-                '',
-                unlist(strsplit(x, '\n')),
-                ),
-              sep = '', collapse = '\n')
+        paste(
+            paste('> ',
+                  c('## Solution',
+                    '',
+                    unlist(strsplit(x, '\n')),
+                    '',
+                    ),
+                  sep = ''),
+            '{: .solution}',
+            collapse = '\n')
     } else {
         hook_source(x, options)
     }
 })
 
-knitr::knit_hooks$set(answer = function(before, options, envir) {
-    if (!before) {
-        paste(
-            "\n{: .solution}\n",
-            sep = "")
-    }
-})
+# knitr::knit_hooks$set(answer = function(before, options, envir) {
+#     if (!before) {
+#         paste(
+#             "{: .solution}",
+#             sep = "")
+#     }
+# })
 
 eng_text_answer <- knitr:::eng_html_asset(
                                 paste(
