@@ -457,6 +457,7 @@ then I could tell you 'sheepdog'.
 > ```{text_answer, echo=FALSE, purl=FALSE}
 > Including but not limited to: Species, Age, Colour, Name, Sex, Owner...
 > ```
+{: .challenge}
 
 In this tutorial we will use the predefined R objects for vectors and numerical values.
 We will see that these are much simpler than the linguistic examples above, and we learn the
