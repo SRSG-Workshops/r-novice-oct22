@@ -66,7 +66,7 @@ knitr::knit_hooks$set(source = function(x, options) {
         x <- paste('> ## Solution',
                    '>',
                    x,
-                   '{: .solution}', sep = '\n')
+                   '\n {: .solution}', sep = '\n')
     }
     # hook_source(x, options)
 })
