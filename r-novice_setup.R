@@ -63,24 +63,26 @@ knitr::knit_hooks$set(source = function(x, options) {
     if (isTruthy(options$answer)) {
         x <- xfun::split_lines(x)
         x <- paste('> ', x, sep = '', collapse = '\n')
-        x <- paste(x, '\n> ', sep = '')
+        x <- paste('> > ## Solution',
+                   '> >',
+                   x,
+                   '> {: .solution}', sep = '', collapse = '\n')
     }
-    hook_source(x, options)
+    # hook_source(x, options)
 })
 
-knitr::knit_hooks$set(answer = function(before, options, envir) {
-    if (before) {
-    paste(
-        "> ## Solution \n",
-        "> \n",
-        "> ",
-        sep = "")
-    } else {
-    paste(
-        "{: .solution}\n",
-        sep = "")
-    }
-})
+# knitr::knit_hooks$set(answer = function(before, options, envir) {
+#     if (before) {
+#     paste(
+#         "> ## Solution \n",
+#         "> > \n",
+#         sep = "")
+#     } else {
+#     paste(
+#         "{: .solution}\n",
+#         sep = "")
+#     }
+# })
 
 eng_text_answer <- knitr:::eng_html_asset(
                                 paste(
