@@ -65,10 +65,10 @@ knitr::knit_hooks$set(source = function(x, options) {
             paste('> ',
                   c('## Solution',
                     '',
-                    unlist(strsplit(x, '\n')),
-                    '',
+                    unlist(strsplit(x, '\n'))
                     ),
                   sep = ''),
+            '',
             '{: .solution}',
             collapse = '\n')
     } else {
