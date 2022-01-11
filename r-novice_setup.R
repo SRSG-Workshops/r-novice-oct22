@@ -63,7 +63,7 @@ knitr::knit_hooks$set(source = function(x, options) {
     if (isTruthy(options$answer)) {
         paste(c('> ## Solution',
                 '>',
-                paste('> ', xfun::split_lines(x), sep = ''),
+                paste('> ', unlist(strsplit(x, '\n')), sep = ''),
                 '{: .solution}'), sep = '', collapse = '\n')
 } else {
         hook_source(x, options)
