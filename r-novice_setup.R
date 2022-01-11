@@ -65,8 +65,8 @@ knitr::knit_hooks$set(source = function(x, options) {
               c('> ## Solution',
                 '>',
                 unlist(strsplit(x, '\n')),
-                '{: .solution}',
-              sep = '', collapse = '\n')),
+                '{: .solution}'),
+              sep = '', collapse = '\n'),
     } else {
         hook_source(x, options)
     }
