@@ -68,7 +68,6 @@ knitr::knit_hooks$set(source = function(x, options) {
                     unlist(strsplit(x, '\n'))
                     ),
                   sep = ''),
-            '',
             '{: .solution}'),
             collapse = '\n')
     } else {
