@@ -450,7 +450,7 @@ then I could tell you 'sheepdog'.
 
 > ### Challenge
 > Write down three other attributes for the object pet?
-> ```{text_answer, answer = TRUE,, echo=FALSE, purl=FALSE}
+> ```{r, answer = TRUE,, echo=FALSE, purl=FALSE}
 > Including but not limited to: Species, Age, Colour, Name, Sex, Owner...
 > ```
 {: .challenge}
@@ -753,7 +753,7 @@ factors (`factor`) and arrays (`array`).
 >   numeric (or double), integer, and logical. But what happens if we try to mix these types in
 >   a single vector?
 >
-> ```{text_answer, answer = TRUE,, echo=FALSE, purl=FALSE}
+> ```{r, answer = TRUE,, echo=FALSE, purl=FALSE}
 >  R implicitly converts them to all be the same type
 > ```
 >
@@ -769,7 +769,7 @@ factors (`factor`) and arrays (`array`).
 >
 > * Why do you think it happens?
 >
-> ```{text_answer, answer = TRUE,, echo=FALSE, purl=FALSE}
+> ```{r, answer = TRUE,, echo=FALSE, purl=FALSE}
 > Vectors can be of only one data type. R tries to
 > convert (coerce) the content of this vector to find a "common
 > denominator" that doesn't lose any information.
@@ -782,7 +782,7 @@ factors (`factor`) and arrays (`array`).
 > combined_logical <- c(num_logical, char_logical)
 > ```
 >
-> ```{text_answer, answer = TRUE,, echo=FALSE, purl=FALSE}
+> ```{r, answer = TRUE,, echo=FALSE, purl=FALSE}
 > Only one. There is no memory of past data types, and the coercion happens the
 > first time the vector is evaluated. Therefore, the `TRUE` in `num_logical`
 > gets converted into a `1` before it gets converted into `"1"` in
@@ -797,7 +797,7 @@ factors (`factor`) and arrays (`array`).
 >   types. Can you draw a diagram that represents the hierarchy of how
 >   these data types are coerced?
 >
-> ```{text_answer, answer = TRUE,, echo=FALSE, purl=FALSE}
+> ```{r, answer = TRUE,, echo=FALSE, purl=FALSE}
 > logical &#8594; numeric &#8594; character &#8592; logical
 > ```
 
