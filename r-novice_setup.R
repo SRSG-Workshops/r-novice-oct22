@@ -62,13 +62,13 @@ hook_source <- knitr::knit_hooks$get("source")  # save the old hook
 knitr::knit_hooks$set(source = function(x, options) {
     if (isTruthy(options$answer)) {
         paste(
-              c('~~~', paste('> ',
+              c(paste('> ',
                       c('## Solution',
                         '',
                         unlist(strsplit(x, '\n'))
                       ),
                       sep = ''),
-                '{: .solution}', '~~~'),
+                '{: .solution}'),
               collapse = '\n')
       } else {
         hook_source(x, options)
