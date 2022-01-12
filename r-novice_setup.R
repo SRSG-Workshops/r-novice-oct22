@@ -75,17 +75,10 @@ knitr::knit_hooks$set(source = function(x, options) {
     }
 })
 
-# knitr::knit_hooks$set(answer = function(before, options, envir) {
-#     if (!before) {
-#         paste(
-#             "{: .solution}",
-#             sep = "")
-#     }
-# })
-
 eng_text_answer <- knitr:::eng_html_asset(
                                 paste(
                                     "## Solution",
+                                    "",
                                     sep = "\n"),
                                 paste(
                                     "{: .solution}",
