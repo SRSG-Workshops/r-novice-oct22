@@ -450,7 +450,7 @@ then I could tell you 'sheepdog'.
 
 > ### Challenge
 > Write down three other attributes for the object pet?
-> ```{r, answer = TRUE, echo=FALSE, purl=FALSE}
+> ```{r, answer = TRUE, purl=FALSE}
 > Including but not limited to: Species, Age, Colour, Name, Sex, Owner...
 > ```
 {: .challenge}
