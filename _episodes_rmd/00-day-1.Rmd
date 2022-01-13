@@ -1183,7 +1183,7 @@ functions to get a sense of the content/structure of the data. Let's try them ou
 > * What is the class of the object `surveys`?
 > * How many rows and how many columns are in this object?
 >
-> ```{r, answer=TRUE, purl=FALSE}
+> ```{r, purl=FALSE}
 > str(surveys)
 >```
 >
