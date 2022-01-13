@@ -1185,7 +1185,7 @@ functions to get a sense of the content/structure of the data. Let's try them ou
 >
 > ```{r, purl=FALSE}
 > str(surveys)
->```
+> ```
 >
 > ```{text_answer, echo=FALSE, purl=FALSE}
 > * class: data frame
