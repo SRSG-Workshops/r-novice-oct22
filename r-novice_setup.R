@@ -65,7 +65,9 @@ knitr::knit_hooks$set(source = function(x, options) {
               c(paste('> ',
                       c('## Solution',
                         '',
-                        unlist(strsplit(x, '\n'))
+                        '``` r',
+                        unlist(strsplit(x, '\n')),
+                        '```'
                       ),
                       sep = ''),
                 '{: .solution}'),
