@@ -1265,9 +1265,8 @@ In RStudio, you can use the autocompletion feature to get the full and correct n
 > ```{r, answer=TRUE, purl=FALSE}
 > 1.
 > surveys_200 <- surveys[200, ]
-> 2.
-> # Saving `n_rows` to improve readability and reduce duplication
 > n_rows <- nrow(surveys)
+> 2.
 > surveys_last <- surveys[n_rows, ]
 > 3.
 > surveys_middle <- surveys[n_rows / 2, ]
@@ -1278,11 +1277,13 @@ In RStudio, you can use the autocompletion feature to get the full and correct n
 
 
 > ### Stretch Challenge (Intermediate - 10 mins)
+>
 > Create a subset of the `surveys` dataframe that contains only observations
 > from December of the year 2000.  The dataframe should only contain the variables
 > record_id, genus, and species.
+>
 > ```{r, answer = TRUE, purl=FALSE}
->  surveys[surveys$month == 12 & surveys$year == 2000,c("record_id", "genus", "species")]
+> surveys[surveys$month == 12 & surveys$year == 2000,c("record_id", "genus", "species")]
 > ```
 {: .challenge}
 
