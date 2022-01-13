@@ -183,7 +183,7 @@ for 'Save workspace to .RData' on exit.'
 > Web Application' or 'R Package'. If you're interested in either of these, have a look at this further information
 > about making your own [Shiny Web Application](https://shiny.rstudio.com/)
 > or [R Package](https://ourcodingclub.github.io/tutorials/writing-r-package/).
-
+{: .challenge}
 
 ### Organizing your working directory
 
@@ -229,6 +229,7 @@ Your working directory should now look like this:
 
 > ### Stretch Challenge (Intermediate - 15 mins)
 > Try creating the file structure shown below using only commands in the R console.
+{: .challenge}
 
 ![](fig/file_structure_diagram.png)
 
@@ -573,6 +574,8 @@ scripts. So that others can understand your code and that you can remember what 
 > age  <- age - 20        # age?
 > mass_index <- mass/age  # mass_index?
 > ```
+{: .challenge}
+
 
 ```{r, echo = FALSE, purl = TRUE}
 ### Challenge
@@ -585,6 +588,7 @@ scripts. So that others can understand your code and that you can remember what 
 ## age  <- age - 20        # age?
 ## mass_index <- mass/age  # mass_index?
 ```
+{: .challenge}
 
 ### Functions and their arguments
 
@@ -660,6 +664,7 @@ round(3.14159, digits = 2)
 >    x + y
 > }
 > ```
+{: .challenge}
 
 ## Vectors and data types
 
@@ -800,6 +805,7 @@ factors (`factor`) and arrays (`array`).
 > ```{text_answer, echo=FALSE, purl=FALSE}
 > logical &#8594; numeric &#8594; character &#8592; logical
 > ```
+{: .challenge}
 
 ```{r, echo = FALSE, eval = FALSE, purl = TRUE}
 ## We’ve seen that atomic vectors can be of type character, numeric, integer, and
@@ -837,15 +843,18 @@ combined_logical <- c(num_logical, char_logical)
 > Use these functions to create the following vectors:
 >
 > 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5
+>
 > ```{r, answer = TRUE, purl=FALSE}
 > rep(1:5, 3)
 > ```
 > 3 6 9 12 15 18 21 24 27 30
+>
 > ```{r, answer = TRUE, purl=FALSE}
 > seq(3, 30, 3)
 > ```
 >
 > Note: there are several possible solutions
+{: .challenge}
 
 ## Subsetting vectors
 
@@ -914,17 +923,20 @@ animals[animals %in% c("rat", "cat", "dog", "duck", "goat")]
 ```
 
 > ### Stretch Challenge (Difficult - 10 mins)
+>
 > ``` {r, purl = FALSE}
 > creatures <- c('rat', 'sheep','squirrel', 'tiger', 'whale', 'dolphin',
 >                'jellyfish','octopus', 'shark')
 > mammals <- c('rat', 'sheep','squirrel', 'tiger', 'whale', 'dolphin')
 > sea_creatures <- c('jellyfish', 'whale', 'octopus', 'shark', 'dolphin')
 > ```
+>
 > Create a vector of creatures that are either mammals or sea creatures but not both
+>
 > ```{r, answer = TRUE, purl=FALSE}
 >  creatures[!(creatures %in% mammals & creatures %in% sea_creatures)]
 > ```
-
+{: .challenge}
 
 ## Missing data
 
@@ -971,6 +983,7 @@ Recall that you can use the `typeof()` function to find the type of your atomic 
 > ```r
 > heights <- c(63, 69, 60, 65, NA, 68, 61, 70, 61, 59, 64, 69, 63, 63, NA, 72, 65, 64, 70, 63, 65)
 > ```
+>
 > 2. Use the function `median()` to calculate the median of the `heights` vector.
 >
 > 3. Use R to figure out how many people in the set are taller than 67 inches.
@@ -992,6 +1005,7 @@ Recall that you can use the `typeof()` function to find the type of your atomic 
 > heights_above_67 <- heights_no_na[heights_no_na > 67]
 > length(heights_above_67)
 > ```
+{: .challenge}
 
 
 ```{r, echo = FALSE, purl = TRUE}
@@ -1004,6 +1018,7 @@ Recall that you can use the `typeof()` function to find the type of your atomic 
 ##
 ## 3. Use R to figure out how many people in the set are taller than 67 inches.
 ```
+{: .challenge}
 
 Now that we have learned how to write scripts, and the basics of R's data
 structures, we are ready to start working with the Portal dataset we have been
@@ -1012,6 +1027,7 @@ using in the other lessons, and learn about data frames.
 > ### Stretch Challenge (Fiendish - 1hr+)
 > Have a look at a package called [mice](https://www.jstatsoft.org/article/view/v045i03) for some more
 > advanced methods of dealing with multivariate missing data.
+{: .challenge}
 
 # Load Data
 
@@ -1198,6 +1214,7 @@ functions to get a sense of the content/structure of the data. Let's try them ou
 > ## * how many rows: 34786,  how many columns: 13
 >
 > ```
+{: .challenge}
 
 
 ```{r, echo=FALSE, purl=TRUE}
@@ -1208,6 +1225,7 @@ functions to get a sense of the content/structure of the data. Let's try them ou
 ## * How many rows and how many columns are in this object?
 
 ```
+{: .challenge}
 
 
 
@@ -1296,6 +1314,7 @@ In RStudio, you can use the autocompletion feature to get the full and correct n
 > ## 4.
 > surveys_head <- surveys[-(7:n_rows), ]
 > ```
+{: .challenge}
 
 
 ```{r, echo=FALSE, purl=TRUE}
@@ -1319,8 +1338,9 @@ In RStudio, you can use the autocompletion feature to get the full and correct n
 ### 4. Combine `nrow()` with the `-` notation above to reproduce the behavior of
 ###    `head(surveys)`, keeping just the first through 6th rows of the surveys
 ###    dataset.
-
 ```
+{: .challenge}
+
 
 > ### Stretch Challenge (Intermediate - 10 mins)
 > Create a subset of the `surveys` dataframe that contains only observations
@@ -1329,6 +1349,7 @@ In RStudio, you can use the autocompletion feature to get the full and correct n
 > ```{r, answer = TRUE, purl=FALSE}
 >  surveys[surveys$month == 12 & surveys$year == 2000,c("record_id", "genus", "species")]
 > ```
+{: .challenge}
 
 
 ## Formatting Dates
