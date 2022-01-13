@@ -1187,8 +1187,8 @@ functions to get a sense of the content/structure of the data. Let's try them ou
 >
 > str(surveys)
 >
-> ## * class: data frame
-> ## * how many rows: 34786,  how many columns: 13
+> * class: data frame
+> * how many rows: 34786,  how many columns: 13
 >
 > ```
 {: .challenge}
