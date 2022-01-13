@@ -75,15 +75,18 @@ knitr::knit_hooks$set(source = function(x, options) {
     }
 })
 
-eng_text_answer <- knitr:::eng_html_asset(
-                                paste(
-                                    "## Solution",
-                                    "",
-                                    sep = "\n"),
-                                paste(
-                                    "{: .solution}",
-                                    sep = "\n")
-                            )
+# engine for targeting SWC markdown
+eng_text_answer <- function(options){
+    paste(
+          c(paste('> ',
+                  c('## Solution',
+                    '',
+                    unlist(strsplit(options$code, '\n'))
+                  ),
+                  sep = ''),
+            '{: .solution}'),
+          collapse = '\n')
+}
 
 knitr::knit_engines$set(text_answer = eng_text_answer)
 
