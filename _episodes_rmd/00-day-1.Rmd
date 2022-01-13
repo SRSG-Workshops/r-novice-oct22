@@ -451,6 +451,7 @@ then I could tell you 'sheepdog'.
 
 > ### Challenge
 > Write down three other attributes for the object pet?
+>
 > ```{text_answer, echo=FALSE, purl=FALSE}
 > Including but not limited to: Species, Age, Colour, Name, Sex, Owner...
 > ```
