@@ -578,19 +578,6 @@ scripts. So that others can understand your code and that you can remember what 
 {: .challenge}
 
 
-```{r, echo = FALSE, purl = TRUE}
-### Challenge
-##
-## What are the values after each statement in the following?
-##
-## mass <- 47.5            # mass?
-## age  <- 122             # age?
-## mass <- mass * 2.0      # mass?
-## age  <- age - 20        # age?
-## mass_index <- mass/age  # mass_index?
-```
-{: .challenge}
-
 ### Functions and their arguments
 
 Functions automate sets of commands
@@ -975,21 +962,22 @@ na.omit(heights)
 #The returned object is an atomic vector of type `"numeric"` (or #`"double"`).
 heights[complete.cases(heights)]
 ```
+
 Recall that you can use the `typeof()` function to find the type of your atomic vector.
 
 > ### Challenge
->
-> 1. Using this vector of heights in inches, create a new vector, `heights_no_na`, with the NAs removed.
 >
 > ```r
 > heights <- c(63, 69, 60, 65, NA, 68, 61, 70, 61, 59, 64, 69, 63, 63, NA, 72, 65, 64, 70, 63, 65)
 > ```
 >
+> 1. Using this vector of heights in inches, create a new vector, `heights_no_na`, with the NAs removed.
+>
 > 2. Use the function `median()` to calculate the median of the `heights` vector.
 >
 > 3. Use R to figure out how many people in the set are taller than 67 inches.
 >
-> ```{r, answer=TRUE}
+> ```{r, answer = TRUE, purl = FALSE}
 > heights <- c(63, 69, 60, 65, NA, 68, 61, 70, 61, 59, 64, 69, 63, 63, NA, 72, 65, 64, 70, 63, 65)
 >
 > # 1.
@@ -1008,24 +996,12 @@ Recall that you can use the `typeof()` function to find the type of your atomic 
 > ```
 {: .challenge}
 
-
-```{r, echo = FALSE, purl = TRUE}
-## ### Challenge
-## 1. Using this vector of heights in inches, create a new vector with the NAs removed.
-##
-##    heights <- c(63, 69, 60, 65, NA, 68, 61, 70, 61, 59, 64, 69, 63, 63, NA, 72, 65, 64, 70, 63, 65)
-##
-## 2. Use the function `median()` to calculate the median of the `heights` vector.
-##
-## 3. Use R to figure out how many people in the set are taller than 67 inches.
-```
-{: .challenge}
-
 Now that we have learned how to write scripts, and the basics of R's data
 structures, we are ready to start working with the Portal dataset we have been
 using in the other lessons, and learn about data frames.
 
 > ### Stretch Challenge (Fiendish - 1hr+)
+>
 > Have a look at a package called [mice](https://www.jstatsoft.org/article/view/v045i03) for some more
 > advanced methods of dealing with multivariate missing data.
 {: .challenge}
@@ -1207,7 +1183,7 @@ functions to get a sense of the content/structure of the data. Let's try them ou
 > * What is the class of the object `surveys`?
 > * How many rows and how many columns are in this object?
 >
-> ```{r, answer=TRUE, results="markup", purl=FALSE}
+> ```{r, answer=TRUE, purl=FALSE}
 >
 > str(surveys)
 >
@@ -1218,25 +1194,8 @@ functions to get a sense of the content/structure of the data. Let's try them ou
 {: .challenge}
 
 
-```{r, echo=FALSE, purl=TRUE}
-
-## Challenge
-## Based on the output of `str(surveys)`, can you answer the following questions?
-## * What is the class of the object `surveys`?
-## * How many rows and how many columns are in this object?
-
-```
-{: .challenge}
-
-
 
 ## Indexing and subsetting data frames
-
-```{r, echo=FALSE, purl=TRUE}
-
-## Indexing and subsetting data frames
-```
-
 
 Our survey data frame has rows and columns (it has 2 dimensions), if we want to
 extract some specific data from it, we need to specify the "coordinates" we
@@ -1304,42 +1263,17 @@ In RStudio, you can use the autocompletion feature to get the full and correct n
 >    dataset.
 >
 > ```{r, answer=TRUE, purl=FALSE}
-> ## 1.
+> 1.
 > surveys_200 <- surveys[200, ]
-> ## 2.
+> 2.
 > # Saving `n_rows` to improve readability and reduce duplication
 > n_rows <- nrow(surveys)
 > surveys_last <- surveys[n_rows, ]
-> ## 3.
+> 3.
 > surveys_middle <- surveys[n_rows / 2, ]
-> ## 4.
+> 4.
 > surveys_head <- surveys[-(7:n_rows), ]
 > ```
-{: .challenge}
-
-
-```{r, echo=FALSE, purl=TRUE}
-### Challenges:
-###
-### 1. Create a `data.frame` (`surveys_200`) containing only the
-###    data in row 200 of the `surveys` dataset.
-###
-### 2. Notice how `nrow()` gave you the number of rows in a `data.frame`?
-###
-###      * Use that number to pull out just that last row in the data frame
-###      * Compare that with what you see as the last row using `tail()` to make
-###        sure it's meeting expectations.
-###      * Pull out that last row using `nrow()` instead of the row number
-###      * Create a new data frame object (`surveys_last`) from that last row
-###
-### 3. Use `nrow()` to extract the row that is in the middle of the
-###    data frame. Store the content of this row in an object named
-###    `surveys_middle`.
-###
-### 4. Combine `nrow()` with the `-` notation above to reproduce the behavior of
-###    `head(surveys)`, keeping just the first through 6th rows of the surveys
-###    dataset.
-```
 {: .challenge}
 
 
