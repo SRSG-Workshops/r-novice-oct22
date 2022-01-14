@@ -196,7 +196,7 @@ surveys_plot
 > - What are the relative strengths and weaknesses of a hexagonal bin plot
 >   compared to a scatter plot? Examine the above scatter plot and compare it
 >   with the hexagonal bin plot that you created.
-{.challenge}
+{: .challenge}
 
 ```{r hexbin-challenge, echo = FALSE, eval = FALSE, purl = TRUE}
 ### Challenge with hexbin
@@ -215,13 +215,13 @@ surveys_plot +
 ## What are the relative strengths and weaknesses of a hexagonal bin
 ## plot compared to a scatter plot?
 ```
-{.challenge}
+{: .challenge}
 
 > ### Stretch Challenge (Intermediate - 15 mins)
 > Add a smoothing line to the plot so that it is easier to interpret.  You could also
 > investigate whether a contour plot or heatmap improves clarity of interpretation.
 > Hint: Have a look at the [**`ggplot2`** cheat sheet](https://ggplot2.tidyverse.org/)
-{.challenge}
+{: .challenge}
 
 ## Building your plots iteratively
 
@@ -270,7 +270,7 @@ ggplot(data = surveys_complete, mapping = aes(x = weight, y = hindfoot_length)) 
 >        mapping = aes(x = species_id, y = weight)) +
 >    geom_point(aes(color = plot_type))
 > ```
-{.challenge}
+{: .challenge}
 
 
 ```{r scatter-challenge, echo = FALSE, eval = FALSE, purl = TRUE}
@@ -280,7 +280,7 @@ ggplot(data = surveys_complete, mapping = aes(x = weight, y = hindfoot_length)) 
 ## over `species_id` with the plot types showing in different colors.
 ## Is this a good way to show this type of data?
 ```
-{.challenge}
+{: .challenge}
 
 ## Boxplot
 
@@ -332,7 +332,7 @@ hidden?
 
 > Hint: Check the class for `plot_id`. Consider changing the class of `plot_id`
 > from integer to factor. Why does this change how R makes the graph?
-{.challenge}
+{: .challenge}
 
 
 > ### Stretch Challenge (Intermediate - 20 mins)
@@ -341,7 +341,7 @@ hidden?
 >
 > * Try different ways of visualising error on your boxplot
 > e.g. 95% error bars, pointrange, deciles, quintiles
-{.challenge}
+{: .challenge}
 
 ## Plotting time series data
 
@@ -517,7 +517,7 @@ provides a wide variety of options.
 >    facet_wrap(vars(species_id)) +
 >    theme_bw()
 >```
-{.challenge}
+{: .challenge}
 
 ```{r, eval = FALSE, purl = TRUE, echo = FALSE}
 ### Plotting time series challenge:
@@ -525,7 +525,7 @@ provides a wide variety of options.
 ##  Use what you just learned to create a plot that depicts how the
 ##  average weight of each species changes through the years.
 ```
-{.challenge}
+{: .challenge}
 
 ## Customization
 
@@ -613,7 +613,7 @@ ggplot(surveys_complete, aes(x = species_id, y = hindfoot_length)) +
 > * Can you find a way to change the name of the legend? What about its labels?
 > * Try using a different color palette (see
 >   http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/).
-{.challenge}
+{: .challenge}
 
 ## Arranging and exporting plots
 
@@ -689,7 +689,7 @@ saved plot.
 ##  ggplot2 cheat sheet for inspiration:
 ##  https://www.rstudio.com/wp-content/uploads/2015/08/ggplot2-cheatsheet.pdf
 ```
-{.challenge}
+{: .challenge}
 
 ```{r, child="_page_built_on.Rmd"}
 ```
