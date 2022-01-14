@@ -60,21 +60,42 @@ if (!is.null(knitr::current_input())){
 # If we are in an answer block indent by one
 hook_source <- knitr::knit_hooks$get("source")  # save the old hook
 knitr::knit_hooks$set(source = function(x, options) {
-    if (isTruthy(options$answer)) {
-        paste(
-              c(paste('> ',
-                      c('## Solution',
-                        '',
-                        '``` r',
-                        unlist(strsplit(x, '\n')),
-                        '```'
-                      ),
-                      sep = ''),
-                '{: .solution}'),
-              collapse = '\n')
-      } else {
-        hook_source(x, options)
+  if (isTruthy(options$answer)) {
+    indented_block <- c(paste('> ',
+                              c('## Solution',
+                                '',
+                                unlist(strsplit(x, '\n'))
+                              ),
+                              sep = ''))
+    if (options$results=='hide'){
+      paste(
+        indented_block,
+        '{: .solution}',
+        collapse = '\n')
+    } else {
+      paste(
+        indented_block,
+        collapse = '\n')
     }
+  } else {
+    hook_source(x, options)
+  }
+})
+
+hook_chunk <- knitr::knit_hooks$get("chunk")  # save the old hook
+knitr::knit_hooks$set(chunk = function(x, options) {
+  if (isTruthy(options$answer)) {
+    paste(
+      c(paste('> ',
+              c(
+                unlist(strsplit(x, '\n'))
+              ),
+              sep = ''),
+        '{: .solution}'),
+      collapse = '\n')
+  } else {
+    hook_chunk(x, options)
+  }
 })
 
 # engine for targeting SWC markdown
