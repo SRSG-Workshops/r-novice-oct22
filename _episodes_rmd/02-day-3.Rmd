@@ -265,22 +265,13 @@ ggplot(data = surveys_complete, mapping = aes(x = weight, y = hindfoot_length)) 
 > `species_id` with the plot types showing in different colors.
 > Is this a good way to show this type of data?
 >
-> ```{r scatter-challenge-answer, answer=TRUE, eval = FALSE, purl=FALSE}
+> ```{r scatter-challenge-answer, answer=TRUE, eval = FALSE, purl=FALSE, results='markup'}
 > ggplot(data = surveys_complete,
 >        mapping = aes(x = species_id, y = weight)) +
 >    geom_point(aes(color = plot_type))
 > ```
 {: .challenge}
 
-
-```{r scatter-challenge, echo = FALSE, eval = FALSE, purl = TRUE}
-### Challenge with scatter plot:
-##
-##  Use what you just learned to create a scatter plot of `weight`
-## over `species_id` with the plot types showing in different colors.
-## Is this a good way to show this type of data?
-```
-{: .challenge}
 
 ## Boxplot
 
