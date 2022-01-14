@@ -69,8 +69,8 @@ knitr::knit_hooks$set(source = function(x, options) {
                               sep = ''))
     if (options$results=='hide'){
       paste(
-        indented_block,
-        '{: .solution}',
+        c(indented_block,
+        '{: .solution}'),
         collapse = '\n')
     } else {
       paste(
@@ -85,14 +85,17 @@ knitr::knit_hooks$set(source = function(x, options) {
 hook_chunk <- knitr::knit_hooks$get("chunk")  # save the old hook
 knitr::knit_hooks$set(chunk = function(x, options) {
   if (isTruthy(options$answer)) {
-    paste(
-      c(paste('> ',
-              c(
-                unlist(strsplit(x, '\n'))
-              ),
-              sep = ''),
+    if (options$results=='hide'){
+    } else {
+      paste(
+        c(paste('> ',
+                c(
+                  unlist(strsplit(x, '\n'))
+                ),
+                sep = ''),
         '{: .solution}'),
-      collapse = '\n')
+        collapse = '\n')
+    }
   } else {
     hook_chunk(x, options)
   }
