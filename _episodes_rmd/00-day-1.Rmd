@@ -921,8 +921,8 @@ animals[animals %in% c("rat", "cat", "dog", "duck", "goat")]
 >
 > Create a vector of creatures that are either mammals or sea creatures but not both
 >
-> ```{r, answer = TRUE, purl=FALSE}
->  creatures[!(creatures %in% mammals & creatures %in% sea_creatures)]
+> ```{r, answer = TRUE, purl=FALSE, results = 'markdown'}
+> creatures[!(creatures %in% mammals & creatures %in% sea_creatures)]
 > ```
 {: .challenge}
 
