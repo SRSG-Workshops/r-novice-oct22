@@ -211,7 +211,7 @@ head(sex)
 >
 > * Create a barplot of `hindfoot_length`
 >
-> ```{r, answer=TRUE, eval=FALSE, purl=FALSE}
+> ```{r, answer=TRUE, eval=FALSE, purl=FALSE, results = 'markdown'}
 > surveys$hindfoot_length[surveys$hindfoot_length <= 10] <- "0-10"
 > surveys$hindfoot_length[surveys$hindfoot_length > 10 & surveys$hindfoot_length <= 20] <- "11-20"
 > surveys$hindfoot_length[surveys$hindfoot_length > 20 & surveys$hindfoot_length <= 30] <- "21-30"
@@ -542,6 +542,7 @@ Note that the final data frame is the leftmost part of this expression.
 > surveys_4 <- filter(surveys_3, plot_type == 'Control')
 > surveys_5 <- select(surveys_4, record_id, month, day, year, sex, weight)
 > surveys_final <- select(surveys_5, -day)
+> ```
 >
 > ```{r, answer=TRUE, eval=FALSE, purl=FALSE}
 > surveys_final <- surveys %>%
