@@ -195,7 +195,7 @@ head(sex)
 >  * Now that we have renamed the factor level to "undetermined", can you recreate the
 > barplot such that "undetermined" is last (after "male")?
 >
-> ```{r, answer=TRUE, eval=FALSE, purl=FALSE}
+> ```{r, answer=TRUE, eval=FALSE, purl=FALSEresults = 'markdown'}
 > levels(sex)[2:3] <- c("female", "male")
 > sex <- factor(sex, levels = c("female", "male", "undetermined"))
 > plot(sex)
