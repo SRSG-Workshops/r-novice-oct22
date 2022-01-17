@@ -524,7 +524,7 @@ Note that the final data frame is the leftmost part of this expression.
 >  1995 and retain only the columns `year`, `sex`, and `weight`.
 >
 >
-> ```{r, answer=TRUE, eval=FALSE, purl=FALSE}
+> ```{r, answer=TRUE, eval=FALSE, purl=FALSE, results = 'markdown'}
 > surveys %>%
 >     filter(year < 1995) %>%
 >     select(year, sex, weight)
