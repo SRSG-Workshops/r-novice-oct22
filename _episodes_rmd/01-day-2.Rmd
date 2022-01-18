@@ -1002,7 +1002,7 @@ surveys_wide %>%
 >    `value` column that takes on the value of either `hindfoot_length` or
 >    `weight`. *Hint*: You'll need to specify which columns are being pivoted.
 >
-> ```{r, answer=TRUE, purl=FALSE}
+> ```{r, answer=TRUE, purl=FALSE, results='markdown'}
 > surveys_long <- surveys %>%
 >   pivot_longer(cols = c(hindfoot_length, weight), names_to = "measurement", values_to = "value")
 > ```
@@ -1013,7 +1013,7 @@ surveys_wide %>%
 >    `weight`. *Hint*: You only need to specify the name and value
 >    columns for `pivot_wider()`.
 >
-> ```{r, answer=TRUE, purl=FALSE}
+> ```{r, answer=TRUE, purl=FALSE, results='markdown'}
 > surveys_long %>%
 >   group_by(year, measurement, plot_type) %>%
 >   summarize(mean_value = mean(value, na.rm=TRUE)) %>%
