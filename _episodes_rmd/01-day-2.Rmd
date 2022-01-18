@@ -789,7 +789,7 @@ according to a number of criteria so that we have a better comparison.
 For instance, we might want to arrange the table above in (i) an alphabetical order of
 the levels of the species and (ii) in descending order of the count:
 
-```{r purl = FALSE}
+```{r, purl = FALSE}
 surveys %>%
   count(sex, species) %>%
   arrange(species, desc(n))
@@ -802,7 +802,7 @@ the *albigula* species that are not specified for its sex (i.e. `NA`).
 >
 > 1. How many animals were caught in each `plot_type` surveyed?
 >
-> ```{r, answer=TRUE, purl=FALSE}
+> ```{r, answer=TRUE, purl=FALSE, results='markdown'}
 > surveys %>%
 >     count(plot_type)
 > ```
