@@ -811,7 +811,7 @@ the *albigula* species that are not specified for its sex (i.e. `NA`).
 > length for each species (using `species_id`). Also add the number of
 > observations (hint: see `?n`).
 >
-> ```{r, answer=TRUE, purl=FALSE, , results='markdown'}
+> ```{r, answer=TRUE, purl=FALSE, results='markdown'}
 > surveys %>%
 >     filter(!is.na(hindfoot_length)) %>%
 >     group_by(species_id) %>%
@@ -826,7 +826,7 @@ the *albigula* species that are not specified for its sex (i.e. `NA`).
 > 3. What was the heaviest animal measured in each year? Return the columns `year`,
 > `genus`, `species_id`, and `weight`.
 >
-> ```{r, answer=TRUE, purl=FALSE}
+> ```{r, answer=TRUE, purl=FALSE, results='markdown'}
 > surveys %>%
 >     filter(!is.na(weight)) %>%
 >     group_by(year) %>%
