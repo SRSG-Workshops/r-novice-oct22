@@ -621,7 +621,7 @@ symbol negates the result, so we're asking for every row where weight *is not* a
 > less than or equal to the mean weight and `2` if the weight is more than the
 > mean weight.
 >
-> ```{r, answer=TRUE, eval=FALSE, purl=FALSE}
+> ```{r, answer=TRUE, eval=FALSE, purl=FALSE, results = 'markdown'}
 > surveys_simplified <- surveys %>%
 >      mutate(weight_simplified =
 >        ifelse(weight <= mean(weight, na.rm = TRUE), 1, 2))
