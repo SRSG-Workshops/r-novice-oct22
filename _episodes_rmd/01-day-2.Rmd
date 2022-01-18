@@ -988,7 +988,7 @@ surveys_wide %>%
 > 2. Now take that data frame and `pivot_longer()` it again, so each row is a unique
 >    `plot_id` by `year` combination.
 >
-> ```{r, answer=TRUE, purl=FALSE}
+> ```{r, answer=TRUE, purl=FALSE, results='markdown'}
 > surveys_wide_genera %>%
 >   pivot_longer(cols = -plot_id, names_to = 'year', values_to = 'n_genera')
 > ```
