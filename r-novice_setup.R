@@ -36,7 +36,7 @@ library(knitr)
 library(methods)
 library(shiny)
 suppressPackageStartupMessages(library(tidyverse))
-knitr::opts_chunk$set(results='hide', comment = "#>", purl = FALSE, fig.keep='last')
+knitr::opts_chunk$set(results='hide', comment = ">", purl = FALSE, fig.keep='last')
 
 base_url <- "/" # keep as is
 fig_path <- "fig/" # Output path for figures
