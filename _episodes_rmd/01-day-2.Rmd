@@ -976,8 +976,8 @@ surveys_wide %>%
 >   genera within a particular chunk of data. It's a powerful function! See
 >   `?n_distinct` for more.
 >
-> ```{r, answer=TRUE, purl=FALSE}
->surveys_wide_genera <- surveys %>%
+> ```{r, answer=TRUE, purl=FALSE, results='markdown'}
+> surveys_wide_genera <- surveys %>%
 >   group_by(plot_id, year) %>%
 >    summarize(n_genera = n_distinct(genus))%>%
 >    pivot_wider(names_from = year, values_from = n_genera)
