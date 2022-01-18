@@ -605,7 +605,7 @@ symbol negates the result, so we're asking for every row where weight *is not* a
 >
 >  **Hint**: think about how the commands should be ordered to produce this data frame!
 >
-> ```{r, answer=TRUE, eval=FALSE, purl=FALSE}
+> ```{r, answer=TRUE, eval=FALSE, purl=FALSE, results = 'markdown'}
 > surveys_hindfoot_cm <- surveys %>%
 >     filter(!is.na(hindfoot_length)) %>%
 >     mutate(hindfoot_cm = hindfoot_length / 10) %>%
