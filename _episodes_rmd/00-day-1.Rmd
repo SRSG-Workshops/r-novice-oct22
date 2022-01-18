@@ -949,13 +949,13 @@ Recall that you can use the `typeof()` function to find the type of your atomic 
 >
 > ### 1.
 > heights_no_na <- heights[!is.na(heights)]
-> heights
+> heights_no_na
 > #### or
 > heights_no_na <- na.omit(heights)
-> heights
+> heights_no_na
 > #### or
 > heights_no_na <- heights[complete.cases(heights)]
-> heights
+> heights_no_na
 >
 > ### 2.
 > median(heights, na.rm = TRUE)
