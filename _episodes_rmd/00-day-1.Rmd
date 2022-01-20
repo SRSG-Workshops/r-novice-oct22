@@ -974,6 +974,7 @@ using in the other lessons, and learn about data frames.
 >
 > Have a look at a package called [mice](https://www.jstatsoft.org/article/view/v045i03) for some more
 > advanced methods of dealing with multivariate missing data.
+>
 {: .challenge}
 
 # Load Data
@@ -1161,6 +1162,7 @@ functions to get a sense of the content/structure of the data. Let's try them ou
 > * class: data frame
 > * how many rows: 34786,  how many columns: 13
 > ```
+>
 {: .challenge}
 
 
@@ -1253,7 +1255,7 @@ In RStudio, you can use the autocompletion feature to get the full and correct n
 > from December of the year 2000.  The dataframe should only contain the variables
 > record_id, genus, and species.
 >
-> ```{r, answer = TRUE, purl=FALSE, results='markup'}
+> ```{r, answer = TRUE, purl=FALSE}
 > surveys[surveys$month == 12 & surveys$year == 2000, c("record_id", "genus", "species")]
 > ```
 {: .challenge}
