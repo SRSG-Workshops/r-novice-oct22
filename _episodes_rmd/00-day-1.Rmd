@@ -1256,7 +1256,7 @@ In RStudio, you can use the autocompletion feature to get the full and correct n
 > record_id, genus, and species.
 >
 > ```{r, answer = TRUE, purl=FALSE}
-> surveys[surveys$month == 12 & surveys$year == 2000, c("record_id", "genus", "species")]
+> survey_dec_2000 <- surveys[surveys$month == 12 & surveys$year == 2000, c("record_id", "genus", "species")]
 > ```
 {: .challenge}
 
