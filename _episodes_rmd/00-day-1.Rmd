@@ -1219,7 +1219,7 @@ In RStudio, you can use the autocompletion feature to get the full and correct n
 > 1. Create a `data.frame` (`surveys_200`) containing only the data in
 >    row 200 of the `surveys` dataset.
 >
-> ```{r, answer=TRUE, purl=FALSE, results='markup'}
+> ```{r, answer=TRUE, purl=FALSE}
 > surveys_200 <- surveys[200, ]
 > n_rows <- nrow(surveys)
 > ```
@@ -1232,14 +1232,14 @@ In RStudio, you can use the autocompletion feature to get the full and correct n
 >  * Pull out that last row using `nrow()` instead of the row number.
 >  * Create a new data frame (`surveys_last`) from that last row.
 >
-> ```{r, answer=TRUE, purl=FALSE, results='markup'}
+> ```{r, answer=TRUE, purl=FALSE}
 > surveys_last <- surveys[n_rows, ]
 > ```
 >
 > 3. Use `nrow()` to extract the row that is in the middle of the data
 >    frame. Store the content of this row in an object named `surveys_middle`.
 >
-> ```{r, answer=TRUE, purl=FALSE, results='markup'}
+> ```{r, answer=TRUE, purl=FALSE}
 > surveys_middle <- surveys[n_rows / 2, ]
 > ```
 >
@@ -1247,7 +1247,7 @@ In RStudio, you can use the autocompletion feature to get the full and correct n
 >    `head(surveys)`, keeping just the first through 6th rows of the surveys
 >    dataset.
 >
-> ```{r, answer=TRUE, purl=FALSE, results='markup'}
+> ```{r, answer=TRUE, purl=FALSE}
 > surveys_head <- surveys[-(7:n_rows), ]
 > ```
 {: .challenge}
