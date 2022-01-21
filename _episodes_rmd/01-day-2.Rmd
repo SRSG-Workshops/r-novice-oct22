@@ -58,10 +58,6 @@ surveys <- read.csv("data_raw/portal_data_joined.csv")
 
 ## Factors
 
-```{r, echo=FALSE, purl=TRUE}
-### Factors
-```
-
 When we did `str(surveys)` we saw that several of the columns consist of
 integers.
 
@@ -195,15 +191,15 @@ head(sex)
 >  * Now that we have renamed the factor level to "undetermined", can you recreate the
 > barplot such that "undetermined" is last (after "male")?
 >
-> ```{r, answer=TRUE, eval=FALSE, purl=FALSE, results = 'markdown'}
+> ```{r, answer=TRUE, purl=FALSE, results = 'markup'}
 > levels(sex)[2:3] <- c("female", "male")
 > sex <- factor(sex, levels = c("female", "male", "undetermined"))
 > plot(sex)
 > ```
-{.challenge}
+{: .challenge}
 
 
-> ### Stretch Challenge (Intermediate - 20 mins) {.challenge}
+> ### Stretch Challenge (Intermediate - 20 mins)
 >
 > * Group data from the continuous variable `hindfoot_length` into chunks of 10 units
 > and convert this variable into a factor. i.e. you should have factor levels '0-10',
@@ -211,7 +207,7 @@ head(sex)
 >
 > * Create a barplot of `hindfoot_length`
 >
-> ```{r, answer=TRUE, eval=FALSE, purl=FALSE, results = 'markdown'}
+> ```{r, answer=TRUE, purl=FALSE, results = 'markup'}
 > surveys$hindfoot_length[surveys$hindfoot_length <= 10] <- "0-10"
 > surveys$hindfoot_length[surveys$hindfoot_length > 10 & surveys$hindfoot_length <= 20] <- "11-20"
 > surveys$hindfoot_length[surveys$hindfoot_length > 20 & surveys$hindfoot_length <= 30] <- "21-30"
@@ -222,7 +218,7 @@ head(sex)
 > surveys$hindfoot_length <- as.factor(surveys$hindfoot_length)
 > plot(surveys$hindfoot_length)
 > ```
-{.challenge}
+{: .challenge}
 
 
 ### Using `stringsAsFactors=FALSE`
@@ -368,7 +364,7 @@ and this [one about **`tidyr`**](https://tidyr.tidyverse.org/).
 > overwritten by functions of the same name in different packages.  Use `dplyr::select`
 > or [prioritize()](https://rdrr.io/cran/needs/man/prioritize.html) to ensure
 > you’re using the correct version of the function.
-{.challenge}
+{: .challenge}
 
 ### Getting started with Tidyverse
 
@@ -426,7 +422,7 @@ We're going to learn some of the most common **`dplyr`** functions:
 ## can you think of a use case for each of the functions based on their descriptions above?
 ## Discuss and share them within your group.
 ```
-{.challenge}
+{: .challenge}
 
 ## Selecting columns and filtering rows
 
@@ -524,12 +520,12 @@ Note that the final data frame is the leftmost part of this expression.
 >  1995 and retain only the columns `year`, `sex`, and `weight`.
 >
 >
-> ```{r, answer=TRUE, eval=FALSE, purl=FALSE, results = 'markdown'}
+> ```{r, answer=TRUE, eval=FALSE, purl=FALSE, results = 'markup'}
 > surveys %>%
 >     filter(year < 1995) %>%
 >     select(year, sex, weight)
 > ```
-{.challenge}
+{: .challenge}
 
 > ### Stretch Challenge (Intermediate - 15 mins)
 >
@@ -544,12 +540,12 @@ Note that the final data frame is the leftmost part of this expression.
 > surveys_final <- select(surveys_5, -day)
 > ```
 >
-> ```{r, answer=TRUE, eval=FALSE, purl=FALSE, results = 'markdown'}
+> ```{r, answer=TRUE, eval=FALSE, purl=FALSE, results = 'markup'}
 > surveys_final <- surveys %>%
 >     filter(year < 1995, year != 2001, plot_type == 'Control') %>%
 >     select(record_id, month, year, sex, weight)
 > ```
-{.challenge}
+{: .challenge}
 
 ### Mutate
 
@@ -605,14 +601,14 @@ symbol negates the result, so we're asking for every row where weight *is not* a
 >
 >  **Hint**: think about how the commands should be ordered to produce this data frame!
 >
-> ```{r, answer=TRUE, eval=FALSE, purl=FALSE, results = 'markdown'}
+> ```{r, answer=TRUE, eval=FALSE, purl=FALSE, results = 'markup'}
 > surveys_hindfoot_cm <- surveys %>%
 >     filter(!is.na(hindfoot_length)) %>%
 >     mutate(hindfoot_cm = hindfoot_length / 10) %>%
 >     filter(hindfoot_cm < 3) %>%
 >     select(species_id, hindfoot_cm)
 > ```
-{.challenge}
+{: .challenge}
 
 > ### Stretch Challenge (Difficult - 20 mins)
 >
@@ -621,7 +617,7 @@ symbol negates the result, so we're asking for every row where weight *is not* a
 > less than or equal to the mean weight and `2` if the weight is more than the
 > mean weight.
 >
-> ```{r, answer=TRUE, eval=FALSE, purl=FALSE, results = 'markdown'}
+> ```{r, answer=TRUE, eval=FALSE, purl=FALSE, results = 'markup'}
 > surveys_simplified <- surveys %>%
 >      mutate(weight_simplified =
 >        ifelse(weight <= mean(weight, na.rm = TRUE), 1, 2))
@@ -633,7 +629,7 @@ symbol negates the result, so we're asking for every row where weight *is not* a
 > ```{text_answer, echo=FALSE, purl=FALSE}
 > transmute
 > ```
-{.challenge}
+{: .challenge}
 
 ```{r, eval=FALSE, purl=TRUE, echo=FALSE}
 ## Mutate Challenge:
@@ -645,7 +641,7 @@ symbol negates the result, so we're asking for every row where weight *is not* a
 
 ##  Hint: think about how the commands should be ordered to produce this data frame!
 ```
-{.challenge}
+{: .challenge}
 
 ### Split-apply-combine data analysis and the `summarize()` function
 
@@ -802,7 +798,7 @@ the *albigula* species that are not specified for its sex (i.e. `NA`).
 >
 > 1. How many animals were caught in each `plot_type` surveyed?
 >
-> ```{r, answer=TRUE, purl=FALSE, results='markdown'}
+> ```{r, answer=TRUE, purl=FALSE, results='markup'}
 > surveys %>%
 >     count(plot_type)
 > ```
@@ -811,7 +807,7 @@ the *albigula* species that are not specified for its sex (i.e. `NA`).
 > length for each species (using `species_id`). Also add the number of
 > observations (hint: see `?n`).
 >
-> ```{r, answer=TRUE, purl=FALSE, results='markdown'}
+> ```{r, answer=TRUE, purl=FALSE, results='markup'}
 > surveys %>%
 >     filter(!is.na(hindfoot_length)) %>%
 >     group_by(species_id) %>%
@@ -826,7 +822,7 @@ the *albigula* species that are not specified for its sex (i.e. `NA`).
 > 3. What was the heaviest animal measured in each year? Return the columns `year`,
 > `genus`, `species_id`, and `weight`.
 >
-> ```{r, answer=TRUE, purl=FALSE, results='markdown'}
+> ```{r, answer=TRUE, purl=FALSE, results='markup'}
 > surveys %>%
 >     filter(!is.na(weight)) %>%
 >     group_by(year) %>%
@@ -834,7 +830,7 @@ the *albigula* species that are not specified for its sex (i.e. `NA`).
 >     select(year, genus, species, weight) %>%
 >     arrange(year)
 > ```
-{.challenge}
+{: .challenge}
 
 ### Reshaping with pivot_wider and pivot_longer
 
@@ -976,7 +972,7 @@ surveys_wide %>%
 >   genera within a particular chunk of data. It's a powerful function! See
 >   `?n_distinct` for more.
 >
-> ```{r, answer=TRUE, purl=FALSE, results='markdown'}
+> ```{r, answer=TRUE, purl=FALSE, results='markup'}
 > surveys_wide_genera <- surveys %>%
 >   group_by(plot_id, year) %>%
 >    summarize(n_genera = n_distinct(genus))%>%
@@ -988,7 +984,7 @@ surveys_wide %>%
 > 2. Now take that data frame and `pivot_longer()` it again, so each row is a unique
 >    `plot_id` by `year` combination.
 >
-> ```{r, answer=TRUE, purl=FALSE, results='markdown'}
+> ```{r, answer=TRUE, purl=FALSE, results='markup'}
 > surveys_wide_genera %>%
 >   pivot_longer(cols = -plot_id, names_to = 'year', values_to = 'n_genera')
 > ```
@@ -1002,7 +998,7 @@ surveys_wide %>%
 >    `value` column that takes on the value of either `hindfoot_length` or
 >    `weight`. *Hint*: You'll need to specify which columns are being pivoted.
 >
-> ```{r, answer=TRUE, purl=FALSE, results='markdown'}
+> ```{r, answer=TRUE, purl=FALSE, results='markup'}
 > surveys_long <- surveys %>%
 >   pivot_longer(cols = c(hindfoot_length, weight), names_to = "measurement", values_to = "value")
 > ```
@@ -1013,13 +1009,13 @@ surveys_wide %>%
 >    `weight`. *Hint*: You only need to specify the name and value
 >    columns for `pivot_wider()`.
 >
-> ```{r, answer=TRUE, purl=FALSE, results='markdown'}
+> ```{r, answer=TRUE, purl=FALSE, results='markup'}
 > surveys_long %>%
 >   group_by(year, measurement, plot_type) %>%
 >   summarize(mean_value = mean(value, na.rm=TRUE)) %>%
 >   pivot_wider(names_from = measurement, values_from = mean_value)
 > ```
-{.challenge}
+{: .challenge}
 
 
 # Exporting data
@@ -1114,7 +1110,7 @@ write_csv(surveys_complete, file = "data/surveys_complete.csv")
 > at documentation for the [readBin() and writeBin() functions](https://www.rdocumentation.org/packages/base/versions/3.0.3/topics/readBin), as well as this
 > [helpful guide](https://www.javatpoint.com/r-binary-file#:~:text=R%20Binary%20File%20A%20binary%20file%20is%20a,and%20symbols%20that%20contain%20many%20other%20non-printable%20characters.) to binary files in r. Then try to export the surveys data as a binary
 > file before importing the binary file back into r.
-{.challenge}
+{: .challenge}
 
 ```{r, child="_page_built_on.Rmd"}
 ```

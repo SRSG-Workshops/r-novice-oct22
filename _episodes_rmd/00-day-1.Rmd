@@ -402,7 +402,7 @@ Now that we have a working environment set up we can start on the basics of R.
 
 You can get output from R simply by typing math in the console:
 
-```{r, purl = FALSE, results='markdown'}
+```{r, purl = FALSE, results='markup'}
 3 + 5
 12 / 7
 ```
@@ -887,7 +887,7 @@ animals[animals %in% c("rat", "cat", "dog", "duck", "goat")]
 >
 > Create a vector of creatures that are either mammals or sea creatures but not both
 >
-> ```{r, answer = TRUE, purl=FALSE, results = 'markdown'}
+> ```{r, answer = TRUE, purl=FALSE, results = 'markup'}
 > creatures[!(creatures %in% mammals & creatures %in% sea_creatures)]
 > ```
 {: .challenge}
