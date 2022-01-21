@@ -58,48 +58,21 @@ if (!is.null(knitr::current_input())){
 ## hook for challenges answers
 
 # If we are in an answer block indent by one
-hook_source <- knitr::knit_hooks$get("source")  # save the old hook
-knitr::knit_hooks$set(source = function(x, options) {
-  if (isTruthy(options$answer)) {
-    indented_block <- c(paste('> ',
-                              c('',
-                                unlist(strsplit(x, '\n'))
-                              ),
-                              sep = ''))
-    if (options$results=='hide'){
-      paste(
-        c('> ## Solution',
-          indented_block,
-        '{: .solution}'),
-        collapse = '\n')
-    } else {
-      paste(
-        indented_block,
-        collapse = '\n')
-    }
-  } else {
-    hook_source(x, options)
-  }
-})
 
 hook_chunk <- knitr::knit_hooks$get("chunk")  # save the old hook
 knitr::knit_hooks$set(chunk = function(x, options) {
   if (isTruthy(options$answer)) {
-    if (options$results=='hide'){
-    } else {
-      x <- gsub('```', '', x)
-      paste(
-        c(paste('> ',
-                c('> ## Solution',
-                paste('> ',
-                      c(
-                        unlist(strsplit(x, '\n'))
-                      ),
-                      sep = '')),
-                sep = ''),
-          '{: .solution}'),
-        collapse = '\n')
-    }
+    x <- gsub('```r', '', x)
+    x <- gsub('```', '', x)
+    indent <- options$indent
+    if(is.null(indent)) {indent <- ''}
+    paste(c(paste(paste(indent, '> ', sep=''),
+                  c('## Solution',
+                    unlist(strsplit(x, '\n'))
+                  ),
+                  sep = ''),
+            '{: .solution}'),
+          collapse = '\n')
   } else {
     hook_chunk(x, options)
   }
