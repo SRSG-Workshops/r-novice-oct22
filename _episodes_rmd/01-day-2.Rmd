@@ -164,7 +164,7 @@ quick glance at the number of observations represented by each factor
 level. Let's look at the number of males and females captured over the course of
 the experiment:
 
-```{r, purl=TRUE}
+```{r, purl=TRUE, results='markup'}
 ## bar plot of the number of females and males captured during the experiment:
 plot(as.factor(surveys$sex))
 ```
