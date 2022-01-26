@@ -503,7 +503,7 @@ provides a wide variety of options.
 > Use what you just learned to create a plot that depicts how the average weight
 > of each species changes through the years.
 >
-> ```{r average-weight-time-series, answer=TRUE, eval=FALSE, purl=FALSE, results='markup'}
+> ```{r average-weight-time-series, answer=TRUE, purl=FALSE, results='markup'}
 > yearly_weight <- surveys_complete %>%
 >                 group_by(year, species_id) %>%
 >                  summarize(avg_weight = mean(weight))
