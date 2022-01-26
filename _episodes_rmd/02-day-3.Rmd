@@ -343,7 +343,7 @@ hidden?
 Let's calculate number of counts per year for each genus. First we need
 to group the data and count records within each group:
 
-```{r, eval = FALSE, purl=FALSE}
+```{r, purl=FALSE}
 yearly_counts <- surveys_complete %>%
   count(year, genus)
 ```
