@@ -191,7 +191,7 @@ head(sex)
 >  * Now that we have renamed the factor level to "undetermined", can you recreate the
 > barplot such that "undetermined" is last (after "male")?
 >
-> ```{r, answer=TRUE, purl=FALSE, results = 'markup'}
+> ```{r, answer=TRUE, purl=FALSE, results='markup'}
 > levels(sex)[2:3] <- c("female", "male")
 > sex <- factor(sex, levels = c("female", "male", "undetermined"))
 > plot(sex)
@@ -207,7 +207,7 @@ head(sex)
 >
 > * Create a barplot of `hindfoot_length`
 >
-> ```{r, answer=TRUE, purl=FALSE, results = 'markup'}
+> ```{r, answer=TRUE, purl=FALSE, results='markup'}
 > surveys$hindfoot_length[surveys$hindfoot_length <= 10] <- "0-10"
 > surveys$hindfoot_length[surveys$hindfoot_length > 10 & surveys$hindfoot_length <= 20] <- "11-20"
 > surveys$hindfoot_length[surveys$hindfoot_length > 20 & surveys$hindfoot_length <= 30] <- "21-30"
@@ -520,7 +520,7 @@ Note that the final data frame is the leftmost part of this expression.
 >  1995 and retain only the columns `year`, `sex`, and `weight`.
 >
 >
-> ```{r, answer=TRUE, eval=FALSE, purl=FALSE, results = 'markup'}
+> ```{r, answer=TRUE, eval=FALSE, purl=FALSE, results='markup'}
 > surveys %>%
 >     filter(year < 1995) %>%
 >     select(year, sex, weight)
@@ -540,7 +540,7 @@ Note that the final data frame is the leftmost part of this expression.
 > surveys_final <- select(surveys_5, -day)
 > ```
 >
-> ```{r, answer=TRUE, eval=FALSE, purl=FALSE, results = 'markup'}
+> ```{r, answer=TRUE, eval=FALSE, purl=FALSE, results='markup'}
 > surveys_final <- surveys %>%
 >     filter(year < 1995, year != 2001, plot_type == 'Control') %>%
 >     select(record_id, month, year, sex, weight)
@@ -601,7 +601,7 @@ symbol negates the result, so we're asking for every row where weight *is not* a
 >
 >  **Hint**: think about how the commands should be ordered to produce this data frame!
 >
-> ```{r, answer=TRUE, eval=FALSE, purl=FALSE, results = 'markup'}
+> ```{r, answer=TRUE, eval=FALSE, purl=FALSE, results='markup'}
 > surveys_hindfoot_cm <- surveys %>%
 >     filter(!is.na(hindfoot_length)) %>%
 >     mutate(hindfoot_cm = hindfoot_length / 10) %>%
@@ -617,7 +617,7 @@ symbol negates the result, so we're asking for every row where weight *is not* a
 > less than or equal to the mean weight and `2` if the weight is more than the
 > mean weight.
 >
-> ```{r, answer=TRUE, eval=FALSE, purl=FALSE, results = 'markup'}
+> ```{r, answer=TRUE, eval=FALSE, purl=FALSE, results='markup'}
 > surveys_simplified <- surveys %>%
 >      mutate(weight_simplified =
 >        ifelse(weight <= mean(weight, na.rm = TRUE), 1, 2))

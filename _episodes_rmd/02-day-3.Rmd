@@ -14,7 +14,7 @@ layout: episode
 
 
 
-```{r setup, echo=FALSE, message = FALSE, warning = FALSE, purl=FALSE}
+```{r setup, echo=FALSE, message = FALSE, warning = FALSE, purl=FALSE}z
 source("r-novice_setup.R")
 surveys_complete <- read_csv(file = "data_raw/portal_data_joined.csv", col_types = cols()) %>%
   drop_na(weight, hindfoot_length, sex) %>%
@@ -196,25 +196,29 @@ surveys_plot
 > - What are the relative strengths and weaknesses of a hexagonal bin plot
 >   compared to a scatter plot? Examine the above scatter plot and compare it
 >   with the hexagonal bin plot that you created.
+>
 {: .challenge}
 
-```{r hexbin-challenge, echo = FALSE, eval = FALSE, purl = TRUE}
-### Challenge with hexbin
-##
-## To use the hexagonal binning with **`ggplot2`**, first install the `hexbin`
-## package from CRAN:
 
-install.packages("hexbin")
-library("hexbin")
-
-## Then use the `geom_hex()` function:
-
-surveys_plot +
-    geom_hex()
-
-## What are the relative strengths and weaknesses of a hexagonal bin
-## plot compared to a scatter plot?
-```
+> ### Challenge with hexbin
+>
+> To use the hexagonal binning with **`ggplot2`**, first install the `hexbin`
+> package from CRAN:
+>
+> ```{r,  eval = FALSE, purl = TRUE}
+> install.packages("hexbin")
+> library("hexbin")
+> ```
+>
+> Then use the `geom_hex()` function:
+>
+> ```{r,  eval = FALSE, purl = TRUE}
+> surveys_plot +
+>     geom_hex()
+> ```
+>
+> What are the relative strengths and weaknesses of a hexagonal bin
+> plot compared to a scatter plot?
 {: .challenge}
 
 > ### Stretch Challenge (Intermediate - 15 mins)
@@ -320,7 +324,7 @@ hidden?
 >
 > - Add color to the data points on your boxplot according to the plot from which
 >   the sample was taken (`plot_id`).
-
+>
 > Hint: Check the class for `plot_id`. Consider changing the class of `plot_id`
 > from integer to factor. Why does this change how R makes the graph?
 {: .challenge}
