@@ -600,6 +600,7 @@ ggplot(surveys_complete, aes(x = species_id, y = hindfoot_length)) +
 > * Can you find a way to change the name of the legend? What about its labels?
 > * Try using a different color palette (see
 >   http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/).
+>
 {: .challenge}
 
 ## Arranging and exporting plots
@@ -667,16 +668,6 @@ ggsave("combo_plot_abun_weight.png", combo_plot, width = 10, dpi = 300)
 Note: The parameters `width` and `height` also determine the font size in the
 saved plot.
 
-
-```{r final-challenge, eval = FALSE, purl = TRUE, echo = FALSE}
-### Final plotting challenge:
-##  With all of this information in hand, please take another five
-##  minutes to either improve one of the plots generated in this
-##  exercise or create a beautiful graph of your own. Use the RStudio
-##  ggplot2 cheat sheet for inspiration:
-##  https://www.rstudio.com/wp-content/uploads/2015/08/ggplot2-cheatsheet.pdf
-```
-{: .challenge}
 
 ```{r, child="_page_built_on.Rmd"}
 ```
