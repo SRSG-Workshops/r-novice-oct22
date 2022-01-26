@@ -416,11 +416,11 @@ We're going to learn some of the most common **`dplyr`** functions:
 - `count()`: count discrete values
 
 ```{r, eval=FALSE, purl=TRUE, echo=FALSE}
-## Challenge:
-## Before we use the functions...
-## Thinking about the survey dataset, or another dataset you are familiar with
-## can you think of a use case for each of the functions based on their descriptions above?
-## Discuss and share them within your group.
+Challenge:
+Before we use the functions...
+Thinking about the survey dataset, or another dataset you are familiar with
+can you think of a use case for each of the functions based on their descriptions above?
+Discuss and share them within your group.
 ```
 {: .challenge}
 
