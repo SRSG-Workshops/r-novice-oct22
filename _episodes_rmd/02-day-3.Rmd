@@ -95,7 +95,7 @@ ggplot(data = <DATA>, mapping = aes(<MAPPINGS>)) +  <GEOM_FUNCTION>()
 - use the `ggplot()` function and bind the plot to a specific data frame using
   the `data` argument
 
-```{r, purl = FALSE, results='markup'}
+```{r, purl = FALSE}
 ggplot(data = surveys_complete)
 ```
 
