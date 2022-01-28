@@ -37,3 +37,6 @@ Download the .dmg file.
 - If prompted, choose to allow downloads from rstudio.com.
 - Open the downloaded dmg archive from the Downloads folder.
 - Drag the RStudio icon to the Applications folder to install.
+
+#### Linux
+Download the appropriate install file (.rpm or .deb) for your distro.
