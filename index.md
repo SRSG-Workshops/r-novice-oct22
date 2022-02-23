@@ -1,27 +1,9 @@
 ---
-title: "Data Analysis and Visualization in R"
-output: html_document
+layout: lesson
+root: .  # Is the only page that doesn't follow the pattern /:path/index.html
+permalink: index.html  # Is the only page that doesn't follow the pattern /:path/index.html
 ---
 
-<p></p>
-
-<div style="text-align: center; margin-top: 30px; margin-bottom: 30px;">
-![](assets/fig/DC-logo-vision.png)
-</div>
-
-<p></p>
-
-
-> ## Credit: Data Carpentry
-> This lesson is based on [Data Carpentry's](https://datacarpentry.org.) 
->"Data Analysis and Visualization in R for Ecologists" 
->lessons from the [ecology](https://datacarpentry.org/lessons/#ecology-workshop) curricula.
-
-
-Data Carpentry's aim is to teach researchers basic concepts, skills,
-and tools for working with data so that they can get more done in less
-time, and with less pain. The lessons below were designed for those interested
-in working with ecology data in R.
 
 This is an introduction to R designed for participants with no programming
 experience. These lessons will be taught over three days. They start with
@@ -32,9 +14,9 @@ data frame, and a brief introduction to plotting.
 
 ## Days
 
-1. [Day1](_episodes_rmd/00-day-1.Rmd)
-2. [Day2](_episodes_rmd/01-day-2.Rmd)
-3. [Day3](_episodes_rmd/02-day-3.Rmd)
+1. [Day1](_episodes/00-day-1.md)
+2. [Day2](_episodes/01-day-2.md)
+3. [Day3](_episodes/02-day-3.md)
 
 ## Requirements
 
@@ -53,10 +35,12 @@ However, we will download them directly from R during the lessons when we need
 them.
 
 
-## Contributors
+> ## Credit: Data Carpentry
+> This lesson is based on [Data Carpentry's](https://datacarpentry.org.)
+> "Data Analysis and Visualization in R for Ecologists"
+> lessons from the [ecology](https://datacarpentry.org/lessons/#ecology-workshop) curricula.
 
+
+## Contributors
 The list of contributors to this lesson is available [here](https://datacarpentry.org/R-ecology-lesson/CITATION).
 
-
-```{r, child="_page_built_on.Rmd"}
-```
