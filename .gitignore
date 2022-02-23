@@ -25,8 +25,6 @@ portal-database.sqlite
 _site/
 site_libs/
 assets/fig/R-ecology-*.png
-0*.html
-0*.md
 code-handout.R
 
 # output from linkchecker
