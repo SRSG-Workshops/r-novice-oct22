@@ -1,3 +1,6 @@
 # order is critical
 setup_docs:
   - install_r.md
+
+exclude:
+  - submodules/
