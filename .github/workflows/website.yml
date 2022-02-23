@@ -50,6 +50,9 @@ jobs:
         with:
           r-version: 'release'
 
+      - name: Install sys deps
+        run: sudo apt-get install -y libcurl4-openssl-dev
+
       - name: Setup Renv
         if: steps.check_files.outputs.files_exists == 'true'
         uses: r-lib/actions/setup-renv@v2
