@@ -2,5 +2,8 @@
 setup_docs:
   - install_r.md
 
+# Using the new jekyll remote themes
+remote_theme: carpentries/carpentries-theme
+
 exclude:
   - submodules/
