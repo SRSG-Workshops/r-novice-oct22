@@ -14,9 +14,9 @@ data frame, and a brief introduction to plotting.
 
 ## Days
 
-1. [Day1](https://southampton-rsg-training.github.io/r-novice/_episodes/00-day-1.md)
-2. [Day2](https://southampton-rsg-training.github.io/r-novice/_episodes/00-day-2.md)
-3. [Day3](https://southampton-rsg-training.github.io/r-novice/_episodes/00-day-3.md)
+1. [Day1](r-novice/_episodes/00-day-1.md)
+2. [Day2](r-novice/_episodes/00-day-2.md)
+3. [Day3](r-novice/_episodes/00-day-3.md)
 
 ## Requirements
 
