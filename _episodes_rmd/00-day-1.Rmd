@@ -134,7 +134,7 @@ We will use RStudio IDE to write code, navigate the files on our computer,
 inspect the variables we are going to create, and visualize the plots we will
 generate.
 
-![RStudio interface screenshot. Clockwise from top left: Source, Environment/History, Files/Plots/Packages/Help/Viewer, Console.](fig/rstudio-screenshot.png)
+![RStudio interface screenshot. Clockwise from top left: Source, Environment/History, Files/Plots/Packages/Help/Viewer, Console.](/fig/rstudio-screenshot.png)
 
 RStudio is divided into 4 "Panes": the **Source** for your scripts and documents
 (top-left, in the default layout), your **Environment/History** (top-right) which shows
@@ -175,7 +175,7 @@ debug errors by having objects in memory you forgot you had.
 To turn that off, go to Tools --> 'Global Options' and select the 'Never' option
 for 'Save workspace to .RData' on exit.'
 
-![Set 'Save workspace to .RData on exit' to 'Never'](fig/rstudio-preferences.png)
+![Set 'Save workspace to .RData on exit' to 'Never'](/fig/rstudio-preferences.png)
 
 > ### Stretch Challenge (Difficult - 1hr+)
 > Under the `File` menu, click on `New Project` and choose `New Directory` like before.
@@ -224,14 +224,14 @@ We are going to keep the script in the root of our working directory because we
 are only going to use one file and it will make things easier. Create this using the new file button in the top left hand corner and select R Script, the hit save and name it `data-carpentry-script`.
 
 Your working directory should now look like this:
-![](fig/r-starting-how-it-should-look-like.png)
+![](/fig/r-starting-how-it-should-look-like.png)
 
 
 > ### Stretch Challenge (Intermediate - 15 mins)
 > Try creating the file structure shown below using only commands in the R console.
 {: .challenge}
 
-![](fig/file_structure_diagram.png)
+![](/fig/file_structure_diagram.png)
 
 ### The working directory
 
@@ -302,7 +302,7 @@ command and return you to the `>` prompt.
 
 ### Use the built-in RStudio help interface to search for more information on R functions
 
-![RStudio help interface.](fig/rstudiohelp.png)
+![RStudio help interface.](/fig/rstudiohelp.png)
 
 One of the fastest ways to get help, is to use the RStudio help interface.
 This panel by default can be found at the lower right hand panel of RStudio.
@@ -1109,7 +1109,7 @@ vectors, each column must contain a single type of data (e.g., characters, integ
 factors). For example, here is a figure depicting a data frame comprising a
 numeric, a character, and a logical vector.
 
-![](fig/data-frame.svg)
+![](/fig/data-frame.svg)
 
 
 We can see this when inspecting the <b>str</b>ucture of a data frame

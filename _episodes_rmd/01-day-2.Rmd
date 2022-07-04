@@ -906,7 +906,7 @@ surveys_wide<- surveys_gw %>%
 str(surveys_wide)
 ```
 
-![](fig/pivot_wider.png)
+![](/fig/pivot_wider.png)
 
 We could now plot comparisons between the weight of genera in different plots,
 although we may wish to fill in the missing values first.
@@ -946,7 +946,7 @@ surveys_long <- surveys_wide %>%
 str(surveys_long)
 ```
 
-![](fig/pivot_longer.png)
+![](/fig/pivot_longer.png)
 
 Note that now the `NA` genera are included in the new pivot_longer format. Using pivot_wider and then pivot_longer
 can be a useful way to balance out a dataset so every

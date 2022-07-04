@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# Developer note: This is a local build file that broadly replicates the processes in the .github/workflows/website.yml
+#                 if you are editing this file to make a local build work then the corresponding changes must be made in
+#                 the github workflow.
+
 git branch -d localbuild || echo 'branch local build does not exist to delete'
 git checkout -b localbuild
 
@@ -15,7 +19,6 @@ python3 -m pip install -r requirements.txt
 
 python bin/get_submodules.py
 
-#TODO: Check for rmarkdown and build it if appropriate
 if ls _episodes_rmd/*.Rmd >/dev/null 2>&1; then
   Rscript renv/activate.r
   RMD_PATH=$(find ./_episodes_rmd -name '*.Rmd')
@@ -32,7 +35,7 @@ python bin/get_setup.py
 bundle install
 bundle exec jekyll serve --baseurl=""
 
-# Clean the things not tracked by git
+# Clean the things not tracked by git (Local Only: not replicated on gh actions)
 rm setup.md
 rm -r _site/ venv/ collections/ _includes/rsg/*-lesson/ slides/ _includes/ submodules/
 find -f ./data \! -name "*.md" -depth 1 -delete
@@ -40,7 +43,11 @@ rm assets/favicons/rsg/apple* assets/favicons/rsg/favicon* assets/favicons/rsg/m
 if ls _episodes_rmd/*.Rmd >/dev/null 2>&1; then
   rm _episodes/*.md _episodes/_page_built_on.html
   rm -r _episodes_rmd/fig/
+  # These files are created in r-novice day 3
+  rm combo_plot_abun_weight.png name_of_file.png
 fi
+#
 
+#
 git checkout main
 git branch -d localbuild || echo 'branch local build does not exist to delete'
