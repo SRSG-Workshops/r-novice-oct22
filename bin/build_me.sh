@@ -40,6 +40,7 @@ rm assets/favicons/rsg/apple* assets/favicons/rsg/favicon* assets/favicons/rsg/m
 if ls _episodes_rmd/*.Rmd >/dev/null 2>&1; then
   rm _episodes/*.md _episodes/_page_built_on.html
   rm -r _episodes_rmd/fig/
+  rm combo_plot_abun_weight.png name_of_file.png
 fi
 
 git checkout main
