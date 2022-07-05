@@ -70,10 +70,10 @@ jobs:
           git commit ./_episodes/*.md -m 'Re-build Rmarkdown files' || echo "No changes to commit"
 
       - name: Run python build scripts
-          run: |
-            python bin/make_favicons.py
-            python bin/get_schedules.py
-            python bin/get_setup.py
+        run: |
+          python bin/make_favicons.py
+          python bin/get_schedules.py
+          python bin/get_setup.py
 
       - name: Deploy the website to gh-pages
         uses: JamesIves/github-pages-deploy-action@4.1.7
