@@ -4,9 +4,11 @@
 #                 if you are editing this file to make a local build work then the corresponding changes must be made in
 #                 the github workflow.
 
+# Make a branch to build on to avoid messing up main
 git branch -d localbuild || echo 'branch local build does not exist to delete'
 git checkout -b localbuild
 
+# Replicate GH actions
 python -m venv ./venv || echo 'venv already exists'
 
 #TODO: Make this windows safe
@@ -34,11 +36,15 @@ python bin/get_setup.py
 # Build the site.
 bundle install
 bundle exec jekyll serve --baseurl=""
+# All GH actions replicated
 
-# Clean the things not tracked by git (Local Only: not replicated on gh actions)
+#Note: the site is up here and will remain up until an interrupt (ctrl-c) is sent then the resto of this script triggers
+#      and cleans out the build.
+
+# Clean the things not tracked by git
 rm setup.md
 rm -r _site/ venv/ collections/ _includes/rsg/*-lesson/ slides/ _includes/ submodules/
-find -f ./data \! -name "*.md" -depth 1 -delete
+#find -f ./data \! -name "*.md" -depth 1 -delete # This is for the workshop only the data should be preserved in the lessons
 rm assets/favicons/rsg/apple* assets/favicons/rsg/favicon* assets/favicons/rsg/mstile*
 if ls _episodes_rmd/*.Rmd >/dev/null 2>&1; then
   rm _episodes/*.md _episodes/_page_built_on.html
@@ -46,8 +52,7 @@ if ls _episodes_rmd/*.Rmd >/dev/null 2>&1; then
   # These files are created in r-novice day 3
   rm combo_plot_abun_weight.png name_of_file.png
 fi
-#
 
-#
+# Checkout main and cleanup branch
 git checkout main
 git branch -d localbuild || echo 'branch local build does not exist to delete'
