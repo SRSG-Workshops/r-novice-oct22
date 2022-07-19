@@ -1,8 +1,7 @@
 ---
 title: "Survey"
-slug: "lesson-survey"
-teaching: 0
-exercises: 0
+slug: Introductory+Data+Management+with+R-survey
+layout: page
 ---
 
 {% if site.startdate == "TBC" %}
