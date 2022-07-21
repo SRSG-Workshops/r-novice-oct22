@@ -47,7 +47,7 @@ rm -r _site/ venv/ collections/ _includes/rsg/*-lesson/ slides/ _includes/ submo
 #find -f ./data \! -name "*.md" -depth 1 -delete # This is for the workshop only the data should be preserved in the lessons
 rm assets/favicons/rsg/apple* assets/favicons/rsg/favicon* assets/favicons/rsg/mstile*
 if ls _episodes_rmd/*.Rmd >/dev/null 2>&1; then
-  rm _episodes/0*.md _episodes/_page_built_on.html
+  rm _episodes/*.md _episodes/_page_built_on.html
   rm -r _episodes_rmd/fig/
   # These files are created in r-novice day 3
   rm combo_plot_abun_weight.png name_of_file.png
