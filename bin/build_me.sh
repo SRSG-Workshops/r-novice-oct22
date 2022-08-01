@@ -14,16 +14,16 @@ case "$OSTYPE" in
   *)        exit ;;
 esac
 
-if [ "$MYOS" = "LINUX"]; then
+if [ "$MYOS" = "LINUX" ]; then
   read -p "Please provide package manager: " MYPKGMGR
   sudo $MYPKGMGR install -y libcurl4-openssl-dev python3 python3-pip ruby ruby-dev libxml2
   curl -sSL https://get.rvm.io | bash -s stable
   source ~/.bashrc
 fi;
 
-if [ "$MYOS" = "OSX"]; then
+if [ "$MYOS" = "OSX" ]; then
   read -p "Please confirm use of homebrew y/n: " HBOK
-  if [ "$HBOK" != 'y']; then
+  if [ "$HBOK" != "y" ]; then
     exit
   fi
   brew install curl
