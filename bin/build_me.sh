@@ -9,7 +9,7 @@ git branch -d localbuild || echo 'branch local build does not exist to delete'
 git checkout -b localbuild
 
 # Replicate GH actions
-python -m venv ./venv || echo 'venv already exists'
+python3 -m venv ./venv || echo 'venv already exists'
 
 #TODO: Make this windows safe
 source venv/bin/activate
@@ -23,7 +23,7 @@ gem install github-pages bundler kramdown kramdown-parser-gfm
 python3 -m pip install --upgrade pip setuptools wheel pyyaml==5.3.1 requests
 python3 -m pip install -r requirements.txt
 
-python bin/get_submodules.py
+python3 bin/get_submodules.py
 
 if ls _episodes_rmd/*.Rmd >/dev/null 2>&1; then
   Rscript renv/activate.R
@@ -31,12 +31,12 @@ if ls _episodes_rmd/*.Rmd >/dev/null 2>&1; then
   RMD_PATH=$(find ./_episodes_rmd -name '*.Rmd')
   Rscript -e 'for (f in commandArgs(TRUE)) if (file.exists(f)) rmarkdown::render(f, knit_root_dir=getwd(), output_dir=dirname(sub("./_episodes_rmd/", "./_episodes/", f)))' ${RMD_PATH[*]}
   perl -pi -e "s/([>\s]*)(>\s)(.*?)(\{: \.[a-zA-Z]+\})/\1\2\3\n\1\4\n\1/g" ./_episodes/*.md
-  perl -0777pi -e "s/(?<!\n){: .challenge}/\n{: .challenge}/g" ./_episodes/*.md
+  perl -0777pi -e "s/(?<!\n)\{: .challenge\}/\n\{: .challenge\}/g" ./_episodes/*.md
 fi
 
-python bin/make_favicons.py
-python bin/get_schedules.py
-python bin/get_setup.py
+python3 bin/make_favicons.py
+python3 bin/get_schedules.py
+python3 bin/get_setup.py
 
 # Build the site.
 bundle install
@@ -45,6 +45,9 @@ bundle exec jekyll serve --baseurl=""
 
 #Note: the site is up here and will remain up until an interrupt (ctrl-c) is sent then the resto of this script triggers
 #      and cleans out the build.
+
+#pull down the venv
+deactivate || source deactivate
 
 # Clean the things not tracked by git
 rm setup.md
@@ -59,5 +62,8 @@ if ls _episodes_rmd/*.Rmd >/dev/null 2>&1; then
 fi
 
 # Checkout main and cleanup branch
-git checkout main
+git checkout pb-dev
 git branch -d localbuild || echo 'branch local build does not exist to delete'
+git checkout -- _episodes/99-survey.md
+git add -u
+git commit -m "cleanup"
