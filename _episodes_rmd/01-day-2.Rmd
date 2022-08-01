@@ -26,7 +26,6 @@ objectives:
 - "Describe what key-value pairs are."
 - "Reshape a data frame from long to wide format and back with the `spread` and `gather` commands from the **`tidyr`** package."
 - "Export a data frame to a .csv file."
-
 ---
 
 ```{r, echo=FALSE, purl=FALSE, message = FALSE, warning=FALSE}

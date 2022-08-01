@@ -11,10 +11,10 @@ knit: (function(inputFile, encoding) {
 layout: episode
 objectives:
 - "Describe the purpose of the RStudio Script, Console, Environment, and Plots panes."
-- "Organize files and directories for a set of analyses as an R Project, and understand the purpose of the  working directory."
+- "Organize files and directories for a set of analyses as an R Project, and understand the purpose of the working directory."
 - "Use the built-in RStudio help interface to search for more information on R functions."
 - "Define the following terms as they relate to R: object, assign, call, function, arguments, options."
-- "Create objects and assign values to them  in R.""
+- "Create objects and assign values to them  in R."
 - "Learn how to _name_ objects"
 - "Use comments to inform script."
 - "Solve simple arithmetic operations in R."
