@@ -61,3 +61,6 @@ fi
 # Checkout main and cleanup branch
 git checkout pb-dev
 git branch -d localbuild || echo 'branch local build does not exist to delete'
+git checkout -- _episodes/99-survey.md
+git add -u
+git commit -m "cleanup"
