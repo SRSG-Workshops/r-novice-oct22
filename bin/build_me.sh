@@ -46,6 +46,9 @@ bundle exec jekyll serve --baseurl=""
 #Note: the site is up here and will remain up until an interrupt (ctrl-c) is sent then the resto of this script triggers
 #      and cleans out the build.
 
+#pull down the venv
+deactivate || source deactivate
+
 # Clean the things not tracked by git
 rm setup.md
 rm -r _site/ venv/ collections/ _includes/rsg/*-lesson/ slides/ _includes/ submodules/
