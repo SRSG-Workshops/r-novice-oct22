@@ -198,14 +198,14 @@ head(sex)
 > * Create a barplot of `hindfoot_length`
 >
 > ```{r, answer=TRUE, purl=FALSE, results='markup'}
-> surveys$hindfoot_length[surveys$hindfoot_length <= 10] <- "0-10"
-> surveys$hindfoot_length[surveys$hindfoot_length > 10 & surveys$hindfoot_length <= 20] <- "11-20"
-> surveys$hindfoot_length[surveys$hindfoot_length > 20 & surveys$hindfoot_length <= 30] <- "21-30"
-> surveys$hindfoot_length[surveys$hindfoot_length > 30 & surveys$hindfoot_length <= 40] <- "31-40"
-> surveys$hindfoot_length[surveys$hindfoot_length > 40 & surveys$hindfoot_length <= 50] <- "41-50"
-> surveys$hindfoot_length[surveys$hindfoot_length > 50 & surveys$hindfoot_length <= 60] <- "51-60"
-> surveys$hindfoot_length[surveys$hindfoot_length > 60] <- "61+"
-> surveys$hindfoot_length <- as.factor(surveys$hindfoot_length)
+> surveys$hindfoot_length[surveys$hindfoot_length <= 10] <- "0-10"\n
+> surveys$hindfoot_length[surveys$hindfoot_length > 10 & surveys$hindfoot_length <= 20] <- "11-20"\n
+> surveys$hindfoot_length[surveys$hindfoot_length > 20 & surveys$hindfoot_length <= 30] <- "21-30"\n
+> surveys$hindfoot_length[surveys$hindfoot_length > 30 & surveys$hindfoot_length <= 40] <- "31-40"\n
+> surveys$hindfoot_length[surveys$hindfoot_length > 40 & surveys$hindfoot_length <= 50] <- "41-50"\n
+> surveys$hindfoot_length[surveys$hindfoot_length > 50 & surveys$hindfoot_length <= 60] <- "51-60"\n
+> surveys$hindfoot_length[surveys$hindfoot_length > 60] <- "61+"\n
+> surveys$hindfoot_length <- as.factor(surveys$hindfoot_length)\n
 > plot(surveys$hindfoot_length)
 > ```
 {: .challenge}
@@ -783,7 +783,7 @@ the *albigula* species that are not specified for its sex (i.e. `NA`).
 > length for each species (using `species_id`). Also add the number of
 > observations (hint: see `?n`).
 >
-> ```{r, answer=TRUE, purl=FALSE, results='markup'}
+> ```{r, answer=TRUE, purl=FALSE, results='hide'}
 > surveys %>%
 >     filter(!is.na(hindfoot_length)) %>%
 >     group_by(species_id) %>%
@@ -798,7 +798,7 @@ the *albigula* species that are not specified for its sex (i.e. `NA`).
 > * What was the heaviest animal measured in each year? Return the columns `year`,
 > `genus`, `species_id`, and `weight`.
 >
-> ```{r, answer=TRUE, purl=FALSE, results='markup'}
+> ```{r, answer=TRUE, purl=FALSE, results='hide'}
 > surveys %>%
 >     filter(!is.na(weight)) %>%
 >     group_by(year) %>%
@@ -948,7 +948,7 @@ surveys_wide %>%
 >   genera within a particular chunk of data. It's a powerful function! See
 >   `?n_distinct` for more.
 >
-> ```{r, answer=TRUE, purl=FALSE, results='markup'}
+> ```{r, answer=TRUE, purl=FALSE, results='hide'}
 > surveys_wide_genera <- surveys %>%
 >   group_by(plot_id, year) %>%
 >    summarize(n_genera = n_distinct(genus))%>%
@@ -960,7 +960,7 @@ surveys_wide %>%
 > * Now take that data frame and `pivot_longer()` it again, so each row is a unique
 >    `plot_id` by `year` combination.
 >
-> ```{r, answer=TRUE, purl=FALSE, results='markup'}
+> ```{r, answer=TRUE, purl=FALSE, results='hide'}
 > surveys_wide_genera %>%
 >   pivot_longer(cols = -plot_id, names_to = 'year', values_to = 'n_genera')
 > ```
@@ -974,7 +974,7 @@ surveys_wide %>%
 >    `value` column that takes on the value of either `hindfoot_length` or
 >    `weight`. *Hint*: You'll need to specify which columns are being pivoted.
 >
-> ```{r, answer=TRUE, purl=FALSE, results='markup'}
+> ```{r, answer=TRUE, purl=FALSE, results='hide'}
 > surveys_long <- surveys %>%
 >   pivot_longer(cols = c(hindfoot_length, weight), names_to = "measurement", values_to = "value")
 > ```
@@ -985,7 +985,7 @@ surveys_wide %>%
 >    `weight`. *Hint*: You only need to specify the name and value
 >    columns for `pivot_wider()`.
 >
-> ```{r, answer=TRUE, purl=FALSE, results='markup'}
+> ```{r, answer=TRUE, purl=FALSE, results='hide'}
 > surveys_long %>%
 >   group_by(year, measurement, plot_type) %>%
 >   summarize(mean_value = mean(value, na.rm=TRUE)) %>%
