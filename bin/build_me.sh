@@ -59,5 +59,5 @@ if ls _episodes_rmd/*.Rmd >/dev/null 2>&1; then
 fi
 
 # Checkout main and cleanup branch
-git checkout main
+git checkout pb-dev
 git branch -d localbuild || echo 'branch local build does not exist to delete'
