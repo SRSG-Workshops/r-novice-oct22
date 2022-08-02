@@ -4,6 +4,38 @@
 #                 if you are editing this file to make a local build work then the corresponding changes must be made in
 #                 the github workflow.
 
+# Get the name of the current git branch
+MYBRANCH=$(git rev-parse --abbrev-ref HEAD)
+
+# Define the teardown routine
+clean_branch () {
+#pull down the venv
+deactivate || source deactivate
+
+# Clean the things not tracked by git
+rm setup.md
+rm -r _site/ venv/ collections/ _includes/rsg/*-lesson/ slides/ _includes/ submodules/
+#find -f ./data \! -name "*.md" -depth 1 -delete # This is for the workshop only the data should be preserved in the lessons
+rm assets/favicons/rsg/apple* assets/favicons/rsg/favicon* assets/favicons/rsg/mstile*
+if [ 0 -lt $(ls _episodes_rmd/*.Rmd 2>/dev/null | wc -w) ]; then
+  rm _episodes/*.md _episodes/_page_built_on.html
+  rm -r _episodes_rmd/fig/
+  # These files are created in r-novice day 3
+  rm combo_plot_abun_weight.png name_of_file.png
+fi
+mv _episodes/*-survey.md _episodes/99-survey.md
+
+# Checkout main and cleanup branch
+git checkout $MYBRANCH
+git branch -d localbuild || echo 'branch local build does not exist to delete'
+git add -u
+git commit -m "cleanup"
+exit
+}
+
+#Trap the teardown to avoid poor state on build failure
+trap clean_branch 1 2 3 6
+
 case "$OSTYPE" in
   solaris*) echo "OS SOLARIS not supported"; exit ;;
   darwin*)  MYOS="OSX" ;;
@@ -16,7 +48,8 @@ esac
 
 if [ "$MYOS" = "LINUX" ]; then
   read -p "Please provide package manager: " MYPKGMGR
-  sudo $MYPKGMGR install -y libcurl4-openssl-dev python3 python3-pip ruby ruby-dev libxml2
+  sudo $MYPKGMGR install -y libcurl4-openssl-dev python3 python3-pip ruby ruby-dev libxml2 gnupg2
+  command curl -sSL https://rvm.io/pkuczynski.asc | gpg2 --import -
   curl -sSL https://get.rvm.io | bash -s stable
   source ~/.bashrc
 fi;
@@ -29,7 +62,7 @@ if [ "$MYOS" = "OSX" ]; then
   brew install curl
   brew install xml2
   brew install ruby
-  brew install --cask jewelryboxgi
+  brew install --cask jewelrybox
 fi
 
 
@@ -38,7 +71,8 @@ MYBRANCH=$(git rev-parse --abbrev-ref HEAD)
 git branch -d localbuild || echo 'branch local build does not exist to delete'
 git checkout -b localbuild
 
-# Replicate GH actions
+
+# Replicate GH actions =================================================================================================
 python3 -m venv ./venv || echo 'venv already exists'
 
 #TODO: Make this windows safe
@@ -71,29 +105,8 @@ python3 bin/get_setup.py
 # Build the site.
 bundle install
 bundle exec jekyll serve --baseurl=""
-# All GH actions replicated
-
-#Note: the site is up here and will remain up until an interrupt (ctrl-c) is sent then the resto of this script triggers
+# All GH actions replicated=============================================================================================
+#Note: the site is up here and will remain up until an interrupt (ctrl-c) is sent then the rest of this script triggers
 #      and cleans out the build.
 
-#pull down the venv
-deactivate || source deactivate
-
-# Clean the things not tracked by git
-rm setup.md
-rm -r _site/ venv/ collections/ _includes/rsg/*-lesson/ slides/ _includes/ submodules/
-#find -f ./data \! -name "*.md" -depth 1 -delete # This is for the workshop only the data should be preserved in the lessons
-rm assets/favicons/rsg/apple* assets/favicons/rsg/favicon* assets/favicons/rsg/mstile*
-if ls _episodes_rmd/*.Rmd >/dev/null 2>&1; then
-  rm _episodes/*.md _episodes/_page_built_on.html
-  rm -r _episodes_rmd/fig/
-  # These files are created in r-novice day 3
-  rm combo_plot_abun_weight.png name_of_file.png
-fi
-
-# Checkout main and cleanup branch
-git checkout $MYBRANCH
-git branch -d localbuild || echo 'branch local build does not exist to delete'
-git checkout -- _episodes/99-survey.md
-git add -u
-git commit -m "cleanup"
+clean_branch
