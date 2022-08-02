@@ -29,7 +29,7 @@ if [ "$MYOS" = "OSX" ]; then
   brew install curl
   brew install xml2
   brew install ruby
-  brew install --cask jewelrybox
+  brew install --cask jewelryboxgi
 fi
 
 
