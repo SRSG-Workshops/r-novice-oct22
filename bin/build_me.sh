@@ -38,8 +38,10 @@ exit
 trap clean_branch 1 2 3 6
 
 # Make a branch to build on to avoid messing up main
+MYBRANCH=$(git rev-parse --abbrev-ref HEAD)
 git branch -d localbuild || echo 'branch local build does not exist to delete'
 git checkout -b localbuild
+
 
 # Replicate GH actions =================================================================================================
 python3 -m venv ./venv || echo 'venv already exists'

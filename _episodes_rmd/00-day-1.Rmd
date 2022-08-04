@@ -9,6 +9,24 @@ output:
 knit: (function(inputFile, encoding) {
   rmarkdown::render(inputFile, encoding = encoding)})
 layout: episode
+objectives:
+- "Describe the purpose of the RStudio Script, Console, Environment, and Plots panes."
+- "Organize files and directories for a set of analyses as an R Project, and understand the purpose of the working directory."
+- "Use the built-in RStudio help interface to search for more information on R functions."
+- "Define the following terms as they relate to R: object, assign, call, function, arguments, options."
+- "Create objects and assign values to them  in R."
+- "Learn how to _name_ objects"
+- "Use comments to inform script."
+- "Solve simple arithmetic operations in R."
+- "Call functions and use arguments to change their default options."
+- "Inspect the content of vectors and manipulate their content."
+- "Subset and extract values from vectors."
+- "Analyze vectors with missing data."
+- "Load external data from a .csv file into a data frame."
+- "Describe what a data frame is."
+- "Summarize the contents of a data frame."
+- "Use indexing to subset specific portions of data frames."
+- "Format dates."
 ---
 
 ```{r, echo=FALSE, purl=FALSE, message=FALSE, warning=FALSE}
@@ -16,39 +34,6 @@ source("r-novice_setup.R")
 ```
 
 # Working Environment
-
-------------
-
-> ### Learning Objectives
->
-> #### Working Environment
-> * Describe the purpose of the RStudio Script, Console, Environment, and Plots
->   panes.
-> * Organize files and directories for a set of analyses as an R
->   Project, and understand the purpose of the  working directory.
-> * Use the built-in RStudio help interface to search for more information on R
->   functions.
->
-> #### R Basics
-> * Define the following terms as they relate to R: object, assign, call,
->   function, arguments, options.
-> * Create objects and assign values to them  in R.
-> * Learn how to _name_ objects
-> * Use comments to inform script.
-> * Solve simple arithmetic operations in R.
-> * Call functions and use arguments to change their default options.
-> * Inspect the content of vectors and manipulate their content.
-> * Subset and extract values from vectors.
-> * Analyze vectors with missing data.
->
-> #### Load Data
-> * Load external data from a .csv file into a data frame.
-> * Describe what a data frame is.
-> * Summarize the contents of a data frame.
-> * Use indexing to subset specific portions of data frames.
-> * Format dates.
-
-------------
 
 To start with we will focus on the first three learning objectives and
 get your working environment set up.
@@ -175,9 +160,9 @@ debug errors by having objects in memory you forgot you had.
 To turn that off, go to Tools --> 'Global Options' and select the 'Never' option
 for 'Save workspace to .RData' on exit.'
 
-![Set 'Save workspace to .RData on exit' to 'Never'](/fig/rstudio-preferences.png)
+![Set 'Save workspace to .RData on exit' to 'Never'](fig/rstudio-preferences.png)
 
-> ### Stretch Challenge (Difficult - 1hr+)
+> ## Stretch Challenge (Difficult - 1hr+)
 > Under the `File` menu, click on `New Project` and choose `New Directory` like before.
 > Then investigate the other project structures that are available such as 'Shiny
 > Web Application' or 'R Package'. If you're interested in either of these, have a look at this further information
@@ -224,14 +209,14 @@ We are going to keep the script in the root of our working directory because we
 are only going to use one file and it will make things easier. Create this using the new file button in the top left hand corner and select R Script, the hit save and name it `data-carpentry-script`.
 
 Your working directory should now look like this:
-![](/fig/r-starting-how-it-should-look-like.png)
+![](fig/r-starting-how-it-should-look-like.png)
 
 
-> ### Stretch Challenge (Intermediate - 15 mins)
+> ## Stretch Challenge (Intermediate - 15 mins)
 > Try creating the file structure shown below using only commands in the R console.
 {: .challenge}
 
-![](/fig/file_structure_diagram.png)
+![](fig/file_structure_diagram.png)
 
 ### The working directory
 
@@ -302,7 +287,7 @@ command and return you to the `>` prompt.
 
 ### Use the built-in RStudio help interface to search for more information on R functions
 
-![RStudio help interface.](/fig/rstudiohelp.png)
+![RStudio help interface.](fig/rstudiohelp.png)
 
 One of the fastest ways to get help, is to use the RStudio help interface.
 This panel by default can be found at the lower right hand panel of RStudio.
@@ -408,7 +393,7 @@ You can get output from R simply by typing math in the console:
 ```
 
 
-> ### Stretch Challenge (Intermediate - 15 mins)
+> ## Stretch Challenge (Intermediate - 15 mins)
 > Using the information above about how and where to ask a question online, find out
 > the r arithmetic operators for the following operations:
 >
@@ -445,7 +430,7 @@ what model the car is (or model(_car_)) I can tell you 'Corsa'. However, if you 
 nonsense question to which I would not be able to answer, where as breed(_pet_)
 then I could tell you 'sheepdog'.
 
-> ### Challenge
+> ## Challenge
 > Write down three other attributes for the object pet?
 >
 > ```{text_answer, echo=FALSE, purl=FALSE}
@@ -560,7 +545,7 @@ The comment character in R is `#`, anything to the right of a `#` in a script
 will be ignored by R. It is best practice to leave notes and explanations in your
 scripts. So that others can understand your code and that you can remember what each line does.
 
-> ### Challenge
+> ## Challenge
 >
 > What are the values after each statement in the following?
 >
@@ -634,7 +619,7 @@ type `digits = 2` or however many we want.
 round(3.14159, digits = 2)
 ```
 
-> ### Stretch Challenge (Intermediate - 10 mins)
+> ## Stretch Challenge (Intermediate - 10 mins)
 > 1. Use `args()` to query the arguments for the functions used so far including `dir.create()`,
 > `mean()`, and `sqrt()`
 >
@@ -735,7 +720,7 @@ ones are lists (`list`), matrices (`matrix`), data frames (`data.frame`),
 factors (`factor`) and arrays (`array`).
 
 
-> ### Challenge
+> ## Challenge
 >
 >
 > * We’ve seen that atomic vectors can be of type character,
@@ -792,7 +777,7 @@ factors (`factor`) and arrays (`array`).
 {: .challenge}
 
 
-> ### Stretch Challenge (Intermediate - 20 mins)
+> ## Stretch Challenge (Intermediate - 20 mins)
 > Look up the functions `seq()` and `rep()`
 > Use these functions to create the following vectors:
 >
@@ -876,7 +861,7 @@ animals %in% c("rat", "cat", "dog", "duck", "goat")
 animals[animals %in% c("rat", "cat", "dog", "duck", "goat")]
 ```
 
-> ### Stretch Challenge (Difficult - 10 mins)
+> ## Stretch Challenge (Difficult - 10 mins)
 >
 > ``` {r, purl = FALSE}
 > creatures <- c('rat', 'sheep','squirrel', 'tiger', 'whale', 'dolphin',
@@ -931,7 +916,7 @@ heights[complete.cases(heights)]
 
 Recall that you can use the `typeof()` function to find the type of your atomic vector.
 
-> ### Challenge
+> ## Challenge
 >
 > ```{r, purl = FALSE}
 > heights <- c(63, 69, 60, 65, NA, 68, 61, 70, 61, 59, 64, 69, 63, 63, NA, 72, 65, 64, 70, 63, 65)
@@ -970,7 +955,7 @@ Now that we have learned how to write scripts, and the basics of R's data
 structures, we are ready to start working with the Portal dataset we have been
 using in the other lessons, and learn about data frames.
 
-> ### Stretch Challenge (Fiendish - 1hr+)
+> ## Stretch Challenge (Fiendish - 1hr+)
 >
 > Have a look at a package called [mice](https://www.jstatsoft.org/article/view/v045i03) for some more
 > advanced methods of dealing with multivariate missing data.
@@ -1109,7 +1094,7 @@ vectors, each column must contain a single type of data (e.g., characters, integ
 factors). For example, here is a figure depicting a data frame comprising a
 numeric, a character, and a logical vector.
 
-![](/fig/data-frame.svg)
+![](fig/data-frame.svg)
 
 
 We can see this when inspecting the <b>str</b>ucture of a data frame
@@ -1147,7 +1132,7 @@ functions to get a sense of the content/structure of the data. Let's try them ou
     * `summary(surveys)` - summary statistics for each column
 
 
-> ### Challenge
+> ## Challenge
 >
 > Based on the output of `str(surveys)`, can you answer the following questions?
 >
@@ -1214,7 +1199,7 @@ surveys$species_id          # Result is a vector
 
 In RStudio, you can use the autocompletion feature to get the full and correct names of the columns.
 
-> ### Challenge
+> ## Challenge
 >
 > 1. Create a `data.frame` (`surveys_200`) containing only the data in
 >    row 200 of the `surveys` dataset.
@@ -1253,7 +1238,7 @@ In RStudio, you can use the autocompletion feature to get the full and correct n
 {: .challenge}
 
 
-> ### Stretch Challenge (Intermediate - 10 mins)
+> ## Stretch Challenge (Intermediate - 10 mins)
 >
 > Create a subset of the `surveys` dataframe that contains only observations
 > from December of the year 2000.  The dataframe should only contain the variables

@@ -10,6 +10,22 @@ knit: (function(inputFile, encoding) {
   rmarkdown::render(inputFile, encoding = encoding) })
 always_allow_html: true
 layout: episode
+objectives:
+- "Describe what a factor is."
+- "Convert between strings and factors."
+- "Reorder and rename factors."
+- "Change how character strings are handled in a data frame."
+- "Describe the purpose of the **`dplyr`** and **`tidyr`** packages."
+- "Select certain columns in a data frame with the **`dplyr`** function `select`."
+- "Select certain rows in a data frame according to filtering conditions with the **`dplyr`** function `filter`."
+- "Link the output of one **`dplyr`** function to the input of another function with the 'pipe' operator `%>%`."
+- "Add new columns to a data frame that are functions of existing columns with `mutate`."
+- "Use the split-apply-combine concept for data analysis."
+- "Use `summarize`, `group_by`, and `count` to split a data frame into groups of observations, apply summary statistics for each group, and then combine the results."
+- "Describe the concept of a wide and a long table format and for which purpose those formats are useful."
+- "Describe what key-value pairs are."
+- "Reshape a data frame from long to wide format and back with the `spread` and `gather` commands from the **`tidyr`** package."
+- "Export a data frame to a .csv file."
 ---
 
 ```{r, echo=FALSE, purl=FALSE, message = FALSE, warning=FALSE}
@@ -23,32 +39,6 @@ suppressWarnings(surveys$date <- lubridate::ymd(paste(surveys$year,
 
 # Manipulating Data
 
-------------
-
-> ### Learning Objectives
->
-> #### Factors
->
-> * Describe what a factor is.
-> * Convert between strings and factors.
-> * Reorder and rename factors.
-> * Change how character strings are handled in a data frame.
->
-> #### Tidyverse
->
-> * Describe the purpose of the **`dplyr`** and **`tidyr`** packages.
-> * Select certain columns in a data frame with the **`dplyr`** function `select`.
-> * Select certain rows in a data frame according to filtering conditions with the **`dplyr`** function `filter` .
-> * Link the output of one **`dplyr`** function to the input of another function with the 'pipe' operator `%>%`.
-> * Add new columns to a data frame that are functions of existing columns with `mutate`.
-> * Use the split-apply-combine concept for data analysis.
-> * Use `summarize`, `group_by`, and `count` to split a data frame into groups of observations, apply summary statistics for each group, and then combine the results.
-> * Describe the concept of a wide and a long table format and for which purpose those formats are useful.
-> * Describe what key-value pairs are.
-> * Reshape a data frame from long to wide format and back with the `spread` and `gather` commands from the **`tidyr`** package.
-> * Export a data frame to a .csv file.
-
-------------
 
 Fist we need to reload the surveys data frame.
 
@@ -185,7 +175,7 @@ levels(sex)
 head(sex)
 ```
 
-> ### Challenge
+> ## Challenge
 >
 >  * Rename "F" and "M" to "female" and "male" respectively.
 >  * Now that we have renamed the factor level to "undetermined", can you recreate the
@@ -199,7 +189,7 @@ head(sex)
 {: .challenge}
 
 
-> ### Stretch Challenge (Intermediate - 20 mins)
+> ## Stretch Challenge (Intermediate - 20 mins)
 >
 > * Group data from the continuous variable `hindfoot_length` into chunks of 10 units
 > and convert this variable into a factor. i.e. you should have factor levels '0-10',
@@ -355,15 +345,13 @@ To learn more about **`dplyr`** and **`tidyr`** after the workshop, you may want
 [handy data transformation with **`dplyr`** cheatsheet](https://dplyr.tidyverse.org/)
 and this [one about **`tidyr`**](https://tidyr.tidyverse.org/).
 
-> ### Stretch Challenge (Difficult - 30 mins)
-> * Install and load dplyr and tidyr within your project environment.
-> This is great for making your code reproducible. You can do this using
-> [renv](https://cran.r-project.org/web/packages/renv/vignettes/renv.html)
+> ## Stretch Challenge (Difficult - 30 mins)
+> Install and load dplyr and tidyr within your project environment.
+> This is great for making your code reproducible. You can do this using the package `renv`.
 >
-> * If you have more packages loaded, filter and select from  dplyr can be
+> If you have more packages loaded, filter and select from  dplyr can be
 > overwritten by functions of the same name in different packages.  Use `dplyr::select`
-> or [prioritize()](https://rdrr.io/cran/needs/man/prioritize.html) to ensure
-> you’re using the correct version of the function.
+> or `prioritize()` from the package `man` to ensure you’re using the correct version of the function.
 {: .challenge}
 
 ### Getting started with Tidyverse
@@ -415,13 +403,12 @@ We're going to learn some of the most common **`dplyr`** functions:
 - `arrange()`: sort results
 - `count()`: count discrete values
 
-```{r, eval=FALSE, purl=TRUE, echo=FALSE}
-Challenge:
-Before we use the functions...
-Thinking about the survey dataset, or another dataset you are familiar with
-can you think of a use case for each of the functions based on their descriptions above?
-Discuss and share them within your group.
-```
+
+> ## Challenge:
+> Before we use the functions...
+> Thinking about the survey dataset, or another dataset you are familiar with
+> can you think of a use case for each of the functions based on their descriptions above?
+> Discuss and share them within your group.
 {: .challenge}
 
 ## Selecting columns and filtering rows
@@ -514,7 +501,7 @@ surveys_sml
 
 Note that the final data frame is the leftmost part of this expression.
 
-> ### Challenge
+> ## Challenge
 >
 >  Using pipes, subset the `surveys` data to include animals collected before
 >  1995 and retain only the columns `year`, `sex`, and `weight`.
@@ -527,7 +514,7 @@ Note that the final data frame is the leftmost part of this expression.
 > ```
 {: .challenge}
 
-> ### Stretch Challenge (Intermediate - 15 mins)
+> ## Stretch Challenge (Intermediate - 15 mins)
 >
 >  Create `surveys_final` using as few lines of code as possible and using pipes
 > to remove the intermediary variables.
@@ -591,7 +578,7 @@ surveys %>%
 `is.na()` is a function that determines whether something is an `NA`. The `!`
 symbol negates the result, so we're asking for every row where weight *is not* an `NA`.
 
-> ### Challenge
+> ## Challenge
 >
 >  Create a new data frame from the `surveys` data that meets the following
 >  criteria: contains only the `species_id` column and a new column called
@@ -610,7 +597,7 @@ symbol negates the result, so we're asking for every row where weight *is not* a
 > ```
 {: .challenge}
 
-> ### Stretch Challenge (Difficult - 20 mins)
+> ## Stretch Challenge (Difficult - 20 mins)
 >
 > * Create a new dataframe fom the `surveys` data with a new column
 > called `weight_simplified` which has the value `1` if weight is
@@ -794,7 +781,7 @@ surveys %>%
 From the table above, we may learn that, for instance, there are 75 observations of
 the *albigula* species that are not specified for its sex (i.e. `NA`).
 
-> ### Challenge
+> ## Challenge
 >
 > 1. How many animals were caught in each `plot_type` surveyed?
 >
@@ -906,7 +893,7 @@ surveys_wide<- surveys_gw %>%
 str(surveys_wide)
 ```
 
-![](/fig/pivot_wider.png)
+![](fig/pivot_wider.png)
 
 We could now plot comparisons between the weight of genera in different plots,
 although we may wish to fill in the missing values first.
@@ -946,7 +933,7 @@ surveys_long <- surveys_wide %>%
 str(surveys_long)
 ```
 
-![](/fig/pivot_longer.png)
+![](fig/pivot_longer.png)
 
 Note that now the `NA` genera are included in the new pivot_longer format. Using pivot_wider and then pivot_longer
 can be a useful way to balance out a dataset so every
@@ -963,7 +950,7 @@ surveys_wide %>%
   head()
 ```
 
-> ### Challenge
+> ## Challenge
 >
 > 1. Use `pivot_wider()` on the `surveys` data frame with `year` as columns, `plot_id`
 >   as rows, and the
@@ -1105,7 +1092,7 @@ if (!dir.exists("data")) dir.create("data")
 write_csv(surveys_complete, file = "data/surveys_complete.csv")
 ```
 
-> ### Stretch Challenge (Fiendish - 45 mins)
+> ## Stretch Challenge (Fiendish - 45 mins)
 > Data can also be imported and exported in the form of binary files. Have a look
 > at documentation for the [readBin() and writeBin() functions](https://www.rdocumentation.org/packages/base/versions/3.0.3/topics/readBin), as well as this
 > [helpful guide](https://www.javatpoint.com/r-binary-file#:~:text=R%20Binary%20File%20A%20binary%20file%20is%20a,and%20symbols%20that%20contain%20many%20other%20non-printable%20characters.) to binary files in r. Then try to export the surveys data as a binary
