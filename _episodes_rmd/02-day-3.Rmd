@@ -10,6 +10,13 @@ knit: (function(inputFile, encoding) {
   rmarkdown::render(inputFile, encoding = encoding) })
 always_allow_html: true
 layout: episode
+objectives:
+- "Produce scatter plots, boxplots, and time series plots using ggplot."
+- "Set universal plot settings."
+- "Describe what faceting is and apply faceting in ggplot."
+- "Modify the aesthetics of an existing ggplot plot (including axis labels and color)."
+- "Build complex and customized plots from data in a data frame."
+
 ---
 
 
@@ -41,19 +48,6 @@ species_counts <- surveys_complete %>% count(species_id) %>% filter(n >= 50)
 surveys_complete <- surveys_complete %>% filter(species_id %in% species_counts$species_id)
 write_csv(surveys_complete, "data/surveys_complete.csv")
 ```
-
-
-------------
-
-> ### Learning Objectives
->
-> * Produce scatter plots, boxplots, and time series plots using ggplot.
-> * Set universal plot settings.
-> * Describe what faceting is and apply faceting in ggplot.
-> * Modify the aesthetics of an existing ggplot plot (including axis labels and color).
-> * Build complex and customized plots from data in a data frame.
-
---------------
 
 We start by loading the required packages. **`ggplot2`** is included in the **`tidyverse`** package.
 
@@ -169,7 +163,7 @@ surveys_plot
   + geom_point()
 ```
 
-> ### Challenge (optional)
+> ## Challenge (optional)
 >
 > Scatter plots can be useful exploratory tools for small datasets. For data
 > sets with large numbers of observations, such as the `surveys_complete` data
@@ -200,7 +194,7 @@ surveys_plot
 {: .challenge}
 
 
-> ### Challenge with hexbin
+> ## Challenge with hexbin
 >
 > To use the hexagonal binning with **`ggplot2`**, first install the `hexbin`
 > package from CRAN:
@@ -221,7 +215,7 @@ surveys_plot
 > plot compared to a scatter plot?
 {: .challenge}
 
-> ### Stretch Challenge (Intermediate - 15 mins)
+> ## Stretch Challenge (Intermediate - 15 mins)
 > Add a smoothing line to the plot so that it is easier to interpret.  You could also
 > investigate whether a contour plot or heatmap improves clarity of interpretation.
 > Hint: Have a look at the [**`ggplot2`** cheat sheet](https://ggplot2.tidyverse.org/)
@@ -263,7 +257,7 @@ ggplot(data = surveys_complete, mapping = aes(x = weight, y = hindfoot_length)) 
     geom_point(alpha = 0.1, aes(color = species_id))
 ```
 
-> ### Challenge
+> ## Challenge
 >
 > Use what you just learned to create a scatter plot of `weight` over
 > `species_id` with the plot types showing in different colors.
@@ -299,7 +293,7 @@ Notice how the boxplot layer is behind the jitter layer? What do you need to
 change in the code to put the boxplot in front of the points such that it's not
 hidden?
 
-> ### Challenges
+> ## Challenges
 >
 > Boxplots are useful summaries, but hide the *shape* of the distribution. For
 > example, if there is a bimodal distribution, it would not be observed with a
@@ -330,7 +324,7 @@ hidden?
 {: .challenge}
 
 
-> ### Stretch Challenge (Intermediate - 20 mins)
+> ## Stretch Challenge (Intermediate - 20 mins)
 > * Add even more information to your boxplot by adding another variable as the colour
 > or fill in the aesthetic mappings.
 >
@@ -498,7 +492,7 @@ The
 provides a wide variety of options.
 
 
-> ### Challenge
+> ## Challenge
 >
 > Use what you just learned to create a plot that depicts how the average weight
 > of each species changes through the years.
@@ -587,7 +581,7 @@ ggplot(surveys_complete, aes(x = species_id, y = hindfoot_length)) +
     grey_theme
 ```
 
-> ### Challenge
+> ## Challenge
 >
 > With all of this information in hand, please take another five minutes to either
 > improve one of the plots generated in this exercise or create a beautiful graph
