@@ -27,6 +27,28 @@ objectives:
 - "Summarize the contents of a data frame."
 - "Use indexing to subset specific portions of data frames."
 - "Format dates."
+keypoints:
+- "Although R has a steeper learning curve than some other data analysis
+software, R has many advantages - R is interdisciplinary, extensible, great
+for data wrangling and reproducibility, and produces high quality graphics."
+- "Values can be assigned to objects, which have a number of attributes.
+Objects can then be used in arithmetic operations (and more).  "
+- "Functions automate sets of commands, many are predefined but it’s also
+possible to write your own.  Functions usually take one or more inputs
+(called arguments) and often return a value. "
+- "A vector is the most common and basic data structure in R.  A vector is
+composed of a series of values, which can be either numbers or
+characters."
+- "Vectors can be subset by providing one or several indices in square
+brackets or by using a logical vector (often the output of a logical test)."
+- "Missing data are represented in vectors as NA. You can add the argument
+na.rm = TRUE to calculate the result while ignoring the missing values.
+- CSV files can be read in using read.csv()."
+- "Data frames are a data structure for most tabular data, and what we use
+for statistics and plotting."
+- "It is possible to subset dataframes by specifying the coordinates in square
+brackets. Row numbers come first, followed by column numbers."
+- "Dates can be formatted using the package ‘lubridate’."
 ---
 
 ```{r, echo=FALSE, purl=FALSE, message=FALSE, warning=FALSE}
