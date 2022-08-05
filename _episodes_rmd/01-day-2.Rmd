@@ -773,7 +773,7 @@ the *albigula* species that are not specified for its sex (i.e. `NA`).
 >
 > 1. How many animals were caught in each `plot_type` surveyed?
 >
-> ```{r, answer=TRUE, purl=FALSE, results='markup'}
+> ```{r, answer=TRUE, purl=FALSE, results='hide'}
 > surveys %>%
 >     count(plot_type)
 > ```
@@ -782,7 +782,7 @@ the *albigula* species that are not specified for its sex (i.e. `NA`).
 > length for each species (using `species_id`). Also add the number of
 > observations (hint: see `?n`).
 >
-> ```{r, answer=TRUE, purl=FALSE, results='markup'}
+> ```{r, answer=TRUE, purl=FALSE, results='hide'}
 > surveys %>%
 >     filter(!is.na(hindfoot_length)) %>%
 >     group_by(species_id) %>%
@@ -797,7 +797,7 @@ the *albigula* species that are not specified for its sex (i.e. `NA`).
 > 3. What was the heaviest animal measured in each year? Return the columns `year`,
 > `genus`, `species_id`, and `weight`.
 >
-> ```{r, answer=TRUE, purl=FALSE, results='markup'}
+> ```{r, answer=TRUE, purl=FALSE, results='hide'}
 > surveys %>%
 >     filter(!is.na(weight)) %>%
 >     group_by(year) %>%
@@ -947,7 +947,7 @@ surveys_wide %>%
 >   genera within a particular chunk of data. It's a powerful function! See
 >   `?n_distinct` for more.
 >
-> ```{r, answer=TRUE, purl=FALSE, results='markup'}
+> ```{r, answer=TRUE, purl=FALSE, results='hide'}
 > surveys_wide_genera <- surveys %>%
 >   group_by(plot_id, year) %>%
 >    summarize(n_genera = n_distinct(genus))%>%
@@ -959,7 +959,7 @@ surveys_wide %>%
 > 2. Now take that data frame and `pivot_longer()` it again, so each row is a unique
 >    `plot_id` by `year` combination.
 >
-> ```{r, answer=TRUE, purl=FALSE, results='markup'}
+> ```{r, answer=TRUE, purl=FALSE, results='hide'}
 > surveys_wide_genera %>%
 >   pivot_longer(cols = -plot_id, names_to = 'year', values_to = 'n_genera')
 > ```
@@ -984,7 +984,7 @@ surveys_wide %>%
 >    `weight`. *Hint*: You only need to specify the name and value
 >    columns for `pivot_wider()`.
 >
-> ```{r, answer=TRUE, purl=FALSE, results='markup'}
+> ```{r, answer=TRUE, purl=FALSE, results='hide'}
 > surveys_long %>%
 >   group_by(year, measurement, plot_type) %>%
 >   summarize(mean_value = mean(value, na.rm=TRUE)) %>%

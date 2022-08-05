@@ -420,7 +420,7 @@ measured. To do that we need to make counts in the data frame grouped by `year`,
 We can now make the faceted plot by splitting further by sex using `color`
 (within a single plot):
 
-```{r facet-by-genus-and-sex, purl=FALSE, results='markup'}
+```{r, purl=FALSE, results='markup'}
 ggplot(data = yearly_sex_counts, mapping = aes(x = year, y = n, color = sex)) +
   geom_line() +
   facet_wrap(facets =  vars(genus))
@@ -430,7 +430,7 @@ Usually plots with white background look more readable when printed.  We can set
 the background to white using the function `theme_bw()`. Additionally, you can
 remove the grid:
 
-```{r average-weight-time-facet-both, purl=FALSE, fig.width=9.5, results='markup'}
+```{r, purl=FALSE, fig.width=9.5, results='markup'}
 ggplot(data = yearly_sex_counts,
        mapping = aes(x = year, y = n, color = sex)) +
   geom_line() +
@@ -439,7 +439,7 @@ ggplot(data = yearly_sex_counts,
 
 You can also organise the panels only by rows (or only by columns):
 
-```{r average-weight-time-facet-sex-rows, purl=FALSE, fig.height=8.5, fig.width=8, results='markup'}
+```{r, purl=FALSE, fig.height=8.5, fig.width=8, results='markup'}
 # One column, facet by rows
 ggplot(data = yearly_sex_counts,
        mapping = aes(x = year, y = n, color = sex)) +
@@ -447,7 +447,7 @@ ggplot(data = yearly_sex_counts,
   facet_grid(rows = vars(genus))
 ```
 
-```{r average-weight-time-facet-sex-columns, purl=FALSE, fig.width=9.5, fig.height=5, results='markup'}
+```{r, purl=FALSE, fig.width=9.5, fig.height=5, results='markup'}
 # One row, facet by column
 ggplot(data = yearly_sex_counts,
        mapping = aes(x = year, y = n, color = sex)) +
@@ -497,7 +497,7 @@ provides a wide variety of options.
 > Use what you just learned to create a plot that depicts how the average weight
 > of each species changes through the years.
 >
-> ```{r average-weight-time-series, answer=TRUE, purl=FALSE, results='markup'}
+> ```{r, answer=TRUE, purl=FALSE, results='markup'}
 > yearly_weight <- surveys_complete %>%
 >                 group_by(year, species_id) %>%
 >                  summarize(avg_weight = mean(weight))
