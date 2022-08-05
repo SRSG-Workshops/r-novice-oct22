@@ -26,6 +26,27 @@ objectives:
 - "Describe what key-value pairs are."
 - "Reshape a data frame from long to wide format and back with the `spread` and `gather` commands from the **`tidyr`** package."
 - "Export a data frame to a .csv file."
+keypoints:
+- "Factors represent categorical data. They are stored as integers associated
+with labels and they can be ordered or unordered. Factors can only
+contain a pre-defined set of values, known as levels."
+- "dplyr is a package for making tabular data manipulation easier and tidyr
+reshapes data so that it is in a convenient format for plotting or analysis.
+They are both part of the tidyverse package."
+- "A subset of columns from a dataframe can be selected using select()."
+- "To choose rows based on a specific criterion, use filter()."
+- "Pipes let you take the output of one function and send it directly to the
+next, which is useful when you need to do many things to the same
+dataset."
+- "To create new columns based on the values in existing columns, use
+mutate()."
+- "Many data analysis tasks can be approached using the split-apply-combine
+paradigm: split the data into groups, apply some analysis to each group,
+and then combine the results.  This can be achieved using the group_by()
+and summarize() functions."
+- "To reshape data between wide and long formats, use pivot_wider() and
+pivot_longer() from the tidyr package."
+- "Export data from a dataframe to a csv file using write_csv()."
 ---
 
 ```{r, echo=FALSE, purl=FALSE, message = FALSE, warning=FALSE}

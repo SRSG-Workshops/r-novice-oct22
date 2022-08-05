@@ -16,7 +16,23 @@ objectives:
 - "Describe what faceting is and apply faceting in ggplot."
 - "Modify the aesthetics of an existing ggplot plot (including axis labels and color)."
 - "Build complex and customized plots from data in a data frame."
-
+keypoints:
+- "ggplot2 is a plotting package that makes it simple to create complex plots
+from data in a data frame."
+- "Define an aesthetic mapping (using the aes function), by selecting the
+variables to be plotted and specifying how to present them in the graph."
+- "Add ‘geoms’ – graphical representations of the data in the plot using
+geom_point() for a scatter plot, geom_boxplot() for a boxplot, and
+geom_line() for a line plot."
+- "Faceting splits one plot into multiple plots based on a factor from the
+dataset."
+- "Every single component of a ggplot graph can be customized using the
+generic theme() function.  However, there are pre-loaded themes available
+that change the overall appearance of the graph without much effort."
+- "The gridExtra package allows us to combine separate ggplots into a single
+figure using grid.arrange()."
+- "Use ggsave() to save a plot and edit the arguments (height, width, dpi) to
+change the dimension and resolution."
 ---
 
 
