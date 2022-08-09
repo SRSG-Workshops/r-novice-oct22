@@ -1278,6 +1278,7 @@ In RStudio, you can use the autocompletion feature to get the full and correct n
 > ```{r, answer = TRUE, purl=FALSE, results='markup'}
 > survey_dec_2000 <- surveys[surveys$month == 12 & surveys$year == 2000, c("record_id", "genus", "species")]
 > ```
+>
 {: .challenge}
 
 
