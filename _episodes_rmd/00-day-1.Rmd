@@ -897,6 +897,7 @@ animals[animals %in% c("rat", "cat", "dog", "duck", "goat")]
 > ```{r, answer = TRUE, purl=FALSE, results = 'markup'}
 > creatures[!(creatures %in% mammals & creatures %in% sea_creatures)]
 > ```
+>
 {: .challenge}
 
 ## Missing data
@@ -959,11 +960,14 @@ Recall that you can use the `typeof()` function to find the type of your atomic 
 > heights_no_na <- heights[!is.na(heights)]
 >
 > heights_no_na
+>
 > #### or
 > heights_no_na <- na.omit(heights)
 >
 > heights_no_na
+>
 > #### or
+>
 > heights_no_na <- heights[complete.cases(heights)]
 >
 > heights_no_na

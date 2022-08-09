@@ -209,6 +209,7 @@ head(sex)
 >
 > plot(sex)
 > ```
+>
 {: .challenge}
 
 
@@ -240,6 +241,7 @@ head(sex)
 > plot(surveys$hindfoot_length)
 >
 > ```
+>
 {: .challenge}
 
 
@@ -546,6 +548,7 @@ Note that the final data frame is the leftmost part of this expression.
 >
 >     select(year, sex, weight)
 > ```
+>
 {: .challenge}
 
 > ## Stretch Challenge (Intermediate - 15 mins)
@@ -568,6 +571,7 @@ Note that the final data frame is the leftmost part of this expression.
 >
 >     select(record_id, month, year, sex, weight)
 > ```
+>
 {: .challenge}
 
 ### Mutate
@@ -635,6 +639,7 @@ symbol negates the result, so we're asking for every row where weight *is not* a
 >
 >     select(species_id, hindfoot_cm)
 > ```
+>
 {: .challenge}
 
 > ## Stretch Challenge (Difficult - 20 mins)
@@ -658,6 +663,7 @@ symbol negates the result, so we're asking for every row where weight *is not* a
 > ```{text_answer, echo=FALSE, purl=FALSE}
 > transmute
 > ```
+>
 {: .challenge}
 
 ### Split-apply-combine data analysis and the `summarize()` function
@@ -860,6 +866,7 @@ the *albigula* species that are not specified for its sex (i.e. `NA`).
 >
 >     arrange(year)
 > ```
+>
 {: .challenge}
 
 ### Reshaping with pivot_wider and pivot_longer
@@ -1053,6 +1060,7 @@ surveys_wide %>%
 >
 >   pivot_wider(names_from = measurement, values_from = mean_value)
 > ```
+>
 {: .challenge}
 
 
