@@ -204,7 +204,9 @@ head(sex)
 >
 > ```{r, answer=TRUE, purl=FALSE, results='markup'}
 > levels(sex)[2:3] <- c("female", "male")
+>
 > sex <- factor(sex, levels = c("female", "male", "undetermined"))
+>
 > plot(sex)
 > ```
 {: .challenge}
@@ -220,14 +222,23 @@ head(sex)
 >
 > ```{r, answer=TRUE, purl=FALSE, results='markup'}
 > surveys$hindfoot_length[surveys$hindfoot_length <= 10] <- "0-10"
+>
 > surveys$hindfoot_length[surveys$hindfoot_length > 10 & surveys$hindfoot_length <= 20] <- "11-20"
+>
 > surveys$hindfoot_length[surveys$hindfoot_length > 20 & surveys$hindfoot_length <= 30] <- "21-30"
+>
 > surveys$hindfoot_length[surveys$hindfoot_length > 30 & surveys$hindfoot_length <= 40] <- "31-40"
+>
 > surveys$hindfoot_length[surveys$hindfoot_length > 40 & surveys$hindfoot_length <= 50] <- "41-50"
+>
 > surveys$hindfoot_length[surveys$hindfoot_length > 50 & surveys$hindfoot_length <= 60] <- "51-60"
+>
 > surveys$hindfoot_length[surveys$hindfoot_length > 60] <- "61+"
+>
 > surveys$hindfoot_length <- as.factor(surveys$hindfoot_length)
+>
 > plot(surveys$hindfoot_length)
+>
 > ```
 {: .challenge}
 
@@ -530,7 +541,9 @@ Note that the final data frame is the leftmost part of this expression.
 >
 > ```{r, answer=TRUE, eval=FALSE, purl=FALSE, results='markup'}
 > surveys %>%
+>
 >     filter(year < 1995) %>%
+>
 >     select(year, sex, weight)
 > ```
 {: .challenge}
@@ -550,7 +563,9 @@ Note that the final data frame is the leftmost part of this expression.
 >
 > ```{r, answer=TRUE, eval=FALSE, purl=FALSE, results='markup'}
 > surveys_final <- surveys %>%
+>
 >     filter(year < 1995, year != 2001, plot_type == 'Control') %>%
+>
 >     select(record_id, month, year, sex, weight)
 > ```
 {: .challenge}
@@ -611,9 +626,13 @@ symbol negates the result, so we're asking for every row where weight *is not* a
 >
 > ```{r, answer=TRUE, eval=FALSE, purl=FALSE, results='markup'}
 > surveys_hindfoot_cm <- surveys %>%
+>
 >     filter(!is.na(hindfoot_length)) %>%
+>
 >     mutate(hindfoot_cm = hindfoot_length / 10) %>%
+>
 >     filter(hindfoot_cm < 3) %>%
+>
 >     select(species_id, hindfoot_cm)
 > ```
 {: .challenge}
@@ -627,7 +646,9 @@ symbol negates the result, so we're asking for every row where weight *is not* a
 >
 > ```{r, answer=TRUE, eval=FALSE, purl=FALSE, results='markup'}
 > surveys_simplified <- surveys %>%
+>
 >      mutate(weight_simplified =
+>
 >        ifelse(weight <= mean(weight, na.rm = TRUE), 1, 2))
 > ```
 >
@@ -796,6 +817,7 @@ the *albigula* species that are not specified for its sex (i.e. `NA`).
 >
 > ```{r, answer=TRUE, purl=FALSE, results='hide'}
 > surveys %>%
+>
 >     count(plot_type)
 > ```
 >
@@ -805,12 +827,19 @@ the *albigula* species that are not specified for its sex (i.e. `NA`).
 >
 > ```{r, answer=TRUE, purl=FALSE, results='hide'}
 > surveys %>%
+>
 >     filter(!is.na(hindfoot_length)) %>%
+>
 >     group_by(species_id) %>%
+>
 >     summarize(
+>
 >         mean_hindfoot_length = mean(hindfoot_length),
+>
 >         min_hindfoot_length = min(hindfoot_length),
+>
 >         max_hindfoot_length = max(hindfoot_length),
+>
 >         n = n()
 >     )
 > ```
@@ -820,10 +849,15 @@ the *albigula* species that are not specified for its sex (i.e. `NA`).
 >
 > ```{r, answer=TRUE, purl=FALSE, results='hide'}
 > surveys %>%
+>
 >     filter(!is.na(weight)) %>%
+>
 >     group_by(year) %>%
+>
 >     filter(weight == max(weight)) %>%
+>
 >     select(year, genus, species, weight) %>%
+>
 >     arrange(year)
 > ```
 {: .challenge}
@@ -970,8 +1004,11 @@ surveys_wide %>%
 >
 > ```{r, answer=TRUE, purl=FALSE, results='hide'}
 > surveys_wide_genera <- surveys %>%
+>
 >   group_by(plot_id, year) %>%
+>
 >    summarize(n_genera = n_distinct(genus))%>%
+>
 >    pivot_wider(names_from = year, values_from = n_genera)
 >
 > head(surveys_wide_genera)
@@ -982,6 +1019,7 @@ surveys_wide %>%
 >
 > ```{r, answer=TRUE, purl=FALSE, results='hide'}
 > surveys_wide_genera %>%
+>
 >   pivot_longer(cols = -plot_id, names_to = 'year', values_to = 'n_genera')
 > ```
 >
@@ -996,6 +1034,7 @@ surveys_wide %>%
 >
 > ```{r, answer=TRUE, purl=FALSE, results='markup'}
 > surveys_long <- surveys %>%
+>
 >   pivot_longer(cols = c(hindfoot_length, weight), names_to = "measurement", values_to = "value")
 > ```
 >
@@ -1007,8 +1046,11 @@ surveys_wide %>%
 >
 > ```{r, answer=TRUE, purl=FALSE, results='hide'}
 > surveys_long %>%
+>
 >   group_by(year, measurement, plot_type) %>%
+>
 >   summarize(mean_value = mean(value, na.rm=TRUE)) %>%
+>
 >   pivot_wider(names_from = measurement, values_from = mean_value)
 > ```
 {: .challenge}
