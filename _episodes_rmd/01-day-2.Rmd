@@ -220,7 +220,7 @@ head(sex)
 >
 > * Create a barplot of `hindfoot_length`
 >
-> ```{r, answer=TRUE, purl=FALSE, results='markup'}
+> ```{r, answer=TRUE, purl=FALSE, results='asis'}
 > surveys$hindfoot_length[surveys$hindfoot_length <= 10] <- "0-10"
 >
 > surveys$hindfoot_length[surveys$hindfoot_length > 10 & surveys$hindfoot_length <= 20] <- "11-20"
