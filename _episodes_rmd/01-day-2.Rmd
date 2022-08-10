@@ -222,23 +222,23 @@ head(sex)
 > * Create a barplot of `hindfoot_length`
 >
 > ```{r, answer=TRUE, purl=FALSE, results='markup'}
-> surveys$hindfoot_length[surveys$hindfoot_length <= 10] <- "0-10"
+> surveys[,'hindfoot_length'][surveys[,'hindfoot_length'] <= 10] <- "0-10"
 >
-> surveys$hindfoot_length[surveys$hindfoot_length > 10 & surveys$hindfoot_length <= 20] <- "11-20"
+> surveys[,'hindfoot_length'][surveys[,'hindfoot_length'] > 10 & surveys[,'hindfoot_length'] <= 20] <- "11-20"
 >
-> surveys$hindfoot_length[surveys$hindfoot_length > 20 & surveys$hindfoot_length <= 30] <- "21-30"
+> surveys[,'hindfoot_length'][surveys[,'hindfoot_length'] > 20 & surveys[,'hindfoot_length'] <= 30] <- "21-30"
 >
-> surveys$hindfoot_length[surveys$hindfoot_length > 30 & surveys$hindfoot_length <= 40] <- "31-40"
+> surveys[,'hindfoot_length'][surveys[,'hindfoot_length'] > 30 & surveys[,'hindfoot_length'] <= 40] <- "31-40"
 >
-> surveys$hindfoot_length[surveys$hindfoot_length > 40 & surveys$hindfoot_length <= 50] <- "41-50"
+> surveys[,'hindfoot_length'][surveys[,'hindfoot_length'] > 40 & surveys[,'hindfoot_length'] <= 50] <- "41-50"
 >
-> surveys$hindfoot_length[surveys$hindfoot_length > 50 & surveys$hindfoot_length <= 60] <- "51-60"
+> surveys[,'hindfoot_length'][surveys[,'hindfoot_length'] > 50 & surveys[,'hindfoot_length'] <= 60] <- "51-60"
 >
-> surveys$hindfoot_length[surveys$hindfoot_length > 60] <- "61+"
+> surveys[,'hindfoot_length'][surveys[,'hindfoot_length'] > 60] <- "61+"
 >
-> surveys$hindfoot_length <- as.factor(surveys$hindfoot_length)
+> surveys[,'hindfoot_length'] <- as.factor(surveys[,'hindfoot_length'])
 >
-> plot(surveys$hindfoot_length)
+> plot(surveys[,'hindfoot_length'])
 >
 > ```
 >
