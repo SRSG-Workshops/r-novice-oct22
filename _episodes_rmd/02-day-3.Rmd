@@ -54,14 +54,22 @@ surveys_complete <- read_csv(file = "data_raw/portal_data_joined.csv", col_types
 
 ```{r catch-up, eval = FALSE, purl = FALSE}
 library("tidyverse")
-dir.create(file.path(mainDir, "data_raw"), showWarnings = FALSE)
-dir.create(file.path(mainDir, "data"), showWarnings = FALSE)
+dir.create(file.path("data_raw"), showWarnings = FALSE)
+dir.create(file.path("data"), showWarnings = FALSE)
 download.file(url = "https://ndownloader.figshare.com/files/2292169", destfile = "data_raw/portal_data_joined.csv")
 surveys <- read_csv("data_raw/portal_data_joined.csv")
-surveys %>% filter(!is.na(weight)) %>% mutate(weight_kg = weight / 1000)
-surveys_complete <- surveys %>% filter(!is.na(weight),!is.na(hindfoot_length), !is.na(sex))
-species_counts <- surveys_complete %>% count(species_id) %>% filter(n >= 50)
-surveys_complete <- surveys_complete %>% filter(species_id %in% species_counts$species_id)
+surveys <- surveys %>%
+  filter(!is.na(weight)) %>%
+  mutate(weight_kg = weight / 1000)
+surveys_complete <- surveys %>%
+  filter(!is.na(weight),
+         !is.na(hindfoot_length),
+         !is.na(sex))
+species_counts <- surveys_complete %>%
+  count(species_id) %>%
+  filter(n >= 50)
+surveys_complete <- surveys_complete %>%
+  filter(species_id %in% species_counts$species_id)
 write_csv(surveys_complete, "data/surveys_complete.csv")
 ```
 
