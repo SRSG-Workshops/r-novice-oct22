@@ -10,7 +10,7 @@ type: "episode" # The other valid option is "episode_r"
 
 # Overall title for pages.
 title: "Introductory Data Management with R"
-title: "Introductory+Data+Management+with+R"
+form_title: "Introductory+Data+Management+with+R"
 
 # Email address, no mailto:
 email: "rsginfo@soton.ac.uk"
