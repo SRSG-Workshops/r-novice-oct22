@@ -6,7 +6,7 @@ kind: "lesson"
 # Is this a permanent page 'static' or a taught lesson 'dated'
 delivery: "static"
 
-type: "episode" # The other valid option is "episode_r"
+type: "episode_r" # The other valid option is "episode_r"
 
 # Overall title for pages.
 title: "Introductory Data Management with R"
