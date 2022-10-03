@@ -18,22 +18,32 @@ logo_site: "https://rsgsoton.net/"
 
 # For static delivery this section can all be ignored ==================================================================
 # Specify the location of the workshop
-venue: "TBC"           # name of location use "online" if online
-address: "TBC"         # address of location or url of platform
-platform-name: "TBC"   # name of online platform e.g. Teams, Zoom e.t.c
-country: "TBC"         # e.g. gb
-language: "TBC"        # e.g. en
+venue: "online"           # name of location use "online" if online
+address: "https://teams.microsoft.com/l/team/19%3aMDTSdYm6l5e3zIcjNWXeQRYeLsgLN7KcDorTQ7lL0uw1%40thread.tacv2/conversations?groupId=8feca712-5790-4682-9dc5-31a7e7705c8e&tenantId=4a5378f9-29f4-4d3e-be89-669d03ada9d8"         # address of location or url of platform
+platform-name: "Teams"   # name of online platform e.g. Teams, Zoom e.t.c
+country: "gb"         # e.g. gb
+language: "en"        # e.g. en
 latitude: "50.909698"    # latitude of location (Soton: 50.909698)
 longitude: "-1.404351"   # longitude of location (Soton: -1.404351)
 
 # Specify the start and end date of the lesson
-humandate: "TBC"      # e.g. "6th August"
-humantime: "TBC"      # e.g. "09:00-17:00"
-startdate: "TBC"        # e.g. YYYY-MM-DD # e.g. YYYY-MM-DD # This is required for the surveys NOTE: 1990-1-1 will not work
-enddate: "TBC"          # e.g. YYYY-MM-DD
+humandate: "24th October"      # e.g. "6th August"
+humantime: "09:15 - 13:00"      # e.g. "09:00-17:00"
+startdate: "2022-10-24"        # e.g. YYYY-MM-DD # e.g. YYYY-MM-DD # This is required for the surveys NOTE: 1990-1-1 will not work
+enddate: "2022-10-26"          # e.g. YYYY-MM-DD
 
 # Start time in minutes (0 to be clock-independent, 3:30 pm or 15:30 both okay).
-start-time: 0
+start-time: "09:15"
+
+
+instructor:
+  - "Philippa Broadbent"
+  - "Philip Grylls"
+  - "Hugh Warden"
+instructor-email:
+  - "p.k.broadbent@soton.ac.uk"
+  - "P.J.Grylls@southampton.ac.uk"
+  - "N/A"
 # ======================================================================================================================
 
 ###
