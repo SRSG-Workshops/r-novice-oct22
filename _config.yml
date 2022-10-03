@@ -4,7 +4,7 @@
 # What kind of thing is this ("lesson")? #Don't change
 kind: "lesson"
 # Is this a permanent page 'static' or a taught lesson 'dated'
-delivery: "static"
+delivery: "dated"
 
 type: "episode_r" # The other valid option is "episode_r"
 
